@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  * { font-family: 'Inter', sans-serif; }
+  .font-playfair { font-family: 'Playfair Display', serif; }
+  a { color: #e8702a; }
+  a:hover { color: #d2611f; }
+  @keyframes heroReveal { 0%{opacity:0;transform:translateY(28px);filter:blur(12px)} 100%{opacity:1;transform:translateY(0);filter:blur(0)} }
+  @keyframes heroFadeUp { 0%{opacity:0;transform:translateY(20px)} 100%{opacity:1;transform:translateY(0)} }
+  @keyframes heroZoom { 0%{transform:scale(1.12)} 100%{transform:scale(1)} }
+  .hero-anim { opacity:0; animation-fill-mode:forwards; animation-timing-function:cubic-bezier(0.16,1,0.3,1); }
+  .hero-reveal { animation-name:heroReveal; animation-duration:1.1s; }
+  .hero-fade { animation-name:heroFadeUp; animation-duration:1s; }
+  .hero-zoom { animation:heroZoom 1.8s cubic-bezier(0.16,1,0.3,1) forwards; }
+  @keyframes bgSlideRight { from { background-position: center; } to { background-position: right center; } }
+  .bg-slide { animation: bgSlideRight 1.4s cubic-bezier(0.16,1,0.3,1) forwards; }
+  @media (prefers-reduced-motion: reduce){ .hero-anim,.hero-zoom{ animation:none; opacity:1; } }
+
+  #mobMenu.open { opacity:1 !important; pointer-events:auto !important; }
+</style>
+<script src="i18n.js"></script>
+</helmet>
+<div class="relative min-h-screen bg-[#0e0d0c] text-white tracking-[-0.02em] overflow-hidden" style="font-family: 'Inter', sans-serif; min-height: 100dvh;">
+  <div class="fixed inset-0 bg-no-repeat bg-slide" style="background-image: url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260609_195923_b0ba8ace-1d1d-4f2c-9a28-1ab84b330680.png&w=1280&q=85'); background-size: 118% auto; background-position: right center;"></div>
+  <div class="fixed inset-0 bg-[#0b0a09]/80"></div>
+  <div class="relative z-10">
+  <nav class="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between p-4 sm:p-5">
+    <a href="YO.dc.html" class="flex items-center gap-2 no-underline">
+      <span style="width:30px;height:30px;border:2px solid #fff;border-radius:6px;overflow:hidden;display:inline-block;flex:none;"><img src="uploads/hf_20260724_144335_5f95f3c4-d8bd-4ae9-bc41-9c6182806b9f.png" alt="Yeray Sun" style="width:100%;height:100%;object-fit:cover;display:block;" /></span>
+      <span class="text-white text-2xl font-playfair italic">YS</span>
+    </a>
+    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-2 py-2 items-center gap-1">
+      <a href="YO.dc.html" class="text-white/80 hover:bg-white/20 hover:text-white transition-colors px-4 py-1.5 rounded-full text-sm font-medium no-underline">YO</a>
+      <a href="Biografia.dc.html" class="text-white/80 hover:bg-white/20 hover:text-white transition-colors px-4 py-1.5 rounded-full text-sm font-medium no-underline">Biografía</a>
+      <a href="Estudios.dc.html" class="text-white/80 hover:bg-white/20 hover:text-white transition-colors px-4 py-1.5 rounded-full text-sm font-medium no-underline">Estudios</a>
+      <a href="Idiomas.dc.html" class="bg-white text-gray-900 px-4 py-1.5 rounded-full text-sm font-medium transition-colors no-underline">Idiomas</a>
+      <a href="Experiencia.dc.html" class="text-white/80 hover:bg-white/20 hover:text-white transition-colors px-4 py-1.5 rounded-full text-sm font-medium no-underline">Experiencia</a>
+      <a href="IA.dc.html" class="text-white/80 hover:bg-white/20 hover:text-white transition-colors px-4 py-1.5 rounded-full text-sm font-medium no-underline flex items-center gap-1.5"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e8702a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3m0 12v3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1M3 12h3m12 0h3M5.6 18.4l2.1-2.1m8.6-8.6 2.1-2.1"></path></svg>IA</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <div class="lang-switch flex items-center gap-0.5 bg-white/15 backdrop-blur-md border border-white/25 rounded-full p-1">
+        <button class="lang-btn px-2.5 py-1 rounded-full text-xs font-medium transition-colors" data-lang="es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn px-2.5 py-1 rounded-full text-xs font-medium transition-colors" data-lang="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn px-2.5 py-1 rounded-full text-xs font-medium transition-colors" data-lang="zh" onclick="setLang('zh')">中</button>
+      </div>
+      <button class="md:hidden text-white p-2 relative z-[102]" aria-label="Menu" onclick="var m=document.getElementById('mobMenu');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':'';">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+    </button>
+    </div>
+    <div id="mobMenu" class="md:hidden" style="position:fixed;inset:0;z-index:101;background:rgba(11,10,9,0.97);backdrop-filter:blur(12px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;opacity:0;pointer-events:none;transition:opacity .3s;">
+      <a href="YO.dc.html" class="text-white/70 text-2xl font-playfair italic no-underline py-2">YO</a>
+      <a href="Biografia.dc.html" class="text-white/70 text-2xl font-playfair italic no-underline py-2">Biografía</a>
+      <a href="Estudios.dc.html" class="text-white/70 text-2xl font-playfair italic no-underline py-2">Estudios</a>
+      <a href="Idiomas.dc.html" class="text-white text-2xl font-playfair italic no-underline py-2">Idiomas</a>
+      <a href="Experiencia.dc.html" class="text-white/70 text-2xl font-playfair italic no-underline py-2">Experiencia</a>
+      <a href="IA.dc.html" class="text-white/70 text-2xl font-playfair italic no-underline py-2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8702a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:-3px;margin-right:6px;"><path d="M12 3v3m0 12v3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1M3 12h3m12 0h3M5.6 18.4l2.1-2.1m8.6-8.6 2.1-2.1"></path></svg>IA</a>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-6 sm:px-10 pt-32 pb-24">
+    <div class="mb-14">
+      <p class="text-sm uppercase tracking-[0.2em] text-[#e8702a] mb-3 hero-anim hero-fade" style="animation-delay: 0.2s;">Comunicación</p>
+      <h1 class="font-playfair italic text-5xl sm:text-6xl leading-[0.95] hero-anim hero-reveal" style="letter-spacing: -0.04em; animation-delay: 0.35s;">Idiomas</h1>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div class="border border-white/15 rounded-2xl p-6 bg-white/[0.03] backdrop-blur-sm hero-anim hero-fade" style="animation-delay: 0.5s;">
+        <div class="flex items-baseline justify-between mb-4">
+          <h2 class="text-2xl text-white">Español</h2>
+          <span class="text-sm text-white/50">Nativo</span>
+        </div>
+        <div class="h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="h-full bg-[#e8702a] rounded-full" style="width: 100%;"></div></div>
+      </div>
+
+      <div class="border border-white/15 rounded-2xl p-6 bg-white/[0.03] backdrop-blur-sm hero-anim hero-fade" style="animation-delay: 0.6s;">
+        <div class="flex items-baseline justify-between mb-4">
+          <h2 class="text-2xl text-white">Catalán</h2>
+          <span class="text-sm text-white/50">Alto</span>
+        </div>
+        <div class="h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="h-full bg-[#e8702a] rounded-full" style="width: 90%;"></div></div>
+      </div>
+
+      <div class="border border-white/15 rounded-2xl p-6 bg-white/[0.03] backdrop-blur-sm hero-anim hero-fade" style="animation-delay: 0.7s;">
+        <div class="flex items-baseline justify-between mb-4">
+          <h2 class="text-2xl text-white">Inglés</h2>
+          <span class="text-sm text-white/50">Avanzado</span>
+        </div>
+        <div class="h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="h-full bg-[#e8702a] rounded-full" style="width: 85%;"></div></div>
+      </div>
+
+      <div class="border border-white/15 rounded-2xl p-6 bg-white/[0.03] backdrop-blur-sm hero-anim hero-fade" style="animation-delay: 0.8s;">
+        <div class="flex items-baseline justify-between mb-4">
+          <h2 class="text-2xl text-white">Chino</h2>
+          <span class="text-sm text-white/50">Medio-alto</span>
+        </div>
+        <div class="h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="h-full bg-[#e8702a] rounded-full" style="width: 68%;"></div></div>
+      </div>
+    </div>
+  </main>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

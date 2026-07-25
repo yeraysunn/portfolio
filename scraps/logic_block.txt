@@ -1,0 +1,65 @@
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;spotlightRadius&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:260,&quot;min&quot;:120,&quot;max&quot;:420,&quot;step&quot;:10,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Spotlight&quot;},&quot;easing&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.1,&quot;min&quot;:0.02,&quot;max&quot;:0.4,&quot;step&quot;:0.01,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Spotlight&quot;}}">
+class Component extends DCLogic {
+  state = { maskUrl: '' };
+
+  componentDidMount() {
+    this.mouse = { x: -999, y: -999 };
+    this.smooth = { x: -999, y: -999 };
+    this.canvas = document.createElement('canvas');
+    this.ctx = this.canvas.getContext('2d');
+
+    this.resize = () => {
+      this.canvas.width = window.innerWidth;
+      this.canvas.height = window.innerHeight;
+    };
+    this.resize();
+    window.addEventListener('resize', this.resize);
+
+    this.onMove = (e) => {
+      this.mouse.x = e.clientX;
+      this.mouse.y = e.clientY;
+    };
+    window.addEventListener('mousemove', this.onMove);
+
+    const ease = () => Math.min(Math.max(this.props.easing ?? 0.1, 0.02), 0.5);
+    const loop = () => {
+      const e = ease();
+      this.smooth.x += (this.mouse.x - this.smooth.x) * e;
+      this.smooth.y += (this.mouse.y - this.smooth.y) * e;
+      this.draw(this.smooth.x, this.smooth.y);
+      this.rafRef = requestAnimationFrame(loop);
+    };
+    this.rafRef = requestAnimationFrame(loop);
+  }
+
+  draw(x, y) {
+    const c = this.canvas, ctx = this.ctx;
+    if (!ctx) return;
+    const R = this.props.spotlightRadius ?? 260;
+    ctx.clearRect(0, 0, c.width, c.height);
+    const g = ctx.createRadialGradient(x, y, 0, x, y, R);
+    g.addColorStop(0, 'rgba(255,255,255,1)');
+    g.addColorStop(0.4, 'rgba(255,255,255,1)');
+    g.addColorStop(0.6, 'rgba(255,255,255,0.75)');
+    g.addColorStop(0.75, 'rgba(255,255,255,0.4)');
+    g.addColorStop(0.88, 'rgba(255,255,255,0.12)');
+    g.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = g;
+    ctx.beginPath();
+    ctx.arc(x, y, R, 0, Math.PI * 2);
+    ctx.fill();
+    this.setState({ maskUrl: c.toDataURL() });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('mousemove', this.onMove);
+    window.removeEventListener('resize', this.resize);
+    cancelAnimationFrame(this.rafRef);
+  }
+
+  renderVals() {
+    const m = this.state.maskUrl;
+    return { maskCss: m ? `url(${m})` : 'none' };
+  }
+}
+</script>
