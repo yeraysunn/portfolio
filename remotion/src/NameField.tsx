@@ -1,5 +1,10 @@
 import React, {useMemo} from 'react';
-import {AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
+import {
+  AbsoluteFill,
+  interpolate,
+  useCurrentFrame,
+  useVideoConfig,
+} from 'remotion';
 import {FONT_FAMILY} from './fonts';
 import {simulate} from './physics';
 import {buildKeystrokes, visibleCount} from './typing';
@@ -52,7 +57,7 @@ export const NameField: React.FC = () => {
     [durationInFrames, fps, keystrokes],
   );
 
-  const {angle, x, y} = motion[Math.min(frame, motion.length - 1)];
+  const {x, y, rotation} = motion[Math.min(frame, motion.length - 1)];
 
   const typed = visibleCount(keystrokes, frame);
   const value = TEXT.slice(0, typed);
@@ -60,10 +65,15 @@ export const NameField: React.FC = () => {
   const finished = typed === TEXT.length;
 
   // El campo recibe el foco justo antes de la primera letra.
-  const focus = interpolate(frame, [TYPING_START - 12, TYPING_START - 2], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
+  const focus = interpolate(
+    frame,
+    [TYPING_START - 12, TYPING_START - 2],
+    [0, 1],
+    {
+      extrapolateLeft: 'clamp',
+      extrapolateRight: 'clamp',
+    },
+  );
 
   // Mientras se escribe el cursor va fijo, como en un editor real.
   // Solo parpadea cuando la mano se detiene.
@@ -98,10 +108,9 @@ export const NameField: React.FC = () => {
         style={{
           width: 1500,
           opacity: appear,
-          transform: `translate(${x}px, ${y}px) rotate(${angle * 0.42}rad)`,
+          transform: `translate(${x}px, ${y}px) rotate(${rotation}rad)`,
           // El pivote está muy por encima del encuadre: la caja cuelga
           // de él, no gira sobre su propio centro.
-          transformOrigin: '50% -900px',
         }}
       >
         <div
@@ -190,7 +199,8 @@ export const NameField: React.FC = () => {
             letterSpacing: -0.1,
           }}
         >
-          First and last name only - e.g. John Smith. Add as many people as you like.
+          First and last name only - e.g. John Smith. Add as many people as you
+          like.
         </div>
       </div>
     </AbsoluteFill>

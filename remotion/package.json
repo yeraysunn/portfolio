@@ -7,7 +7,9 @@
     "studio": "remotion studio src/index.ts",
     "render": "remotion render src/index.ts WaveLight out/wave-light.mp4",
     "still": "remotion still src/index.ts WaveLight out/still.png",
-    "render:field": "remotion render src/index.ts NameField out/name-field.mp4"
+    "render:field": "remotion render src/index.ts NameField out/name-field.mp4",
+    "render:scene": "remotion render src/index.ts NameFieldSquare out/name-field-scene.mp4",
+    "render:scene:vertical": "remotion render src/index.ts NameFieldVertical out/name-field-vertical.mp4"
   },
   "keywords": [],
   "author": "",

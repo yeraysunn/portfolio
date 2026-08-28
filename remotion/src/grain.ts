@@ -17,7 +17,10 @@ const mulberry32 = (seed: number) => {
   };
 };
 
-export const buildGrainTiles = (count: number, size: number): HTMLCanvasElement[] => {
+export const buildGrainTiles = (
+  count: number,
+  size: number,
+): HTMLCanvasElement[] => {
   const rand = mulberry32(0x9e3779b9);
 
   return new Array(count).fill(0).map(() => {

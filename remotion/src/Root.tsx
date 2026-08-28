@@ -2,6 +2,7 @@ import React from 'react';
 import {Composition} from 'remotion';
 import {WaveLight} from './WaveLight';
 import {NameField} from './NameField';
+import {NameFieldScene} from './NameFieldScene';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -29,6 +30,22 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={1920}
         height={1080}
+      />
+      <Composition
+        id="NameFieldSquare"
+        component={NameFieldScene}
+        durationInFrames={205}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+      <Composition
+        id="NameFieldVertical"
+        component={NameFieldScene}
+        durationInFrames={215}
+        fps={30}
+        width={1080}
+        height={1920}
       />
     </>
   );

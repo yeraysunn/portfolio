@@ -45,8 +45,7 @@ export const WaveLight: React.FC = () => {
       ctx.fillRect(0, 0, width, height);
 
       // ---- Foco que barre de izquierda a derecha ------------------------
-      const lightX =
-        lerp(theme.light.from, theme.light.to, progress) * width;
+      const lightX = lerp(theme.light.from, theme.light.to, progress) * width;
       const sigma = theme.light.sigma * width;
       const halo = theme.light.haloSigma * width;
 
