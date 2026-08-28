@@ -25,6 +25,11 @@ export type PhysicsState = {
   y: number;
   /** Giro sobre el centro de la caja, en radianes. */
   rotation: number;
+  /**
+   * Escala instantánea 0–1. Baja a ~0.96 en el golpe de cada tecla y
+   * rebota a 1. Permite animar un "squeeze" sin cálculos extra fuera.
+   */
+  scale: number;
 };
 
 export type PhysicsOptions = {
@@ -64,11 +69,18 @@ const TILT = 0.42;
 // --- Caída libre ----------------------------------------------------
 // No es la g real: es la que saca la caja de plano en menos de un
 // segundo, que es lo que dura el plano.
-const FREE_FALL = 2900;
-/** Tirón del hilo al romperse, en rad/s. */
-const SNAP = 0.18;
-/** Par residual al caer, para que se voltee suavemente. */
-const TUMBLE = 0.22;
+const FREE_FALL = 3400;
+/** Tirón del hilo al romperse, en rad/s. Más alto = giro más brusco al inicio. */
+const SNAP = 0.32;
+/** Par residual al caer: controla cuánto se voltea la caja mientras baja. */
+const TUMBLE = 0.48;
+/** Fracción de velocidad horizontal que se hereda al soltarse. */
+const DRIFT_INHERIT = 0.08;
+
+// --- Squeeze de tecla -----------------------------------------------
+// Cuando llega un impulso la escala baja en un pulso corto y rebota.
+const SQUEEZE_AMOUNT = 0.038;  // cuánto encoge (0.038 → min scale 0.962)
+const SQUEEZE_DECAY  = 14;     // fotogramas hasta que la escala vuelve a 1
 
 export const simulate = ({
   frames,
@@ -79,10 +91,11 @@ export const simulate = ({
   const dt = 1 / (fps * SUBSTEPS);
   const impulseSet = new Set(impulses);
 
-  // Estado del péndulo: la caja entra desde arriba y algo ladeada.
-  let angle = -0.055;
-  let angleVel = 0;
-  let y = -150;
+  // Estado del péndulo: la caja entra desde más arriba y con más ladeo
+  // para que el primer balanceo sea más visible.
+  let angle = -0.14;
+  let angleVel = 0.07;     // empujón inicial → sale balanceando desde el primer frame
+  let y = -240;
   let yVel = 0;
   let x = 0;
   let xVel = 0;
@@ -95,42 +108,43 @@ export const simulate = ({
   let spinVel = 0;
   let driftVel = 0;
 
+  // Squeeze: rastro de los últimos impulsos para calcular la escala.
+  // Guardamos el fotograma de cada impulso y superponemos todos los
+  // pulsos activos (en la práctica no se solapan porque el tipeo es lento).
+  const impulseFrames: number[] = [];
+
   const out: PhysicsState[] = [];
 
   for (let frame = 0; frame < frames; frame++) {
     const released = release !== undefined && frame >= release;
 
     if (frame === release) {
-      // Se congela la posición que tenía colgada y desde ahí cae.
+      // Congelamos la posición colgada y desde ahí cae.
       fallX = x + PIVOT * Math.sin(angle);
       fallY = y + PIVOT * (1 - Math.cos(angle));
       spin = angle * TILT;
       spinVel = SNAP;
-      // Descartamos casi toda la deriva horizontal: la caja tiene que
-      // caer principalmente hacia abajo. Un rastro mínimo la hace
-      // parecer física sin irse de plano.
-      driftVel = xVel * 0.08;
+      // Solo heredamos una fracción pequeña de la deriva horizontal.
+      driftVel = xVel * DRIFT_INHERIT;
     }
 
     if (impulseSet.has(frame) && !released) {
       // El dedo golpea la tecla: la caja se va hacia un lado y baja.
-      // El signo alterna para que el balanceo no se acumule siempre
-      // hacia la misma dirección.
+      // El signo alterna para que el balanceo no se acumule en un solo lado.
       const dir = frame % 2 === 0 ? 1 : -1;
-      angleVel += dir * 0.1;
-      yVel += 26;
-      xVel += dir * 5;
+      angleVel += dir * 0.13;
+      yVel     += 32;
+      xVel     += dir * 6;
+      impulseFrames.push(frame);
     }
 
     for (let s = 0; s < SUBSTEPS; s++) {
       if (released) {
-        // Hilo cortado: ya no hay nada que devuelva la caja a su sitio.
-        // Solo gravedad, la deriva que llevase y un volteo suave.
-        fallVel += FREE_FALL * dt;
-        fallY += fallVel * dt;
-        spinVel += TUMBLE * dt;
-        spin += spinVel * dt;
-        fallX += driftVel * dt;
+        fallVel  += FREE_FALL * dt;
+        fallY    += fallVel  * dt;
+        spinVel  += TUMBLE   * dt;
+        spin     += spinVel  * dt;
+        fallX    += driftVel * dt;
         continue;
       }
 
@@ -145,26 +159,37 @@ export const simulate = ({
         ANGLE_DAMPING * angleVel +
         ambient;
       angleVel += angleAcc * dt;
-      angle += angleVel * dt;
+      angle    += angleVel * dt;
 
       const yAcc = -BOB_STIFFNESS * y - BOB_DAMPING * yVel;
       yVel += yAcc * dt;
-      y += yVel * dt;
+      y    += yVel * dt;
 
       const xAcc = -DRIFT_STIFFNESS * x - DRIFT_DAMPING * xVel;
       xVel += xAcc * dt;
-      x += xVel * dt;
+      x    += xVel * dt;
     }
+
+    // Squeeze: superponemos todos los pulsos recientes.
+    let squeeze = 0;
+    for (const kf of impulseFrames) {
+      const age = frame - kf;
+      if (age >= 0 && age < SQUEEZE_DECAY) {
+        const t = age / SQUEEZE_DECAY;
+        // Decaimiento en forma de seno: pico al inicio, regresa suave.
+        squeeze += SQUEEZE_AMOUNT * Math.sin(t * Math.PI);
+      }
+    }
+    const scale = released ? 1 : 1 - squeeze;
 
     out.push(
       released
-        ? {x: fallX, y: fallY, rotation: spin}
+        ? {x: fallX, y: fallY, rotation: spin, scale: 1}
         : {
-            // Colgada, el giro arrastra la caja de lado: pivota lejos,
-            // así que el ángulo se traduce a desplazamiento.
             x: x + PIVOT * Math.sin(angle),
             y: y + PIVOT * (1 - Math.cos(angle)),
             rotation: angle * TILT,
+            scale,
           },
     );
   }

@@ -62,7 +62,7 @@ export const NameFieldScene: React.FC = () => {
     [durationInFrames, fps, keystrokes],
   );
 
-  const {x, y, rotation} = motion[Math.min(frame, motion.length - 1)];
+  const {x, y, rotation, scale} = motion[Math.min(frame, motion.length - 1)];
 
   const typed = visibleCount(keystrokes, frame);
   const value = TEXT.slice(0, typed);
@@ -90,7 +90,7 @@ export const NameFieldScene: React.FC = () => {
   const shadowAlpha = Math.max(0.04, 0.11 - lift * 0.0004);
 
   // ---------- entrada ----------------------------------------------
-  const appear = interpolate(frame, [0, 14], [0, 1], {
+  const appear = interpolate(frame, [0, 10], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
@@ -134,6 +134,8 @@ export const NameFieldScene: React.FC = () => {
         Una sola div: el borde/marco ES la tarjeta.
         La transformación física se aplica aquí: todo el contenido
         (texto, inputs, helper) sigue al marco porque está dentro.
+        El squeeze de cada tecla se aplica con scale() sobre el mismo
+        elemento para que el encogimiento sea relativo a su propio centro.
       */}
       <div
         style={{
@@ -145,9 +147,11 @@ export const NameFieldScene: React.FC = () => {
           border: `${borderW}px solid ${ui.frame}`,
           borderRadius: radius,
           boxShadow: `0 ${shadowY}px ${shadowBlur}px rgba(24,24,27,${shadowAlpha})`,
-          // Transformación física: el pivote está muy por encima, así
-          // que la simulación ya devuelve las coordenadas resueltas.
-          transform: `translate(${x}px, ${y}px) rotate(${rotation}rad)`,
+          // Primero la traslación / giro del péndulo, luego el squeeze
+          // puntual de cada tecla. El orden importa: scale se aplica en
+          // el sistema de coordenadas ya trasladado, así el centro del
+          // encogimiento coincide con el centro visual de la tarjeta.
+          transform: `translate(${x}px, ${y}px) rotate(${rotation}rad) scale(${scale})`,
         }}
       >
         {/* Etiqueta */}
