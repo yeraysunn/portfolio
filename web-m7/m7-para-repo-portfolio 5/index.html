@@ -40,7 +40,7 @@ a:hover{color:var(--gold-2)}
 @media(max-width:640px){
  .m7-cols{grid-template-columns:1fr !important;gap:26px !important}
 }
-.m7-rail{scrollbar-width:none}
+.m7-rail{scrollbar-width:none;scroll-behavior:auto !important}
 .m7-rail::-webkit-scrollbar{display:none}
 @keyframes m7fade{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 .m7-dot{height:10px;padding:0;border:0;border-radius:999px;cursor:pointer;width:10px;background:rgba(242,237,228,.45);transition:width .3s ease,background .3s ease}
@@ -112,7 +112,6 @@ a:hover{color:var(--gold-2)}
 
   <div style="border-top:1px solid rgba(242,237,228,.08);border-bottom:1px solid rgba(242,237,228,.08);background:#0e0e0f">
     <div style="max-width:1160px;margin:0 auto;padding:22px 24px;display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:center;align-items:center;font-family:'Oswald',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:14px;color:rgba(242,237,228,.62)">
-      <span style="display:flex;align-items:center;gap:8px;color:var(--gold)"><i class="ph ph-star" style="font-size:16px"></i>5,0 en Google</span>
       <span style="color:var(--gold)">+50 sabores de shisha</span>
       <span>Cocktails &amp; Shishas</span>
       <span>Terraza</span>
@@ -156,13 +155,13 @@ a:hover{color:var(--gold-2)}
         <div style="margin-top:34px;display:flex;flex-wrap:wrap;gap:34px">
           <div><span style="display:block;font-family:'Oswald',sans-serif;font-size:38px;color:var(--gold);line-height:1">2</span><span style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,228,.5)">Locales</span></div>
           <div><span style="display:block;font-family:'Oswald',sans-serif;font-size:38px;color:var(--gold);line-height:1">+50</span><span style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,228,.5)">Sabores</span></div>
-          <div><span style="display:block;font-family:'Oswald',sans-serif;font-size:38px;color:var(--gold);line-height:1">5,0</span><span style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,228,.5)">Google</span></div>
+          <div><span style="display:flex;align-items:center;gap:7px;font-family:'Oswald',sans-serif;font-size:38px;color:var(--gold);line-height:1">5,0<i class="ph ph-star" style="font-size:24px"></i></span><span style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,228,.5)">Google</span></div>
         </div>
       </div>
       <div style="position:relative;min-height:460px;overflow:hidden;background:#101011">
         <div id="m7-track" style="display:flex;width:100%;height:100%;position:absolute;inset:0;transform:translateX(0%);transition:transform 1s cubic-bezier(.65,.05,.36,1)">
-          <img src="m7-assets/gal-0.jpg" alt="M7 Lounge Salou" style="width:100%;height:100%;flex:0 0 100%;object-fit:cover;display:block">
-          <img src="m7-assets/gal-2.jpg" alt="M7 Lounge Tarragona" style="width:100%;height:100%;flex:0 0 100%;object-fit:cover;display:block">
+          <img src="m7-assets/hero-poster.jpg" alt="M7 Lounge Salou" style="width:100%;height:100%;flex:0 0 100%;object-fit:cover;display:block">
+          <img src="m7-assets/gal-0.jpg" alt="M7 Lounge Tarragona" style="width:100%;height:100%;flex:0 0 100%;object-fit:cover;display:block">
         </div>
         <div style="position:absolute;left:0;right:0;bottom:0;height:120px;pointer-events:none;background:linear-gradient(180deg,rgba(11,11,12,0),rgba(11,11,12,.75))"></div>
         <div style="position:absolute;bottom:18px;left:20px;display:flex;gap:8px">
@@ -543,12 +542,19 @@ renderGroups();
   // duplicar tarjetas para bucle infinito
   var originals = Array.prototype.slice.call(rail.children);
   originals.forEach(function(n){ rail.appendChild(n.cloneNode(true)); });
-  setInterval(function(){
+  var last = 0, acc = 0;
+  function step(ts){
+    requestAnimationFrame(step);
+    var dt = last ? Math.min(ts - last, 50) : 16;
+    last = ts;
     if (paused) return;
     var half = rail.scrollWidth / 2;
-    if (rail.scrollLeft >= half) rail.scrollLeft -= half;
-    rail.scrollLeft += 0.7;
-  }, 16);
+    if (half > 0 && rail.scrollLeft >= half) rail.scrollLeft = rail.scrollLeft - half;
+    acc += dt * 0.045;
+    var px = Math.floor(acc);
+    if (px >= 1) { rail.scrollLeft = rail.scrollLeft + px; acc -= px; }
+  }
+  requestAnimationFrame(step);
   btn.addEventListener('click', function(){
     paused = !paused;
     btn.setAttribute('data-paused', paused ? '1' : '0');
