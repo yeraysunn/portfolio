@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<![CDATA[<helmet>
+<link rel="stylesheet" href="_ds/nocturne-dc07fc53-637b-4aba-ace3-2d965fdbc4a1/styles.css">
+<script src="_ds/nocturne-dc07fc53-637b-4aba-ace3-2d965fdbc4a1/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{margin:0;background:#F5F1E8;color:#12395C;font-family:Inter,system-ui,sans-serif;font-weight:400;font-size:18px;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#12395C;text-decoration:none}
+a:hover{color:#8A6A3C}
+:focus-visible{outline:2px solid #B08D57;outline-offset:3px}
+::selection{background:rgba(18,57,92,.18)}
+p[data-drop]::first-letter{font-family:Fraunces,Georgia,serif;font-weight:800;font-variation-settings:'opsz' 144;font-size:3.5em;line-height:.82;float:left;margin:.04em .08em 0 0;color:#12395C}
+@keyframes wheelspin{to{transform:rotate(360deg)}}
+@keyframes bub{0%{transform:translateY(0) translateX(0);opacity:0}12%{opacity:.55}88%{opacity:.4}100%{transform:translateY(-112vh) translateX(22px);opacity:0}}
+#bubbles i{position:absolute;bottom:-8vh;border-radius:50%;border:1px solid rgba(18,57,92,.3);background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.75),rgba(18,57,92,.06) 60%);animation:bub linear infinite}
+@keyframes sway1{0%,100%{transform:rotate(-2deg) translateY(-5px)}50%{transform:rotate(2deg) translateY(5px)}}
+@keyframes sway2{0%,100%{transform:rotate(1.7deg) translateY(5px)}50%{transform:rotate(-2deg) translateY(-4px)}}
+@keyframes sway3{0%,100%{transform:rotate(-1.6deg) translateY(4px)}50%{transform:rotate(2deg) translateY(-6px)}}
+@keyframes swayMini{0%,100%{transform:rotate(-1.5deg) translateY(-2px)}50%{transform:rotate(1.5deg) translateY(2px)}}
+[data-zoom]{transition:transform .7s cubic-bezier(.22,.61,.36,1)}
+[data-card]{transition:transform .55s cubic-bezier(.22,.61,.36,1),border-color .45s ease,box-shadow .45s ease}
+[data-card] h3{transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+[data-card]:hover{border-color:#12395C}
+[data-card]:hover h3{transform:translateX(4px)}
+.navlink{position:relative;transition:color .35s ease}
+.navlink::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:#F5F1E8;transform:scaleX(0);transition:transform .45s cubic-bezier(.22,.61,.36,1)}
+.navlink:hover::after{transform:scaleX(1)}
+.btn{display:inline-block;border-radius:0;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:background-color .3s ease,border-color .3s ease,color .3s ease}
+.btn-brass{background:#12395C;color:#F5F1E8;border:0}
+.btn-brass:hover{background:#0B2438;color:#F5F1E8}
+.btn-out{background:transparent;border:1px solid #F5F1E8;color:#F5F1E8}
+.btn-out:hover{background:rgba(245,241,232,.12)}
+.btn-dark{background:transparent;border:1px solid #12395C;color:#12395C}
+.btn-dark:hover{background:rgba(18,57,92,.08)}
+.ulink:hover{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.ink > span{display:inline-block;white-space:pre;opacity:0;transform:translateY(.3em);transition:opacity .5s ease,transform .6s cubic-bezier(.22,.61,.36,1)}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition-duration:.2s !important}.ink > span{opacity:1 !important;transform:none !important}}
+@media (hover:none),(pointer:coarse){#ring{display:none !important}}
+@media (min-width:901px){#menu{display:none !important}}
+@media (max-width:900px){
+ [data-desknav]{display:none !important}
+ [data-burger]{display:block !important}
+ [data-split]{grid-template-columns:minmax(0,1fr) !important}
+ [data-hero-info]{text-align:center !important;border-left:0 !important;padding-left:0 !important}
+ [data-cocina]{grid-template-columns:minmax(0,1fr) !important;gap:60px !important}
+ [data-ilu]{height:132px !important}
+ [data-bonogrid]{grid-template-columns:minmax(0,1fr) !important}
+ [data-platos]{grid-template-columns:none !important;display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px 10px}
+ [data-platos] > *{flex:0 0 76%;scroll-snap-align:start}
+ [data-gal]{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important}
+ [data-rooms]{grid-template-columns:repeat(2,minmax(0,1fr))}
+ [data-gal-big]{grid-column:span 2;grid-row:auto !important;height:min(80vh,440px) !important}
+ [data-cartagrid]{grid-template-columns:minmax(0,1fr) !important}
+ [data-resgrid]{grid-template-columns:minmax(0,1fr) !important}
+ [data-rooms]{grid-template-columns:minmax(0,1fr) !important}
+ [data-galgrid]{grid-template-columns:minmax(0,1fr) !important}
+ [data-fields]{grid-template-columns:minmax(0,1fr) !important}
+ [data-menus]{grid-template-columns:none !important;display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px 10px}
+ [data-menus] > *{flex:0 0 82%;scroll-snap-align:start}
+ [data-dates]{margin:0 -20px;padding:0 20px 6px}
+ [data-hours]{grid-template-columns:repeat(3,minmax(0,1fr)) !important}
+ [data-sumbar]{position:sticky;bottom:0;z-index:2;background:#FFFDF8;border-top:1px solid rgba(18,57,92,.18);margin:24px -20px 0 !important;padding:14px 20px !important;box-shadow:0 -8px 24px rgba(18,57,92,.1)}
+ [data-sumbar] button{width:100%}
+ [data-tabs]{position:static !important;flex-direction:row !important;overflow-x:auto;padding-bottom:6px}
+ [data-tabs] button{flex:0 0 auto}
+ [data-tabs] p{display:none}
+ [data-dishes]{grid-template-columns:minmax(0,1fr) !important}
+ [data-fotos]{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important}
+}
+</style>
+</helmet>
+
+<div style="max-width:100%;overflow-x:hidden;position:relative">
+
+
+
+<div style="position:fixed;top:0;left:0;right:0;height:2px;z-index:70;background:rgba(18,57,92,.12)">
+  <div id="prog" style="height:100%;background:#B08D57;transform:scaleX(0);transform-origin:0 50%"></div>
+</div>
+
+<div id="bubbles" aria-hidden="true" style="position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden">
+  <i style="left:8%;width:9px;height:9px;animation-duration:26s;animation-delay:-3s"></i>
+  <i style="left:27%;width:5px;height:5px;animation-duration:34s;animation-delay:-14s"></i>
+  <i style="left:52%;width:12px;height:12px;animation-duration:30s;animation-delay:-22s"></i>
+  <i style="left:71%;width:6px;height:6px;animation-duration:38s;animation-delay:-8s"></i>
+  <i style="left:91%;width:8px;height:8px;animation-duration:29s;animation-delay:-18s"></i>
+</div>
+
+<div id="ring" aria-hidden="true" style="position:fixed;left:0;top:0;z-index:110;width:26px;height:26px;margin:-13px 0 0 -13px;border:1px solid rgba(176,141,87,.75);border-radius:50%;pointer-events:none;opacity:0;transition:opacity .3s ease,width .35s ease,height .35s ease,margin .35s ease"></div>
+
+<header id="hdr" style="position:fixed;top:0;left:0;right:0;z-index:60;background:#12395C;transition:background-color .4s ease,backdrop-filter .4s ease">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px clamp(20px,4vw,60px)">
+    <a href="#top" id="brand" style="display:flex;align-items:center;gap:13px;transform-origin:0 50%;transition:transform .45s cubic-bezier(.22,.61,.36,1)">
+      <span style="display:block;width:18px;height:18px;color:#C9A26B;animation:wheelspin 23s linear infinite">
+        <svg viewBox="0 0 40 40" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" style="display:block">
+          <circle cx="20" cy="20" r="11.6"></circle><circle cx="20" cy="20" r="7.4"></circle><circle cx="20" cy="20" r="1.9"></circle>
+          <path d="M20 3.4V12.6M20 27.4v9.2M3.4 20h9.2M27.4 20h9.2M8.2 8.2l6.5 6.5M25.3 25.3l6.5 6.5M31.8 8.2l-6.5 6.5M14.7 25.3l-6.5 6.5"></path>
+        </svg>
+      </span>
+      <span style="font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:800;letter-spacing:.06em;color:#F5F1E8;font-variation-settings:'opsz' 144">CARBALLEIRA</span>
+    </a>
+    <nav data-desknav style="display:flex;align-items:center;gap:clamp(18px,2.2vw,34px);font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase">
+      <a class="navlink" href="#restaurante" style="{{ navInicio }}" style-hover="color:#C9A26B">Restaurante</a>
+      <a class="navlink" href="#lacarta" style="{{ navCarta }}" style-hover="color:#C9A26B">Carta</a>
+      <a class="navlink" href="#grupos" style="{{ navGrupos }}" style-hover="color:#C9A26B">Grupos</a>
+      <a class="navlink" href="#bonos" style="{{ navBonos }}" style-hover="color:#C9A26B">Bonos regalo</a>
+      <a class="navlink" href="#reservas" style="{{ navContacto }}" style-hover="color:#C9A26B">Reservas</a>
+    </nav>
+    <button data-burger id="burger" onClick="{{ toggleMenu }}" aria-label="Menú" style="display:none;position:relative;width:44px;height:44px;padding:0;border:0;background:none;cursor:pointer">
+      <span id="bar1" style="position:absolute;left:9px;top:20px;width:26px;height:1.4px;background:#C9A26B;transition:transform .5s cubic-bezier(.22,.61,.36,1)"></span>
+      <span id="bar2" style="position:absolute;left:18px;top:26px;width:17px;height:1.4px;background:#C9A26B;transition:transform .5s cubic-bezier(.22,.61,.36,1),width .4s ease,left .4s ease"></span>
+    </button>
+  </div>
+  <div style="height:1px;background:rgba(176,141,87,.2)"></div>
+</header>
+
+<div id="menu" style="position:fixed;inset:0;z-index:80;background:#12395C;transform:translateY(-101%);transition:transform .6s cubic-bezier(.22,.61,.36,1);display:flex;flex-direction:column;overflow:hidden;visibility:hidden;pointer-events:none">
+  <div style="display:flex;align-items:center;justify-content:flex-end;padding:15px clamp(20px,4vw,60px);border-bottom:1px solid rgba(245,241,232,.2)">
+    <button onClick="{{ toggleMenu }}" aria-label="Cerrar menú" style="width:44px;height:44px;border:0;background:none;color:#C9A26B;font-size:28px;line-height:1;cursor:pointer;font-family:Inter,sans-serif">×</button>
+  </div>
+  <nav style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:4px;padding:0 clamp(22px,7vw,60px) 50px">
+    <a data-mi class="milink" href="#restaurante" onClick="{{ toggleMenu }}" style="{{ miInicio }}">Restaurante</a>
+    <a data-mi class="milink" href="#lacarta" onClick="{{ toggleMenu }}" style="{{ miCarta }}">Carta</a>
+    <a data-mi class="milink" href="#grupos" onClick="{{ toggleMenu }}" style="{{ miGrupos }}">Grupos</a>
+    <a data-mi class="milink" href="#bonos" onClick="{{ toggleMenu }}" style="{{ miBonos }}">Bonos regalo</a>
+    <a data-mi class="milink" href="#reservas" onClick="{{ toggleMenu }}" style="{{ miContacto }}">Reservas</a>
+    <span data-mi style="display:block;width:64px;height:1px;background:rgba(245,241,232,.3);margin:28px 0 16px"></span>
+    <span data-mi style="font-size:13px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#C9A26B">Reservas · 93 310 10 06</span>
+  </nav>
+</div>
+
+<section data-view="inicio" id="top" style="position:relative;min-height:100svh;background:#12395C;display:flex">
+  <div style="position:relative;width:100%;min-height:100svh;overflow:hidden">
+    <div id="heroBg" style="position:absolute;inset:-6% 0;will-change:transform">
+      <video src="assets/hero-1.mp4" data-herovid muted playsInline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity .5s ease"></video>
+      <video src="assets/hero-2.mp4" data-herovid muted playsInline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .5s ease"></video>
+      <img src="assets/hero-3.jpg" alt="Sala Bitacora preparada para un grupo" data-heroslide loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .5s ease" />
+      <img src="assets/hero-4.jpg" alt="Comedor con ojos de buey y el cartel Bienvenidos a bordo" data-heroslide loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .5s ease" />
+    </div>
+    <div style="position:absolute;inset:0;pointer-events:none;background:rgba(18,57,92,.5)"></div>
+    <div style="position:absolute;left:0;right:0;bottom:clamp(48px,8vh,90px);display:flex;flex-direction:column;align-items:flex-start;padding:0 clamp(20px,4vw,60px);color:#F5F1E8">
+      <h1 style="margin:0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(56px,13vw,200px);line-height:.95;text-transform:uppercase">Carballeira</h1>
+      <p style="margin:14px 0 0;font-size:13px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#E4CFA6">Restaurante desde 1944</p>
+      <span aria-label="Bienvenidos a bordo" style="display:inline-flex;flex-direction:column;align-items:center;gap:5px;padding:13px 28px;border:1px solid rgba(216,184,127,.75);color:#E4CFA6;font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:.2em;line-height:1;text-transform:uppercase;margin-top:26px"><span style="font-size:13px">Bienvenidos</span><span style="font-size:13px">a bordo</span></span>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:34px">
+        <a class="btn" href="#lacarta" style="padding:15px 34px;background:#F5F1E8;color:#12395C;border:0" style-hover="background:#E6DFCE"><span>Ver carta</span></a>
+        <a class="btn btn-out" href="#reservas" style="padding:15px 34px"><span>Reservar</span></a>
+      </div>
+    </div>
+  </div>
+    <p data-hero-info style="position:absolute;right:clamp(20px,4vw,60px);bottom:clamp(48px,8vh,90px);margin:0;text-align:right;font-size:12px;line-height:1.7;letter-spacing:.06em;color:rgba(245,241,232,.75)">C/ Reina Cristina, 3 · Barceloneta<br>Todos los días de 13:00 a 24:00</p>
+  </div>
+</section>
+
+<section data-view="inicio" id="restaurante" style="position:relative;background:#F5F1E8;padding:clamp(96px,14vh,160px) clamp(20px,4vw,60px)">
+  <div data-split style="display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(40px,6vw,96px);align-items:center;max-width:1240px;margin:0 auto">
+    <div data-reveal>
+      <p style="margin:0 0 24px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Sobre nosotros</p>
+      <h2 class="ink" style="margin:0 0 28px;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(46px,7vw,80px);line-height:1;color:#12395C">Carballeira</h2>
+      <p data-drop style="margin:0 0 20px;font-size:18px;line-height:1.6;max-width:65ch;color:#3A4A57;text-wrap:pretty">A pocos metros del mar y frente al Port Vell, en pleno barrio de la Barceloneta, servimos pescado y marisco gallego desde 1944. Entonces el género llegaba en el tren nocturno; hoy llega cada mañana, pero la casa y la esquina son las mismas.</p>
+      <p style="margin:0 0 20px;font-size:18px;line-height:1.6;max-width:65ch;color:#3A4A57;text-wrap:pretty">El comedor tiene alma de barco: caoba hasta media altura y blanco de ahí arriba, arcos que comunican las salas, ojos de buey de latón encastrados en la madera y lámparas opalinas sobre los manteles blancos.</p>
+      <p style="margin:0;font-size:18px;line-height:1.6;max-width:65ch;color:#3A4A57;text-wrap:pretty">Somos la tercera generación de la familia en la sala. Producto y servicio de primera, sin artificio: comprar bien, cocinar poco y llegar a la mesa a tiempo.</p>
+      <div style="display:flex;gap:38px;flex-wrap:wrap;margin-top:40px;padding-top:26px;border-top:1px solid rgba(18,57,92,.16)">
+        <div><p data-count="1944" data-from="1900" style="margin:0;font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em;font-size:44px;line-height:1;color:#8A6A3C">1944</p><p style="margin:5px 0 0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#5D6E7C">Año de apertura</p></div>
+        <div><p style="margin:0;font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em;font-size:44px;line-height:1;color:#8A6A3C">3ª</p><p style="margin:5px 0 0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#5D6E7C">Generación familiar</p></div>
+        <div><p style="margin:0;font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em;font-size:44px;line-height:1;color:#8A6A3C">6h</p><p style="margin:5px 0 0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#5D6E7C">De la lonja a la mesa</p></div>
+      </div>
+    </div>
+    <figure data-reveal data-delay="150" style="margin:0;display:flex;flex-direction:column;align-items:center;gap:18px">
+      <div data-shot style="position:relative;width:100%;aspect-ratio:4/3;padding:9px;background:#F5F1E8;box-shadow:0 0 0 1px rgba(176,141,87,.5)">
+        <img src="assets/fachada.jpg" alt="Fachada del restaurante" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+        <button class="btn" onClick="{{ zoom }}" data-slot="cb-fachada" style="position:absolute;right:18px;bottom:18px;padding:7px 12px;background:#12395C;border:0;color:#F5F1E8;font-size:11px;cursor:pointer;color:#F5F1E8"><span>Ampliar</span></button>
+      </div>
+      <figcaption style="font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">C/ Reina Cristina, 3 · Barcelona</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section data-view="inicio" id="carta" style="position:relative;background:#F5F1E8;padding:clamp(96px,14vh,160px) clamp(20px,4vw,60px)">
+  <div aria-hidden="true" style="position:absolute;top:0;left:clamp(20px,4vw,60px);right:clamp(20px,4vw,60px);height:1px;background:rgba(176,141,87,.5)"></div>
+  <div style="max-width:1240px;margin:0 auto">
+    <p data-reveal style="margin:0 0 30px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Platos más destacados</p>
+    <div data-platos style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,2.4vw,30px)">
+      <article data-card data-reveal style="background:#FFFDF8;border:1px solid rgba(176,141,87,.45);padding:12px">
+        <div data-water style="overflow:hidden;height:clamp(190px,24vh,250px)"><div data-zoom style="height:100%"><img src="assets/th-carta-almejas-gallegas.jpg" alt="Almejas de Carril" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div></div>
+        <h3 style="margin:18px 0 7px;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:26px;color:#12395C">Almejas de Carril</h3>
+        <p style="margin:0 0 20px;font-size:16px;line-height:1.6;color:#5D6E7C">Abiertas al momento con albariño y ajo tierno.</p>
+      </article>
+      <article data-card data-reveal data-delay="120" style="background:#FFFDF8;border:1px solid rgba(176,141,87,.45);padding:12px">
+        <div data-water style="overflow:hidden;height:clamp(190px,24vh,250px)"><div data-zoom style="height:100%"><img src="assets/th-carta-carpaccio-pulpo.jpg" alt="Pulpo a feira" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div></div>
+        <h3 style="margin:18px 0 7px;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:26px;color:#12395C">Pulpo a feira</h3>
+        <p style="margin:0 0 20px;font-size:16px;line-height:1.6;color:#5D6E7C">Cocido al punto, aceite de Arbequina y pimentón.</p>
+      </article>
+      <article data-card data-reveal data-delay="240" style="background:#FFFDF8;border:1px solid rgba(176,141,87,.45);padding:12px">
+        <div data-water style="overflow:hidden;height:clamp(190px,24vh,250px)"><div data-zoom style="height:100%"><img src="assets/th-carta-percebes.jpg" alt="Percebes de la Costa da Morte" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div></div>
+        <h3 style="margin:18px 0 7px;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:26px;color:#12395C">Percebes de la Costa da Morte</h3>
+        <p style="margin:0 0 20px;font-size:16px;line-height:1.6;color:#5D6E7C">De la Costa da Morte, al vapor de su propia agua de mar.</p>
+      </article>
+      <article data-card data-reveal data-delay="360" style="background:#FFFDF8;border:1px solid rgba(176,141,87,.45);padding:12px">
+        <div data-water style="overflow:hidden;height:clamp(190px,24vh,250px)"><div data-zoom style="height:100%"><img src="assets/th-carta-arroz-bogavante.jpg" alt="Arroz caldoso de bogavante" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div></div>
+        <h3 style="margin:18px 0 7px;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:26px;color:#12395C">Arroz caldoso de bogavante</h3>
+        <p style="margin:0 0 20px;font-size:16px;line-height:1.6;color:#5D6E7C">A fuego lento, con fumet de la casa y bogavante gallego.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section data-view="carta" id="lacarta" style="position:relative;background:#F5F1E8;padding:clamp(96px,14vh,160px) clamp(20px,4vw,60px)">
+  <div style="max-width:1240px;margin:0 auto">
+    <p data-reveal style="margin:0 0 10px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">La carta</p>
+    <h2 class="ink" data-reveal style="margin:0 0 clamp(32px,5vh,52px);font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(44px,6.6vw,76px);line-height:1;color:#12395C">Producto y temporada</h2>
+    <div data-cartagrid style="display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:clamp(26px,4vw,60px);align-items:start">
+      <nav data-tabs data-reveal style="display:flex;flex-direction:column;gap:8px;position:sticky;top:104px">
+        <button data-tab="empezar" onClick="{{ tab }}" style="padding:13px 16px;text-align:left;font:400 12.5px/1.2 Inter,sans-serif;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#F5F1E8;background:#12395C;border:1px solid #12395C;cursor:pointer;transition:background-color .35s ease,color .35s ease">Para empezar</button>
+        <button data-tab="frios" onClick="{{ tab }}" style="padding:13px 16px;text-align:left;font:400 12.5px/1.2 Inter,sans-serif;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C;background:transparent;border:1px solid rgba(176,141,87,.55);cursor:pointer;transition:background-color .35s ease,color .35s ease">Entrantes fríos</button>
+        <button data-tab="calientes" onClick="{{ tab }}" style="padding:13px 16px;text-align:left;font:400 12.5px/1.2 Inter,sans-serif;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C;background:transparent;border:1px solid rgba(176,141,87,.55);cursor:pointer;transition:background-color .35s ease,color .35s ease">Calientes</button>
+        <button data-tab="arroces" onClick="{{ tab }}" style="padding:13px 16px;text-align:left;font:400 12.5px/1.2 Inter,sans-serif;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C;background:transparent;border:1px solid rgba(176,141,87,.55);cursor:pointer;transition:background-color .35s ease,color .35s ease">Arroces</button>
+        <button data-tab="pescados" onClick="{{ tab }}" style="padding:13px 16px;text-align:left;font:400 12.5px/1.2 Inter,sans-serif;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C;background:transparent;border:1px solid rgba(176,141,87,.55);cursor:pointer;transition:background-color .35s ease,color .35s ease">Pescados salvajes</button>
+        <button data-tab="carnes" onClick="{{ tab }}" style="padding:13px 16px;text-align:left;font:400 12.5px/1.2 Inter,sans-serif;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C;background:transparent;border:1px solid rgba(176,141,87,.55);cursor:pointer;transition:background-color .35s ease,color .35s ease">Carnes</button>
+        <button data-tab="postres" onClick="{{ tab }}" style="padding:13px 16px;text-align:left;font:400 12.5px/1.2 Inter,sans-serif;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C;background:transparent;border:1px solid rgba(176,141,87,.55);cursor:pointer;transition:background-color .35s ease,color .35s ease">Postres</button>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Consulte las sugerencias del día en sala. La carta sigue a la lonja.</p>
+      </nav>
+      <div data-reveal data-delay="120">
+        <div data-panel="empezar" style="display:block">
+          <ul data-fotos style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px) clamp(20px,2.6vw,32px)">
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-aperitivo.jpg" alt="Aperitivo selección de marisco" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Aperitivo selección de marisco</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Surtido de la casa según el género del día.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-ostras.jpg" alt="Ostras Gillardeau" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Ostras Gillardeau</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Al natural, con limón.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-percebes.jpg" alt="Percebes de la Costa da Morte" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Percebes de la Costa da Morte</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Al vapor de su propia agua de mar.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-camarones.jpg" alt="Camarones gallegos" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Camarones gallegos</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Cocidos al momento en agua de mar.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-canaillas.jpg" alt="Cañaíllas del Mediterráneo" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Cañaíllas del Mediterráneo</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Sobre hielo, con su punto de sal.</p>
+          </li>
+          </ul>
+        </div>
+        <div data-panel="frios" style="display:none">
+          <ul data-fotos style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px) clamp(20px,2.6vw,32px)">
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-carpaccio-pulpo.jpg" alt="Carpaccio de pulpo" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Carpaccio de pulpo</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con aceite de Arbequina y pimentón.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-carpaccio-salmon.jpg" alt="Carpaccio de salmón" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Carpaccio de salmón</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con brotes tiernos y crema de eneldo.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-carpaccio-gamba.jpg" alt="Carpaccio de gamba roja" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Carpaccio de gamba roja</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con cebollino y pistacho.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-ensalada-foie.jpg" alt="Ensalada de manzana caramelizada y foie" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Ensalada de manzana caramelizada y foie</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con vinagreta de frutos rojos.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-anchoas.jpg" alt="Anchoas del Cantábrico" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Anchoas del Cantábrico</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">En aceite de oliva, con guindilla y aceituna.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-jamon.jpg" alt="Jamón ibérico 100% de bellota" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Jamón ibérico 100% de bellota</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Cortado a cuchillo, con pan de cristal.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-tartar.jpg" alt="Steak tartar" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Steak tartar</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Aliñado en sala, con patatas suflé.</p>
+          </li>
+          </ul>
+        </div>
+        <div data-panel="calientes" style="display:none">
+          <ul data-fotos style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px) clamp(20px,2.6vw,32px)">
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-kokotxas.jpg" alt="«Kokotxas» de merluza" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">«Kokotxas» de merluza</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">En salsa verde, con almeja.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-tortilla.jpg" alt="Tortilla de Betanzos" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Tortilla de Betanzos</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Poco cuajada, con pan con tomate.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-calamares.jpg" alt="Calamares en tempura o andaluza" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Calamares en tempura o andaluza</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con limón y alioli suave.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-chipirones.jpg" alt="Chipirones a la andaluza" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Chipirones a la andaluza</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Fritos al momento, muy crujientes.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-carpaccio-pulpo.jpg" alt="Pulpo a feira" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Pulpo a feira</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Cocido al punto, con cachelos y pimentón.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-croquetas.jpg" alt="Croquetas de rape, gamba y carabinero" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Croquetas de rape, gamba y carabinero</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Cremosas, elaboración propia.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-croquetas-sepia.jpg" alt="Croquetas de sepia" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Croquetas de sepia</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">En su tinta, con alioli suave.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-cazuelita.jpg" alt="Cazuelita «Porto dos Barcos»" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Cazuelita «Porto dos Barcos»</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Salteado de marisco de la casa.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-almejas-gallegas.jpg" alt="Almejas gallegas" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Almejas gallegas</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Abiertas al vapor, con ajo y perejil.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-berberechos.jpg" alt="Berberechos al vapor" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Berberechos al vapor</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con su jugo y un golpe de limón.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-navajas.jpg" alt="Navajas gallegas «de buceo»" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Navajas gallegas «de buceo»</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">A la plancha, con ajo y perejil.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-zamburinas.jpg" alt="Zamburiñas" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Zamburiñas</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Gratinadas al horno con pan rallado.</p>
+          </li>
+          </ul>
+        </div>
+        <div data-panel="arroces" style="display:none">
+          <ul data-fotos style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px) clamp(20px,2.6vw,32px)">
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-arroz-bogavante.jpg" alt="Arroz con bogavante" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Arroz con bogavante</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Caldoso, con bogavante gallego.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-paella-marisco.jpg" alt="Paella de marisco" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Paella de marisco</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con mejillón, cigala y gamba.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-arroz-banda.jpg" alt="Nuestro arroz a banda" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Nuestro arroz a banda</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con fumet de pescado de roca.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-paella-verduras.jpg" alt="Paella de verduras" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Paella de verduras</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">De temporada, con alcachofa y espárrago.</p>
+          </li>
+          </ul>
+        </div>
+        <div data-panel="pescados" style="display:none">
+          <ul data-fotos style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px) clamp(20px,2.6vw,32px)">
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-rodaballo.jpg" alt="Rodaballo gallego" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Rodaballo gallego</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">A la plancha, con ajada suave.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-merluza.jpg" alt="Merluza de pincho" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Merluza de pincho</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">A la plancha o en salsa verde.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-rape.jpg" alt="Rape" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Rape</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con verduras al vapor y patata.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-suquet.jpg" alt="Suquet de rape" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Suquet de rape</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con patata y picada marinera.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-bacalao-samfaina.jpg" alt="Lomo de bacalao con garbanzos en samfaina" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Lomo de bacalao con garbanzos en samfaina</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Confitado a baja temperatura.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-bacalao-llauna.jpg" alt="Lomo de bacalao «a la llauna»" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Lomo de bacalao «a la llauna»</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con alubias y aceite de pimentón.</p>
+          </li>
+          </ul>
+        </div>
+        <div data-panel="carnes" style="display:none">
+          <ul data-fotos style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px) clamp(20px,2.6vw,32px)">
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-solomillo.jpg" alt="Solomillo de ternera" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Solomillo de ternera</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con puré trufado y ajos tiernos.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-cabrito.jpg" alt="Espaldita de cabrito" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Espaldita de cabrito</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Asada lentamente, con verduras al horno.</p>
+          </li>
+          </ul>
+        </div>
+        <div data-panel="postres" style="display:none">
+          <ul data-fotos style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px) clamp(20px,2.6vw,32px)">
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-oreja-fraile.jpg" alt="Oreja de fraile" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Oreja de fraile</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Crujiente, azucarada, recién frita.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-tarta-santiago.jpg" alt="Tarta de Santiago" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Tarta de Santiago</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con helado de almendra.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-tarta-queso.jpg" alt="Tarta cremosa de queso" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Tarta cremosa de queso</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con helado de vainilla.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-sacher.jpg" alt="Tarta Sacher" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Tarta Sacher</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con cereza y chocolate templado.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-milhojas.jpg" alt="Milhojas de frutos rojos" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Milhojas de frutos rojos</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con nata montada y helado.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-carpaccio-pina.jpg" alt="Carpaccio de piña y mango" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Carpaccio de piña y mango</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con sorbete de cítricos.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-trufas.jpg" alt="Trufas de chocolate" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Trufas de chocolate</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Con avellana garrapiñada.</p>
+          </li>
+          <li>
+            <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 0 0 1px rgba(176,141,87,.45)"><img src="assets/th-carta-helados.jpg" alt="Helados y sorbetes artesanos" width="420" height="420" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <p style="margin:16px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:24px;line-height:1.15;color:#12395C">Helados y sorbetes artesanos</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">Elaboración propia.</p>
+          </li>
+          </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section data-view="inicio" id="cocina" style="position:relative;background:#12395C;padding:clamp(110px,16vh,168px) clamp(20px,4vw,60px)">
+  <div style="position:relative;max-width:1180px;margin:0 auto;text-align:center">
+    <p data-reveal style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Nuestra cocina</p>
+    <h2 class="ink" data-reveal data-delay="80" style="margin:26px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(52px,9vw,104px);line-height:.98;color:#F5F1E8;letter-spacing:.02em">Sabor del mar</h2>
+    <span data-reveal data-delay="140" style="display:block;width:60px;height:1px;background:#B08D57;margin:34px auto 0"></span>
+    <div data-cocina style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(40px,6vw,90px);margin-top:clamp(64px,9vh,104px)">
+      <div data-reveal>
+        <div data-ilu style="height:200px;display:flex;align-items:flex-end;justify-content:center;animation:sway1 8s ease-in-out infinite">
+          <img src="assets/ilu-bogavante-sm.png" alt="Bogavante" loading="lazy" decoding="async" style="height:100%;width:auto;max-width:100%;object-fit:contain;display:block">
+        </div>
+        <p style="margin:26px 0 0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Vivero propio</p>
+        <p style="margin:16px auto 0;max-width:30ch;font-size:18px;line-height:1.6;color:rgba(245,241,232,.82)">Bogavante, langosta y cigala vivos hasta el momento de cocinarlos. Sin un día de nevera por medio.</p>
+      </div>
+      <div data-reveal data-delay="150">
+        <div data-ilu style="height:200px;display:flex;align-items:flex-end;justify-content:center;animation:sway2 9s ease-in-out infinite">
+          <img src="assets/ilu-pulpo-sm.png" alt="Pulpo" loading="lazy" decoding="async" style="height:100%;width:auto;max-width:100%;object-fit:contain;display:block">
+        </div>
+        <p style="margin:26px 0 0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Lonja gallega</p>
+        <p style="margin:16px auto 0;max-width:30ch;font-size:18px;line-height:1.6;color:rgba(245,241,232,.82)">Percebes, navajas y pulpo que suben de las Rías de madrugada. Pescado salvaje, nunca de piscifactoría.</p>
+      </div>
+      <div data-reveal data-delay="300">
+        <div data-ilu style="height:200px;display:flex;align-items:flex-end;justify-content:center;animation:sway3 8.5s ease-in-out infinite">
+          <img src="assets/ilu-paella-sm.png" alt="Paella de marisco" loading="lazy" decoding="async" style="height:100%;width:auto;max-width:100%;object-fit:contain;display:block">
+        </div>
+        <p style="margin:26px 0 0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">En el escaparate</p>
+        <p style="margin:16px auto 0;max-width:30ch;font-size:18px;line-height:1.6;color:rgba(245,241,232,.82)">El género del día se expone en el escaparate. Lo eliges delante de nosotros y se cocina al momento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section data-view="inicio" id="galeria" style="position:relative;background:#F5F1E8;padding:clamp(96px,14vh,160px) clamp(20px,4vw,60px)">
+  <div style="max-width:1240px;margin:0 auto">
+    <p data-reveal style="margin:0 0 30px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Galería</p>
+    <div data-gal data-reveal style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);grid-auto-rows:minmax(0,1fr);gap:clamp(16px,2.2vw,28px)">
+      <div style="position:relative;grid-row:span 2;height:clamp(420px,64vh,660px);padding:8px;background:#FFFDF8;box-shadow:0 0 0 1px rgba(176,141,87,.6)">
+        <div style="position:absolute;inset:8px;overflow:hidden"><div id="galBg" style="position:absolute;inset:-6% 0 -6%;will-change:transform"><img src="assets/gal-vivero.jpg" alt="Vivero y expositor de marisco" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block" /></div></div>
+        <button class="btn" onClick="{{ zoom }}" style="position:absolute;right:16px;bottom:16px;padding:7px 12px;background:#12395C;border:0;color:#F5F1E8;font-size:11px;cursor:pointer"><span>Ampliar</span></button>
+      </div>
+      <div style="position:relative;aspect-ratio:1;padding:8px;background:#FFFDF8;box-shadow:0 0 0 1px rgba(176,141,87,.6)">
+        <img src="assets/gal-1.jpg" alt="Mesa junto al mamparo de teca" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block" />
+        <button class="btn" onClick="{{ zoom }}" style="position:absolute;right:16px;bottom:16px;padding:7px 12px;background:#12395C;border:0;color:#F5F1E8;font-size:11px;cursor:pointer"><span>Ampliar</span></button>
+      </div>
+      <div style="position:relative;height:clamp(200px,30vh,317px);padding:8px;background:#FFFDF8;box-shadow:0 0 0 1px rgba(176,141,87,.6)">
+        <img src="assets/gal-2.jpg" alt="Barra con timon de laton" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block" />
+        <button class="btn" onClick="{{ zoom }}" style="position:absolute;right:16px;bottom:16px;padding:7px 12px;background:#12395C;border:0;color:#F5F1E8;font-size:11px;cursor:pointer"><span>Ampliar</span></button>
+      </div>
+      <div style="position:relative;height:clamp(200px,30vh,317px);padding:8px;background:#FFFDF8;box-shadow:0 0 0 1px rgba(176,141,87,.6)">
+        <img src="assets/gal-4.jpg" alt="Expositor de marisco sobre hielo" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block" />
+        <button class="btn" onClick="{{ zoom }}" style="position:absolute;right:16px;bottom:16px;padding:7px 12px;background:#12395C;border:0;color:#F5F1E8;font-size:11px;cursor:pointer"><span>Ampliar</span></button>
+      </div>
+      <div style="position:relative;aspect-ratio:1;padding:8px;background:#FFFDF8;box-shadow:0 0 0 1px rgba(176,141,87,.6)">
+        <img src="assets/gal-3.jpg" alt="Arroz de marisco" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block" />
+        <button class="btn" onClick="{{ zoom }}" style="position:absolute;right:16px;bottom:16px;padding:7px 12px;background:#12395C;border:0;color:#F5F1E8;font-size:11px;cursor:pointer"><span>Ampliar</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section data-view="bonos" id="bonos" style="position:relative;overflow:hidden;background:#12395C;color:#F5F1E8;padding:clamp(60px,9vh,112px) clamp(20px,4vw,60px)">
+  <img src="assets/ilu-bogavante-sm.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute;right:-6%;bottom:-16%;width:min(46%,500px);opacity:.5;pointer-events:none" />
+  <div style="position:relative;max-width:1240px;margin:0 auto">
+    <p style="margin:0 0 10px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Bonos regalo</p>
+    <h2 style="margin:0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(44px,6.5vw,80px);line-height:1">Regala sabor a mar</h2>
+    <p style="margin:26px 0 0;max-width:58ch;font-size:20px;line-height:1.55;color:#F5F1E8">Un menú completo para dos, con postre y bebidas incluidas, o una tarjeta abierta al importe que prefiera.</p>
+    <p style="margin:18px 0 0;max-width:62ch;font-size:18px;line-height:1.65;color:rgba(245,241,232,.82)">Sorprenda a su pareja, a sus amigos o a su familia con una comida en la Barceloneta: el mejor marisco de las Rías y pescado salvaje de nuestras costas, en uno de los restaurantes más emblemáticos de Barcelona. Todos los bonos son canjeables durante un año desde la compra, con reserva anticipada.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:34px">
+      <a class="btn" href="mailto:reservas@carballeira.com?subject=Bono%20regalo%20Carballeira" style="padding:15px 34px;background:#F5F1E8;color:#12395C;border:0" style-hover="background:#E6DFCE"><span>Regala Carballeira</span></a>
+      <a class="btn btn-out" href="tel:+34933101006" style="padding:15px 34px"><span>93 310 10 06</span></a>
+    </div>
+  </div>
+</section>
+
+<section data-view="bonos" id="bonolist" style="background:#F5F1E8;padding:clamp(56px,8vh,100px) clamp(20px,4vw,60px)">
+  <div style="max-width:1240px;margin:0 auto">
+    <p data-reveal style="margin:0 0 30px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Tres formas de regalar</p>
+    <div data-bonogrid style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,30px);align-items:stretch">
+      <article data-card data-reveal style="display:flex;flex-direction:column;background:#FFFDF8;border:1px solid rgba(176,141,87,.45);padding:clamp(20px,2.4vw,32px)">
+        <p style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Bono regalo</p>
+        <h3 style="margin:12px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(32px,3.6vw,44px);line-height:1.05;color:#12395C">Esencial</h3>
+        <p style="margin:20px 0 0;font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em;font-size:40px;line-height:1;color:#12395C">140 €</p>
+        <p style="margin:10px 0 0;font-size:14px;letter-spacing:.06em;color:#5D6E7C">Para 2 personas · postre y bebidas incluidas</p>
+        <p style="margin:22px 0 34px;font-size:17px;line-height:1.65;color:#3A4A57">Una degustación de los imprescindibles de la casa. Un pequeño homenaje para disfrutar de nuestros mejores platos.</p>
+        <a class="btn btn-out" href="mailto:reservas@carballeira.com?subject=Bono%20Esencial" style="margin-top:auto;align-self:flex-start;padding:13px 28px;border-color:rgba(18,57,92,.4);color:#12395C"><span>Lo quiero</span></a>
+      </article>
+      <article data-card data-reveal data-delay="120" style="display:flex;flex-direction:column;background:#12395C;border:1px solid rgba(176,141,87,.5);padding:clamp(20px,2.4vw,32px);color:#F5F1E8">
+        <p style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Bono regalo</p>
+        <h3 style="margin:12px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(32px,3.6vw,44px);line-height:1.05">De lujo</h3>
+        <p style="margin:20px 0 0;font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em;font-size:40px;line-height:1;color:#E4CFA6">240 €</p>
+        <p style="margin:10px 0 0;font-size:14px;letter-spacing:.06em;color:rgba(245,241,232,.8)">Para 2 personas · postre y bebidas incluidas</p>
+        <p style="margin:22px 0 34px;font-size:17px;line-height:1.65;color:rgba(245,241,232,.88)">Todo un festín. Solo lo mejor de nuestros mares para verdaderos amantes del marisco: percebes, camarones gallegos y esos pequeños lujos que no pueden faltar.</p>
+        <a class="btn" href="mailto:reservas@carballeira.com?subject=Bono%20de%20Lujo" style="margin-top:auto;align-self:flex-start;padding:13px 28px;background:#F5F1E8;color:#12395C;border:0" style-hover="background:#E6DFCE"><span>Lo quiero</span></a>
+      </article>
+      <article data-card data-reveal data-delay="240" style="display:flex;flex-direction:column;background:#FFFDF8;border:1px solid rgba(176,141,87,.45);padding:clamp(20px,2.4vw,32px)">
+        <p style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Tarjeta regalo</p>
+        <h3 style="margin:12px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(32px,3.6vw,44px);line-height:1.05;color:#12395C">Abierta</h3>
+        <p style="margin:20px 0 0;font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em;font-size:40px;line-height:1;color:#12395C">A su medida</p>
+        <p style="margin:10px 0 0;font-size:14px;letter-spacing:.06em;color:#5D6E7C">El importe que usted decida</p>
+        <p style="margin:22px 0 34px;font-size:17px;line-height:1.65;color:#3A4A57">Sin menú fijo: la persona que la reciba elige de la carta lo que le apetezca el día que venga. Descontamos el valor de la tarjeta de su cuenta.</p>
+        <a class="btn btn-out" href="mailto:reservas@carballeira.com?subject=Tarjeta%20Regalo" style="margin-top:auto;align-self:flex-start;padding:13px 28px;border-color:rgba(18,57,92,.4);color:#12395C"><span>La quiero</span></a>
+      </article>
+    </div>
+    <p data-reveal style="margin:clamp(34px,5vh,56px) 0 0;padding-top:26px;border-top:1px solid rgba(18,57,92,.16);max-width:70ch;font-size:16px;line-height:1.7;color:#5D6E7C">Canjeables durante un año desde la fecha de compra, con reserva anticipada. Escríbanos a reservas@carballeira.com o llámenos al 93 310 10 06 y le preparamos el bono con el nombre de la persona que lo recibe.</p>
+  </div>
+</section>
+
+<section data-view="contacto" id="reservas" style="position:relative;background:#F5F1E8;padding:clamp(60px,9vh,110px) clamp(20px,4vw,60px)">
+  <div style="max-width:1240px;margin:0 auto">
+    <p style="margin:0 0 10px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Reservas</p>
+    <h2 style="margin:0 0 clamp(30px,4.5vh,48px);font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(44px,6.5vw,80px);line-height:1;color:#12395C">Reserve su mesa</h2>
+    <div data-resgrid style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,3vw,44px);align-items:start">
+
+      <div data-resform style="background:#FFFDF8;border:1px solid rgba(176,141,87,.45);padding:clamp(20px,2.4vw,34px)">
+        <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:clamp(16px,3vh,40px) 0">
+            <h3 style="margin:0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(38px,5vw,60px);line-height:1;color:#12395C">Le esperamos</h3>
+            <p style="margin:18px 0 0;font-size:18px;line-height:1.6;color:#3A4A57;max-width:52ch">Hemos anotado su reserva. Recibirá la confirmación por email; si necesita cambiar algo, llámenos al 93 310 10 06.</p>
+            <div style="margin-top:28px;padding-top:22px;border-top:1px solid rgba(18,57,92,.16);display:grid;gap:10px">
+              <p style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Su reserva</p>
+              <p style="margin:0;font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em;font-size:28px;line-height:1.2;color:#12395C">{{ summary }}</p>
+              <p style="margin:0;font-size:16px;line-height:1.6;color:#5D6E7C">A nombre de {{ resName }} · C/ Reina Cristina, 3 · Barceloneta</p>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px">
+              <button class="btn" onClick="{{ addCal }}" style="padding:14px 26px;background:transparent;border:1px solid #12395C;color:#12395C;font-size:13px;letter-spacing:.12em;font-weight:600;text-transform:uppercase;cursor:pointer;font-family:Inter,sans-serif" style-hover="background:rgba(18,57,92,.07)"><span>Añadir al calendario</span></button>
+              <button class="btn" onClick="{{ reset }}" style="padding:14px 26px;background:transparent;border:1px solid rgba(18,57,92,.3);color:#5D6E7C;font-size:13px;letter-spacing:.12em;font-weight:600;text-transform:uppercase;cursor:pointer;font-family:Inter,sans-serif" style-hover="border-color:#12395C;color:#12395C"><span>Nueva reserva</span></button>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ editing }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div style="display:flex;align-items:baseline;gap:12px">
+              <span style="font-family:Fraunces,Georgia,serif;font-weight:700;font-size:20px;color:#B08D57">01</span>
+              <p style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Comensales</p>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,56px);margin-top:16px">
+              <div>
+                <p style="margin:0 0 10px;font-size:16px;color:#3A4A57">Adultos</p>
+                <div style="display:flex;align-items:center;border:1px solid rgba(176,141,87,.55)">
+                  <button onClick="{{ decA }}" aria-label="Menos adultos" style="width:46px;height:46px;border:0;background:transparent;color:#12395C;font-size:20px;cursor:pointer;font-family:Inter,sans-serif;transition:background-color .25s" style-hover="background:rgba(18,57,92,.07)">−</button>
+                  <span style="min-width:52px;text-align:center;font-family:Fraunces,Georgia,serif;font-weight:700;font-size:24px;color:#12395C">{{ adults }}</span>
+                  <button onClick="{{ incA }}" aria-label="Más adultos" style="width:46px;height:46px;border:0;background:transparent;color:#12395C;font-size:20px;cursor:pointer;font-family:Inter,sans-serif;transition:background-color .25s" style-hover="background:rgba(18,57,92,.07)">+</button>
+                </div>
+              </div>
+              <div>
+                <p style="margin:0 0 10px;font-size:16px;color:#3A4A57">Niños <span style="color:#8A6A3C;font-size:13px">Hasta 8 años</span></p>
+                <div style="display:flex;align-items:center;border:1px solid rgba(176,141,87,.55)">
+                  <button onClick="{{ decK }}" aria-label="Menos niños" style="width:46px;height:46px;border:0;background:transparent;color:#12395C;font-size:20px;cursor:pointer;font-family:Inter,sans-serif;transition:background-color .25s" style-hover="background:rgba(18,57,92,.07)">−</button>
+                  <span style="min-width:52px;text-align:center;font-family:Fraunces,Georgia,serif;font-weight:700;font-size:24px;color:#12395C">{{ kids }}</span>
+                  <button onClick="{{ incK }}" aria-label="Más niños" style="width:46px;height:46px;border:0;background:transparent;color:#12395C;font-size:20px;cursor:pointer;font-family:Inter,sans-serif;transition:background-color .25s" style-hover="background:rgba(18,57,92,.07)">+</button>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:30px;padding-top:26px;border-top:1px solid rgba(18,57,92,.14);display:flex;align-items:baseline;gap:12px">
+              <span style="font-family:Fraunces,Georgia,serif;font-weight:700;font-size:20px;color:#B08D57">02</span>
+              <p style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Fecha</p>
+            </div>
+            <div data-dates style="display:flex;gap:10px;margin-top:16px;overflow-x:auto;padding-bottom:4px">
+              <sc-for list="{{ dates }}" as="d" hint-placeholder-count="7">
+                <button onClick="{{ d.pick }}" style="{{ d.style }}">
+                  <span style="display:block;font-size:11px;letter-spacing:.16em;font-weight:600;text-transform:uppercase;opacity:.75">{{ d.dow }}</span>
+                  <span style="display:block;font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em;font-size:26px;line-height:1.1;margin-top:4px">{{ d.day }}</span>
+                  <span style="display:block;font-size:11px;letter-spacing:.16em;font-weight:600;text-transform:uppercase;opacity:.75">{{ d.mon }}</span>
+                </button>
+              </sc-for>
+              <button onClick="{{ toggleCal }}" style="flex:0 0 auto;min-width:88px;padding:10px;background:transparent;border:1px solid rgba(176,141,87,.55);color:#8A6A3C;font-size:11px;letter-spacing:.16em;font-weight:600;text-transform:uppercase;cursor:pointer;font-family:Inter,sans-serif;transition:border-color .25s,color .25s" style-hover="border-color:#12395C;color:#12395C">Otra fecha</button>
+            </div>
+            <sc-if value="{{ calOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:14px;border:1px solid rgba(176,141,87,.55);padding:16px;max-width:360px">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                  <button onClick="{{ prevMonth }}" aria-label="Mes anterior" style="width:44px;height:36px;border:0;background:transparent;color:#12395C;cursor:pointer;font-size:16px;font-family:Inter,sans-serif">‹</button>
+                  <span style="font-family:Fraunces,Georgia,serif;font-weight:700;font-size:18px;color:#12395C">{{ calLabel }}</span>
+                  <button onClick="{{ nextMonth }}" aria-label="Mes siguiente" style="width:44px;height:36px;border:0;background:transparent;color:#12395C;cursor:pointer;font-size:16px;font-family:Inter,sans-serif">›</button>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px">
+                  <sc-for list="{{ calCells }}" as="c" hint-placeholder-count="35">
+                    <button onClick="{{ c.pick }}" disabled="{{ c.disabled }}" style="{{ c.style }}">{{ c.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+
+            <div style="margin-top:30px;padding-top:26px;border-top:1px solid rgba(18,57,92,.14);display:flex;align-items:baseline;gap:12px">
+              <span style="font-family:Fraunces,Georgia,serif;font-weight:700;font-size:20px;color:#B08D57">03</span>
+              <p style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Turno y hora</p>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+              <button onClick="{{ pickLunch }}" style="{{ lunchStyle }}">Comida <span style="opacity:.7">13:00–17:30</span></button>
+              <button onClick="{{ pickDinner }}" style="{{ dinnerStyle }}">Cena <span style="opacity:.7">18:00–22:15</span></button>
+            </div>
+            <div data-hours style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:16px">
+              <sc-for list="{{ hours }}" as="t" hint-placeholder-count="18">
+                <button onClick="{{ t.pick }}" disabled="{{ t.disabled }}" style="{{ t.style }}">{{ t.label }}</button>
+              </sc-for>
+            </div>
+            <p style="{{ hourNoteStyle }}">{{ hourNote }}</p>
+
+            <div style="margin-top:30px;padding-top:26px;border-top:1px solid rgba(18,57,92,.14);display:flex;align-items:baseline;gap:12px">
+              <span style="font-family:Fraunces,Georgia,serif;font-weight:700;font-size:20px;color:#B08D57">04</span>
+              <p style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Datos de contacto</p>
+            </div>
+            <div data-fields style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px">
+              <label style="display:block">
+                <span style="display:block;font-size:14px;color:#3A4A57;margin-bottom:6px">Nombre y apellidos</span>
+                <input type="text" onInput="{{ setName }}" onBlur="{{ setName }}" autoComplete="name" style="width:100%;height:46px;padding:0 12px;background:#F5F1E8;border:1px solid rgba(176,141,87,.55);color:#12395C;font:400 16px Inter,sans-serif" />
+                <span style="display:block;font-size:13px;color:#A24B37;min-height:18px;margin-top:4px">{{ errName }}</span>
+              </label>
+              <label style="display:block">
+                <span style="display:block;font-size:14px;color:#3A4A57;margin-bottom:6px">Teléfono</span>
+                <input type="tel" onInput="{{ setPhone }}" onBlur="{{ setPhone }}" autoComplete="tel" style="width:100%;height:46px;padding:0 12px;background:#F5F1E8;border:1px solid rgba(176,141,87,.55);color:#12395C;font:400 16px Inter,sans-serif" />
+                <span style="display:block;font-size:13px;color:#A24B37;min-height:18px;margin-top:4px">{{ errPhone }}</span>
+              </label>
+              <label style="display:block">
+                <span style="display:block;font-size:14px;color:#3A4A57;margin-bottom:6px">Email</span>
+                <input type="email" onInput="{{ setEmail }}" onBlur="{{ setEmail }}" autoComplete="email" style="width:100%;height:46px;padding:0 12px;background:#F5F1E8;border:1px solid rgba(176,141,87,.55);color:#12395C;font:400 16px Inter,sans-serif" />
+                <span style="display:block;font-size:13px;color:#A24B37;min-height:18px;margin-top:4px">{{ errEmail }}</span>
+              </label>
+              <label style="display:block">
+                <span style="display:block;font-size:14px;color:#3A4A57;margin-bottom:6px">Alergias u ocasión especial <span style="color:#8A6A3C">Opcional</span></span>
+                <input type="text" onInput="{{ setNote }}" style="width:100%;height:46px;padding:0 12px;background:#F5F1E8;border:1px solid rgba(176,141,87,.55);color:#12395C;font:400 16px Inter,sans-serif" />
+                <span style="display:block;min-height:18px;margin-top:4px"></span>
+              </label>
+            </div>
+            <label style="display:flex;align-items:flex-start;gap:10px;margin-top:6px;cursor:pointer;min-height:44px">
+              <input type="checkbox" onChange="{{ setPrivacy }}" style="width:18px;height:18px;margin-top:3px;accent-color:#12395C" />
+              <span style="font-size:15px;line-height:1.6;color:#3A4A57">Acepto la política de privacidad y el tratamiento de mis datos para gestionar la reserva.</span>
+            </label>
+            <p style="margin:0 0 0 28px;font-size:13px;color:#A24B37;min-height:18px">{{ errPrivacy }}</p>
+
+            <div data-sumbar style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:24px;padding-top:20px;border-top:1px solid rgba(18,57,92,.18)">
+              <p style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#12395C">{{ summary }}</p>
+              <button onClick="{{ confirm }}" aria-disabled="{{ notReady }}" style="{{ confirmStyle }}">Confirmar reserva</button>
+            </div>
+            <div style="margin-top:18px;display:grid;gap:6px">
+              <a class="ulink" href="#reservas" style="font-size:14px;color:#8A6A3C">Canjear tarjeta regalo o código</a>
+              <p style="margin:0;font-size:14px;line-height:1.6;color:#5D6E7C">¿Grupo de más de 10 personas? Consulte nuestra sección de <a href="#grupos" style="color:#12395C;text-decoration:underline;text-underline-offset:3px">Grupos</a> o llámenos al <a href="tel:+34933101006" style="color:#12395C;text-decoration:underline;text-underline-offset:3px">93 310 10 06</a>.</p>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <aside style="position:relative;overflow:hidden;background:#12395C;color:#F5F1E8;padding:clamp(24px,2.6vw,38px)">
+        <img src="assets/ilu-bogavante-sm.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute;right:-14%;bottom:-6%;width:86%;opacity:.5;pointer-events:none" />
+        <div style="position:relative">
+          <p style="margin:0 0 18px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">El restaurante</p>
+          <p style="margin:0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:30px;line-height:1.1">C/ Reina Cristina, 3</p>
+          <p style="margin:8px 0 0;font-size:17px;line-height:1.6;color:rgba(245,241,232,.88)">08003 Barcelona (Barceloneta)</p>
+          <div style="margin-top:26px;padding-top:22px;border-top:1px solid rgba(245,241,232,.22)">
+            <p style="margin:0 0 6px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Teléfono</p>
+            <a href="tel:+34933101006" style="font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em;font-size:30px;color:#F5F1E8;display:inline-block;min-height:44px">93 310 10 06</a>
+          </div>
+          <div style="margin-top:22px;padding-top:22px;border-top:1px solid rgba(245,241,232,.22)">
+            <p style="margin:0 0 6px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Horario</p>
+            <p style="margin:0;font-size:17px;line-height:1.6;color:rgba(245,241,232,.88)">Todos los días de 13:00 a 24:00<br />Cocina ininterrumpida hasta las 23:00</p>
+          </div>
+          <a href="https://maps.google.com/?q=Carrer+de+la+Reina+Cristina+3+Barcelona" target="_blank" rel="noopener" style="display:block;margin-top:24px;border:1px solid rgba(216,184,127,.5)">
+            <svg viewBox="0 0 320 190" style="display:block;width:100%;height:auto;background:#0F2F4C">
+              <g stroke="none">
+                <rect x="0" y="0" width="320" height="190" fill="#0F2F4C"></rect>
+                <path d="M232 190L320 118V190z" fill="#16466B"></path>
+                <path d="M0 40l96-40h58L38 108 0 96z" fill="rgba(245,241,232,.05)"></path>
+                <path d="M170 8l64 22-52 46-58-20z" fill="rgba(245,241,232,.05)"></path>
+                <path d="M118 96l58 20-40 40-58-22z" fill="rgba(245,241,232,.05)"></path>
+                <path d="M186 80l62 22-42 42-60-22z" fill="rgba(245,241,232,.07)"></path>
+              </g>
+              <g fill="none" stroke="rgba(245,241,232,.22)" stroke-width="9" stroke-linecap="square">
+                <path d="M-10 108L150 -12"></path>
+                <path d="M40 202L214 62"></path>
+                <path d="M96 210L268 74"></path>
+              </g>
+              <g fill="none" stroke="rgba(245,241,232,.18)" stroke-width="6">
+                <path d="M156 -8l86 30"></path>
+                <path d="M112 30l90 32"></path>
+                <path d="M74 74l92 32"></path>
+                <path d="M40 118l92 34"></path>
+                <path d="M246 26l-52 168"></path>
+              </g>
+              <g fill="none" stroke="rgba(216,184,127,.55)" stroke-width="7">
+                <path d="M228 190l92-76"></path>
+              </g>
+              <circle cx="206" cy="126" r="19" fill="none" stroke="rgba(216,184,127,.45)" stroke-width="1"></circle>
+              <circle cx="206" cy="126" r="7" fill="#D8B87F"></circle>
+              <circle cx="206" cy="126" r="2.4" fill="#0F2F4C"></circle>
+              <text x="196" y="112" text-anchor="end" fill="#F5F1E8" font-family="Inter,sans-serif" font-size="10" font-weight="600" letter-spacing="1.4">CARBALLEIRA</text>
+              <text x="272" y="170" text-anchor="middle" fill="rgba(245,241,232,.65)" font-family="Inter,sans-serif" font-size="9" letter-spacing="1.6">PORT VELL</text>
+              <text x="58" y="26" fill="rgba(245,241,232,.45)" font-family="Inter,sans-serif" font-size="8" letter-spacing="1.2">VIA LAIETANA</text>
+            </svg>
+            <span style="display:block;padding:12px 14px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Ver en el mapa</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section data-view="grupos" id="grupos" style="position:relative;overflow:hidden;background:#12395C;color:#F5F1E8;padding:clamp(60px,9vh,112px) clamp(20px,4vw,60px)">
+  <img src="assets/ilu-pulpo-sm.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute;right:-8%;bottom:-14%;width:min(52%,560px);opacity:.5;pointer-events:none" />
+  <div style="position:relative;max-width:1240px;margin:0 auto">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-bottom:16px">
+      <p style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Grupos y eventos</p>
+      <span aria-label="Bienvenidos a bordo" style="display:inline-flex;flex-direction:column;align-items:center;gap:5px;padding:13px 28px;border:1px solid rgba(216,184,127,.6);color:#D8B87F;font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:.2em;line-height:1;text-transform:uppercase"><span style="font-size:13px">Bienvenidos</span><span style="font-size:13px">a bordo</span></span>
+    </div>
+    <h2 style="margin:0 0 26px;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(44px,6.5vw,80px);line-height:1">Mesa para muchos</h2>
+    <p style="margin:0;font-size:18px;line-height:1.6;max-width:62ch;color:rgba(245,241,232,.88);text-wrap:pretty">Tenemos 5 salas privatizables para grupos de 10 hasta 34 personas, además de nuestra sala Cubierta: un espacio central abierto ideal para un aperitivo o una copa de cava si el evento lo requiere.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:32px">
+      <a href="#salones" style="min-height:44px;display:inline-flex;align-items:center;padding:14px 30px;background:#F5F1E8;color:#12395C;font:600 13px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;transition:background-color .25s ease" style-hover="background:#E6DFCE">Ver salones</a>
+      <a href="#presupuesto" style="min-height:44px;display:inline-flex;align-items:center;padding:14px 30px;background:transparent;border:1px solid rgba(245,241,232,.7);color:#F5F1E8;font:600 13px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;transition:background-color .25s ease" style-hover="background:rgba(245,241,232,.14)">Pedir presupuesto</a>
+    </div>
+  </div>
+</section>
+
+<section data-view="grupos" id="salones" style="background:#F5F1E8;padding:clamp(56px,8vh,100px) clamp(20px,4vw,60px)">
+  <div style="max-width:1240px;margin:0 auto">
+    <div data-finder style="position:sticky;top:78px;z-index:3;background:#F5F1E8;padding:14px 0 18px;margin-bottom:10px;border-bottom:1px solid rgba(18,57,92,.16);display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px">
+      <p style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">¿Cuántos sois?</p>
+      <div style="display:flex;align-items:center;border:1px solid rgba(176,141,87,.55);background:#FFFDF8">
+        <button onClick="{{ gDec }}" aria-label="Menos personas" style="width:46px;height:46px;border:0;background:transparent;color:#12395C;font-size:20px;cursor:pointer;font-family:Inter,sans-serif;transition:background-color .25s" style-hover="background:rgba(18,57,92,.07)">−</button>
+        <span style="min-width:58px;text-align:center;font-family:Fraunces,Georgia,serif;font-weight:700;font-size:24px;color:#12395C">{{ gPeople }}</span>
+        <button onClick="{{ gInc }}" aria-label="Más personas" style="width:46px;height:46px;border:0;background:transparent;color:#12395C;font-size:20px;cursor:pointer;font-family:Inter,sans-serif;transition:background-color .25s" style-hover="background:rgba(18,57,92,.07)">+</button>
+      </div>
+      <p style="margin:0;font-size:15px;color:#5D6E7C">{{ gFinderNote }}</p>
+    </div>
+
+    <p style="margin:28px 0 10px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Los salones</p>
+    <h2 style="margin:0 0 clamp(26px,4vh,44px);font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(38px,5.4vw,68px);line-height:1;color:#12395C">Cinco salas, un mismo puerto</h2>
+    <div data-rooms style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,26px)">
+      <sc-for list="{{ rooms }}" as="r" hint-placeholder-count="5">
+        <article style="{{ r.cardStyle }}">
+          <div style="position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:#12395C">
+            <div style="{{ r.l0 }}">
+              <sc-if value="{{ r.h0 }}" hint-placeholder-val="{{ false }}">
+                <img src="{{ r.p0 }}" alt="{{ r.name }}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block" />
+              </sc-if>
+              <sc-if value="{{ r.n0 }}" hint-placeholder-val="{{ true }}">
+                <image-slot id="{{ r.sl0 }}" shape="rect" placeholder="{{ r.ph }}"></image-slot>
+              </sc-if>
+            </div>
+            <div style="{{ r.l1 }}">
+              <sc-if value="{{ r.h1 }}" hint-placeholder-val="{{ false }}">
+                <img src="{{ r.p1 }}" alt="{{ r.name }}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block" />
+              </sc-if>
+              <sc-if value="{{ r.n1 }}" hint-placeholder-val="{{ true }}">
+                <image-slot id="{{ r.sl1 }}" shape="rect" placeholder="{{ r.ph }}"></image-slot>
+              </sc-if>
+            </div>
+            <div style="{{ r.l2 }}">
+              <sc-if value="{{ r.h2 }}" hint-placeholder-val="{{ false }}">
+                <img src="{{ r.p2 }}" alt="{{ r.name }}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block" />
+              </sc-if>
+              <sc-if value="{{ r.n2 }}" hint-placeholder-val="{{ true }}">
+                <image-slot id="{{ r.sl2 }}" shape="rect" placeholder="{{ r.ph }}"></image-slot>
+              </sc-if>
+            </div>
+            <button onClick="{{ r.prev }}" aria-label="Foto anterior" style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:44px;height:56px;display:flex;align-items:center;justify-content:center;background:rgba(18,57,92,.72);border:0;color:#F5F1E8;font:400 20px Inter,sans-serif;cursor:pointer;transition:background-color .25s ease" style-hover="background:#12395C">‹</button>
+            <button onClick="{{ r.next }}" aria-label="Foto siguiente" style="position:absolute;right:0;top:50%;transform:translateY(-50%);width:44px;height:56px;display:flex;align-items:center;justify-content:center;background:rgba(18,57,92,.72);border:0;color:#F5F1E8;font:400 20px Inter,sans-serif;cursor:pointer;transition:background-color .25s ease" style-hover="background:#12395C">›</button>
+            <p style="position:absolute;right:8px;bottom:8px;margin:0;padding:4px 8px;background:rgba(18,57,92,.72);color:#F5F1E8;font:600 11px Inter,sans-serif;letter-spacing:.14em">{{ r.counter }}</p>
+          </div>
+          <div style="padding:18px 16px 16px">
+            <p style="{{ r.badgeStyle }}">{{ r.badge }}</p>
+            <h3 style="margin:10px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:28px;line-height:1.1;color:#12395C">{{ r.name }}</h3>
+            <p style="margin:8px 0 0;font-size:16px;line-height:1.6;color:#12395C">{{ r.cap }}</p>
+            <p style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#5D6E7C">{{ r.desc }}</p>
+            <p style="{{ r.warnStyle }}">Capacidad máxima superada</p>
+            <button onClick="{{ r.request }}" style="margin-top:16px;width:100%;min-height:44px;padding:12px;background:transparent;border:1px solid rgba(176,141,87,.55);color:#12395C;font:600 12px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background-color .25s ease,border-color .25s ease" style-hover="background:rgba(18,57,92,.06);border-color:#12395C">Solicitar esta sala</button>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-view="grupos" id="menus" style="position:relative;background:#F5F1E8;padding:0 clamp(20px,4vw,60px) clamp(56px,8vh,100px)">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;border-top:1px solid rgba(18,57,92,.16);padding-top:clamp(40px,6vh,72px)">
+      <div>
+        <p style="margin:0 0 10px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Menús</p>
+        <h2 style="margin:0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(38px,5.4vw,68px);line-height:1;color:#12395C">Menús para grupos</h2>
+      </div>
+      <img src="assets/ilu-paella-sm.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="width:clamp(90px,14vw,170px);opacity:.9;flex:0 0 auto" />
+    </div>
+    <div data-menus style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,26px);margin-top:clamp(26px,4vh,44px)">
+      <sc-for list="{{ menus }}" as="m" hint-placeholder-count="3">
+        <article style="background:#FFFDF8;border:1px solid rgba(176,141,87,.45);padding:clamp(18px,2vw,28px);display:flex;flex-direction:column">
+          <p style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">{{ m.kicker }}</p>
+          <h3 style="margin:10px 0 0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:30px;line-height:1.1;color:#12395C">{{ m.name }}</h3>
+          <p style="margin:10px 0 0;font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em;font-size:26px;color:#8A6A3C">{{ m.price }}</p>
+          <dl style="margin:22px 0 0;display:grid;gap:14px">
+            <sc-for list="{{ m.courses }}" as="c" hint-placeholder-count="4">
+              <div style="border-top:1px solid rgba(18,57,92,.12);padding-top:12px">
+                <dt style="font-size:11px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">{{ c.label }}</dt>
+                <dd style="margin:6px 0 0;font-size:16px;line-height:1.6;color:#3A4A57">{{ c.text }}</dd>
+              </div>
+            </sc-for>
+          </dl>
+          <p style="margin:20px 0 0;font-size:13px;line-height:1.6;color:#5D6E7C">{{ m.note }}</p>
+          <button onClick="{{ m.request }}" style="margin-top:auto;width:100%;min-height:44px;padding:12px;margin-top:22px;background:transparent;border:1px solid rgba(176,141,87,.55);color:#12395C;font:600 12px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background-color .25s ease,border-color .25s ease" style-hover="background:rgba(18,57,92,.06);border-color:#12395C">Quiero este menú</button>
+        </article>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:28px">
+      <a href="https://www.carballeira.com/wp-content/uploads/2026/06/Menus-GRUPO-2026.pdf" target="_blank" rel="noopener" style="min-height:44px;display:inline-flex;align-items:center;padding:14px 30px;background:#12395C;color:#F5F1E8;font:600 13px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;transition:background-color .25s ease" style-hover="background:#0F2F4C">Descargar menús en PDF</a>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#5D6E7C">Adaptamos los menús a intolerancias o alergias · mínimo 10 personas · media botella de vino por persona · IVA incluido</p>
+    </div>
+  </div>
+</section>
+
+<section data-view="grupos" id="presupuesto" style="background:#F5F1E8;padding:0 clamp(20px,4vw,60px) clamp(60px,9vh,110px)">
+  <div style="max-width:1240px;margin:0 auto;border-top:1px solid rgba(18,57,92,.16);padding-top:clamp(40px,6vh,72px)">
+    <p style="margin:0 0 10px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Presupuesto</p>
+    <h2 style="margin:0 0 clamp(26px,4vh,44px);font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(38px,5.4vw,68px);line-height:1;color:#12395C">Cuéntenos su evento</h2>
+    <div data-resgrid style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,3vw,44px);align-items:start">
+      <div style="background:#FFFDF8;border:1px solid rgba(176,141,87,.45);padding:clamp(20px,2.4vw,34px)">
+        <sc-if value="{{ gDone }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:clamp(16px,3vh,40px) 0">
+            <h3 style="margin:0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:800;letter-spacing:-.025em;font-size:clamp(38px,5vw,60px);line-height:1;color:#12395C">Solicitud recibida</h3>
+            <p style="margin:18px 0 0;font-size:18px;line-height:1.6;color:#3A4A57;max-width:52ch">Le contactaremos en breve para confirmar disponibilidad.</p>
+            <div style="margin-top:28px;padding-top:22px;border-top:1px solid rgba(18,57,92,.16);display:grid;gap:8px">
+              <p style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#8A6A3C">Su solicitud</p>
+              <p style="margin:0;font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em;font-size:26px;line-height:1.25;color:#12395C">{{ gSummary }}</p>
+              <p style="margin:0;font-size:16px;line-height:1.6;color:#5D6E7C">{{ gSummary2 }}</p>
+            </div>
+            <button onClick="{{ gReset }}" style="margin-top:26px;min-height:44px;padding:14px 26px;background:transparent;border:1px solid rgba(18,57,92,.3);color:#5D6E7C;font:600 13px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:border-color .25s ease,color .25s ease" style-hover="border-color:#12395C;color:#12395C">Nueva solicitud</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ gEditing }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div data-fields style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
+              <label style="display:block">
+                <span style="display:block;font-size:14px;color:#3A4A57;margin-bottom:6px">Nombre y apellidos</span>
+                <input type="text" onInput="{{ gSetName }}" onBlur="{{ gSetName }}" autoComplete="name" style="width:100%;height:46px;padding:0 12px;background:#F5F1E8;border:1px solid rgba(176,141,87,.55);color:#12395C;font:400 16px Inter,sans-serif" />
+                <span style="display:block;font-size:13px;color:#A24B37;min-height:18px;margin-top:4px">{{ gErrName }}</span>
+              </label>
+              <label style="display:block">
+                <span style="display:block;font-size:14px;color:#3A4A57;margin-bottom:6px">Empresa <span style="color:#8A6A3C">Opcional</span></span>
+                <input type="text" onInput="{{ gSetCompany }}" onBlur="{{ gSetCompany }}" autoComplete="organization" style="width:100%;height:46px;padding:0 12px;background:#F5F1E8;border:1px solid rgba(176,141,87,.55);color:#12395C;font:400 16px Inter,sans-serif" />
+                <span style="display:block;font-size:13px;color:#A24B37;min-height:18px;margin-top:4px">{{ gErrNone }}</span>
+              </label>
+              <label style="display:block">
+                <span style="display:block;font-size:14px;color:#3A4A57;margin-bottom:6px">Teléfono</span>
+                <input type="tel" onInput="{{ gSetPhone }}" onBlur="{{ gSetPhone }}" autoComplete="tel" style="width:100%;height:46px;padding:0 12px;background:#F5F1E8;border:1px solid rgba(176,141,87,.55);color:#12395C;font:400 16px Inter,sans-serif" />
+                <span style="display:block;font-size:13px;color:#A24B37;min-height:18px;margin-top:4px">{{ gErrPhone }}</span>
+              </label>
+              <label style="display:block">
+                <span style="display:block;font-size:14px;color:#3A4A57;margin-bottom:6px">Email</span>
+                <input type="email" onInput="{{ gSetEmail }}" onBlur="{{ gSetEmail }}" autoComplete="email" style="width:100%;height:46px;padding:0 12px;background:#F5F1E8;border:1px solid rgba(176,141,87,.55);color:#12395C;font:400 16px Inter,sans-serif" />
+                <span style="display:block;font-size:13px;color:#A24B37;min-height:18px;margin-top:4px">{{ gErrEmail }}</span>
+              </label>
+              <label style="display:block">
+                <span style="display:block;font-size:14px;color:#3A4A57;margin-bottom:6px">Fecha del evento</span>
+                <input type="date" onInput="{{ gSetDate }}" onBlur="{{ gSetDate }}" style="width:100%;height:46px;padding:0 12px;background:#F5F1E8;border:1px solid rgba(176,141,87,.55);color:#12395C;font:400 16px Inter,sans-serif" />
+                <span style="display:block;font-size:13px;color:#A24B37;min-height:18px;margin-top:4px">{{ gErrDate }}</span>
+              </label>
+              <label style="display:block">
+                <span style="display:block;font-size:14px;color:#3A4A57;margin-bottom:6px">Número de personas <span style="color:#8A6A3C">Mínimo 10</span></span>
+                <input type="number" min="10" max="34" value="{{ gPeople }}" onInput="{{ gSetPeople }}" style="width:100%;height:46px;padding:0 12px;background:#F5F1E8;border:1px solid rgba(176,141,87,.55);color:#12395C;font:400 16px Inter,sans-serif" />
+                <span style="display:block;font-size:13px;color:#A24B37;min-height:18px;margin-top:4px">{{ gErrPeople }}</span>
+              </label>
+              <label style="display:block">
+                <span style="display:block;font-size:14px;color:#3A4A57;margin-bottom:6px">Sala preferida</span>
+                <select onChange="{{ gSetRoom }}" value="{{ gRoom }}" style="width:100%;height:46px;padding:0 10px;background:#F5F1E8;border:1px solid rgba(176,141,87,.55);color:#12395C;font:400 16px Inter,sans-serif">
+                  <option value="Que nos aconsejen">Que nos aconsejen</option>
+                  <option value="Camarote">Camarote</option>
+                  <option value="Espigón">Espigón</option>
+                  <option value="Bitácora">Bitácora</option>
+                  <option value="Fragata">Fragata</option>
+                  <option value="Cubierta">Cubierta (aperitivo)</option>
+                </select>
+                <span style="display:block;min-height:18px;margin-top:4px"></span>
+              </label>
+              <label style="display:block">
+                <span style="display:block;font-size:14px;color:#3A4A57;margin-bottom:6px">Menú de interés</span>
+                <select onChange="{{ gSetMenu }}" value="{{ gMenu }}" style="width:100%;height:46px;padding:0 10px;background:#F5F1E8;border:1px solid rgba(176,141,87,.55);color:#12395C;font:400 16px Inter,sans-serif">
+                  <option value="Aún no lo sé">Aún no lo sé</option>
+                  <option value="Menú 70">Menú 70 · 70 €</option>
+                  <option value="Menú 80">Menú 80 · 80 €</option>
+                  <option value="Menú 110">Menú 110 · 110 €</option>
+                </select>
+                <span style="display:block;min-height:18px;margin-top:4px"></span>
+              </label>
+              <label style="display:block">
+                <span style="display:block;font-size:14px;color:#3A4A57;margin-bottom:6px">Turno</span>
+                <div style="display:flex;gap:10px">
+                  <button onClick="{{ gPickLunch }}" style="{{ gLunchStyle }}">Comida</button>
+                  <button onClick="{{ gPickDinner }}" style="{{ gDinnerStyle }}">Cena</button>
+                </div>
+                <span style="display:block;font-size:13px;color:#A24B37;min-height:18px;margin-top:4px">{{ gErrShift }}</span>
+              </label>
+            </div>
+            <label style="display:block;margin-top:4px">
+              <span style="display:block;font-size:14px;color:#3A4A57;margin-bottom:6px">Ocasión y comentarios <span style="color:#8A6A3C">Opcional</span></span>
+              <textarea onInput="{{ gSetNote }}" rows="3" style="width:100%;padding:12px;background:#F5F1E8;border:1px solid rgba(176,141,87,.55);color:#12395C;font:400 16px Inter,sans-serif;resize:vertical"></textarea>
+            </label>
+            <label style="display:flex;align-items:flex-start;gap:10px;margin-top:14px;cursor:pointer;min-height:44px">
+              <input type="checkbox" onChange="{{ gSetAperitivo }}" style="width:18px;height:18px;margin-top:3px;accent-color:#12395C" />
+              <span style="font-size:15px;line-height:1.6;color:#3A4A57">Queremos aperitivo en Cubierta</span>
+            </label>
+            <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;min-height:44px">
+              <input type="checkbox" onChange="{{ gSetPrivacy }}" style="width:18px;height:18px;margin-top:3px;accent-color:#12395C" />
+              <span style="font-size:15px;line-height:1.6;color:#3A4A57">Acepto la política de privacidad y el tratamiento de mis datos para preparar el presupuesto.</span>
+            </label>
+            <p style="margin:0 0 0 28px;font-size:13px;color:#A24B37;min-height:18px">{{ gErrPrivacy }}</p>
+            <div data-sumbar style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:20px;padding-top:20px;border-top:1px solid rgba(18,57,92,.18)">
+              <p style="margin:0;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#12395C">{{ gSummary }}</p>
+              <button onClick="{{ gConfirm }}" aria-disabled="{{ gNotReady }}" style="{{ gConfirmStyle }}">Enviar solicitud</button>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <aside style="position:relative;overflow:hidden;background:#12395C;color:#F5F1E8;padding:clamp(24px,2.6vw,38px)">
+        <img src="assets/ilu-bogavante-sm.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute;right:-16%;bottom:-8%;width:88%;opacity:.5;pointer-events:none" />
+        <div style="position:relative">
+          <p style="margin:0 0 18px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Grupos</p>
+          <p style="margin:0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:30px;line-height:1.15">¿Prefiere hablar con nosotros?</p>
+          <a href="tel:+34933101006" style="display:inline-block;margin-top:22px;font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em;font-size:32px;color:#F5F1E8;min-height:44px">93 310 10 06</a>
+          <div style="margin-top:24px;padding-top:22px;border-top:1px solid rgba(245,241,232,.22)">
+            <p style="margin:0 0 6px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Dónde estamos</p>
+            <p style="margin:0;font-size:17px;line-height:1.6;color:rgba(245,241,232,.88)">C/ Reina Cristina, 3 · 08003 Barcelona</p>
+          </div>
+          <div style="margin-top:22px;padding-top:22px;border-top:1px solid rgba(245,241,232,.22)">
+            <p style="margin:0 0 6px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Horario</p>
+            <p style="margin:0;font-size:17px;line-height:1.6;color:rgba(245,241,232,.88)">Todos los días de 13:00 a 24:00</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<sc-if value="{{ galOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:95;background:#12395C;overflow-y:auto;padding:clamp(20px,4vw,50px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:20px">
+        <div>
+          <p style="margin:0 0 6px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Los salones</p>
+          <p style="margin:0;font-family:Fraunces,Georgia,serif;font-variation-settings:'opsz' 144;font-weight:700;letter-spacing:-.02em;font-size:clamp(30px,4vw,52px);line-height:1;color:#F5F1E8">{{ galName }}</p>
+        </div>
+        <button onClick="{{ closeGal }}" aria-label="Cerrar galería" style="width:46px;height:46px;border:1px solid rgba(216,184,127,.6);background:transparent;color:#D8B87F;font-size:22px;cursor:pointer;font-family:Inter,sans-serif">×</button>
+      </div>
+      <div data-galgrid style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);margin-top:clamp(20px,3vh,36px)">
+        <sc-for list="{{ galShots }}" as="g" hint-placeholder-count="3">
+          <div style="aspect-ratio:4/3;overflow:hidden;box-shadow:0 0 0 1px rgba(216,184,127,.5)">
+            <sc-if value="{{ g.hasPhoto }}" hint-placeholder-val="{{ false }}">
+              <img src="{{ g.photo }}" alt="{{ g.alt }}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block" />
+            </sc-if>
+            <sc-if value="{{ g.noPhoto }}" hint-placeholder-val="{{ true }}">
+              <image-slot id="{{ g.id }}" shape="rect" placeholder="{{ g.ph }}"></image-slot>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:22px 0 0;font-size:15px;color:rgba(245,241,232,.7)">Arrastre sus fotografías sobre cada hueco para sustituirlas.</p>
+    </div>
+  </div>
+</sc-if>
+
+<footer id="contacto" style="position:relative;background:#0F2F4C;color:#F5F1E8;padding:clamp(80px,11vh,120px) clamp(20px,4vw,60px) 56px">
+  <div aria-hidden="true" style="position:absolute;top:0;left:0;right:0;height:1px;background:rgba(176,141,87,.3)"></div>
+  <div style="max-width:1240px;margin:0 auto">
+    <div data-split style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(34px,5vw,70px)">
+      <div id="donde">
+        <p style="margin:0 0 18px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Dónde estamos</p>
+        <p style="margin:0 0 14px;font-size:18px;line-height:1.6;color:rgba(245,241,232,.88)">C/ Reina Cristina, 3<br>08003 Barcelona · Barceloneta</p>
+        <a class="ulink" href="https://maps.google.com/?q=Carrer+de+la+Reina+Cristina+3+Barcelona" target="_blank" rel="noopener" style="font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Ver mapa</a>
+      </div>
+      <div>
+        <p style="margin:0 0 18px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Horario y reservas</p>
+        <p style="margin:0 0 14px;font-size:18px;line-height:1.6;color:rgba(245,241,232,.88)">Todos los días de 13:00 a 24:00<br>Cocina ininterrumpida hasta las 23:00</p>
+        <a class="ulink" href="tel:+34933101006" style="font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em;font-size:27px;color:#F5F1E8">93 310 10 06</a>
+      </div>
+      <div>
+        <p style="margin:0 0 18px;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#D8B87F">Síguenos</p>
+        <div style="display:flex;gap:14px;margin-bottom:26px">
+          <a href="#" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(176,141,87,.6);color:#D8B87F;transition:background-color .25s" style-hover="background:rgba(176,141,87,.18)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg>
+          </a>
+          <a href="#" aria-label="Facebook" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(176,141,87,.6);color:#D8B87F;transition:background-color .25s" style-hover="background:rgba(176,141,87,.18)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M15 3h-2.5C10.6 3 9.5 4.4 9.5 6.3V9H7v3.2h2.5V21h3.2v-8.8H15L15.5 9h-2.8V6.7c0-.6.3-.9.9-.9H15V3z"></path></svg>
+          </a>
+          <a href="#" aria-label="Tripadvisor" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(176,141,87,.6);color:#D8B87F;transition:background-color .25s" style-hover="background:rgba(176,141,87,.18)">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="7" cy="13" r="4.3"></circle><circle cx="17" cy="13" r="4.3"></circle><path d="M8.6 8.2C9.6 7.5 10.7 7.1 12 7.1s2.4.4 3.4 1.1M2 9.4l3 .6M22 9.4l-3 .6"></path></svg>
+          </a>
+        </div>
+        <a class="btn btn-out" href="tel:+34933101006" style="padding:15px 32px"><span>Reservar</span></a>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(26px,5vw,70px);margin:clamp(44px,6vh,68px) 0 0;padding-top:clamp(30px,4vh,46px);border-top:1px solid rgba(245,241,232,.16)">
+      <span aria-label="Bienvenidos a bordo" style="display:inline-flex;flex-direction:column;align-items:center;gap:5px;padding:13px 28px;border:1px solid rgba(216,184,127,.6);color:#D8B87F;font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:.2em;line-height:1;text-transform:uppercase"><span style="font-size:13px">Bienvenidos</span><span style="font-size:13px">a bordo</span></span>
+      <img src="assets/sellos.png" alt="Guia dels 100 Millors Restaurants de Catalunya 2016 · Tripadvisor Travellers’ Choice Awards 2024" loading="lazy" decoding="async" style="display:block;width:clamp(200px,28vw,330px);height:auto;mix-blend-mode:screen;opacity:.92" />
+    </div>
+    <p style="margin:22px 0 0;text-align:center;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:rgba(245,241,232,.5)">Carballeira · Barceloneta · Desde 1944</p>
+  </div>
+</footer>
+
+<div id="lb" onClick="{{ closeZoom }}" style="position:fixed;inset:0;z-index:90;background:rgba(11,32,52,.95);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .45s ease;display:flex;align-items:center;justify-content:center;padding:clamp(20px,5vw,70px);cursor:zoom-out">
+  <img id="lbImg" alt="" style="max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 0 0 1px rgba(176,141,87,.7);transform:scale(.94);transition:transform .55s cubic-bezier(.22,.61,.36,1)">
+  <p id="lbMsg" style="margin:0;position:absolute;bottom:34px;left:0;right:0;text-align:center;font-size:12px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:rgba(245,241,232,.6)"></p>
+</div>
+
+</div>
+        
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.reduce = reduce;
+    this.menuOpen = false;
+
+    // titulares por máscara: partir en letras
+    document.querySelectorAll('.ink').forEach(h => {
+      if (h.dataset.split) return;
+      h.dataset.split = '1';
+      const txt = h.textContent;
+      h.textContent = '';
+      Array.from(txt).forEach((ch, i) => {
+        const s = document.createElement('span');
+        s.textContent = ch;
+        s.style.transitionDelay = (i * 34) + 'ms';
+        h.appendChild(s);
+      });
+    });
+
+    // trazo de las ilustraciones
+    if (!reduce) {
+      document.querySelectorAll('[data-draw]').forEach(d => {
+        const r = d.getBoundingClientRect();
+        if (r.top < innerHeight * 0.92) return; // ya visible: se deja dibujado
+        d.querySelectorAll('path, circle').forEach(p => {
+          const len = p.getTotalLength ? p.getTotalLength() : 0;
+          if (!len) return;
+          p.style.strokeDasharray = len;
+          p.style.strokeDashoffset = len;
+        });
+      });
+    }
+
+    this._waters = Array.from(document.querySelectorAll('[data-water] [data-zoom]'));
+    this._glasses = Array.from(document.querySelectorAll('[data-glass]'));
+    // carga diferida: los paneles ocultos de la carta no descargan sus fotos hasta abrirse
+    // los paneles cerrados de la carta no piden sus fotos hasta abrirse
+    document.querySelectorAll('[data-panel]').forEach(p => {
+      if (p.style.display === 'none') p.querySelectorAll('img[src]').forEach(im => {
+        im.dataset.lazySrc = im.getAttribute('src');
+        im.removeAttribute('src');
+      });
+    });
+    const reveals = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (!reduce) {
+      reveals.forEach(el => {
+        el.style.transition = 'opacity .9s ease, transform .9s cubic-bezier(.22,.61,.36,1)';
+        const r = el.getBoundingClientRect();
+        if (r.top < innerHeight * 0.92) return; // ya visible: no lo ocultamos nunca
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+      });
+    }
+    this._io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        this._io.unobserve(el);
+        const d = parseInt(el.dataset.delay || '0', 10);
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+          el.querySelectorAll('.ink > span').forEach(s => { s.style.opacity = '1'; s.style.transform = 'none'; });
+          if (el.classList.contains('ink')) el.querySelectorAll('span').forEach(s => { s.style.opacity = '1'; s.style.transform = 'none'; });
+          const draw = el.querySelector('[data-draw]');
+          if (draw && !reduce) {
+            const base = parseInt(draw.dataset.draw || '0', 10);
+            draw.querySelectorAll('path, circle').forEach(p => {
+              p.style.transition = 'stroke-dashoffset 1.2s cubic-bezier(.22,.61,.36,1) ' + base + 'ms';
+              p.style.strokeDashoffset = '0';
+            });
+          }
+          const n = el.querySelector('[data-count]');
+          if (n) this.count(n, reduce);
+        }, d);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(el => this._io.observe(el));
+    // red de seguridad: nada puede quedarse invisible
+    setTimeout(() => {
+      document.querySelectorAll('[data-reveal]').forEach(el => {
+        if (getComputedStyle(el).opacity !== '1') { el.style.transition = 'none'; el.style.opacity = '1'; el.style.transform = 'none'; }
+        el.querySelectorAll('[data-draw] path, [data-draw] circle').forEach(p => { p.style.strokeDashoffset = '0'; });
+        el.querySelectorAll('.ink > span').forEach(s => { s.style.opacity = '1'; s.style.transform = 'none'; });
+        if (el.classList.contains('ink')) el.querySelectorAll('span').forEach(s => { s.style.opacity = '1'; s.style.transform = 'none'; });
+      });
+    }, 2500);
+
+    // scroll: progreso, header, parallax, logo
+    this._onScroll = () => {
+      const y = window.scrollY || 0;
+      const doc = document.documentElement;
+      const max = Math.max(1, doc.scrollHeight - innerHeight);
+      const prog = document.getElementById('prog');
+      if (prog) prog.style.transform = 'scaleX(' + Math.min(1, y / max) + ')';
+      const hdr = document.getElementById('hdr');
+      const brand = document.getElementById('brand');
+      const solid = y > innerHeight * 0.55;
+      if (hdr) {
+        hdr.style.backgroundColor = solid ? 'rgba(18,57,92,.94)' : '#12395C';
+        hdr.style.backdropFilter = solid ? 'blur(8px)' : 'none';
+      }
+      if (brand) brand.style.transform = solid ? 'scale(.88)' : 'none';
+      if (reduce) return;
+      const k = innerWidth < 900 ? 0.5 : 1;
+      const hb = document.getElementById('heroBg');
+      if (hb) hb.style.transform = 'translateY(' + (y * 0.09 * k).toFixed(1) + 'px)';
+      const gb = document.getElementById('galBg');
+      if (gb) {
+        const r = gb.getBoundingClientRect();
+        gb.style.transform = 'translateY(' + ((r.top - innerHeight / 2) * -0.05 * k).toFixed(1) + 'px)';
+      }
+    };
+    let ticking = false;
+    this._onScrollRaf = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => { ticking = false; this._onScroll(); });
+    };
+    addEventListener('scroll', this._onScrollRaf, { passive: true });
+    this._onScroll();
+
+    // cursor de latón + distorsión de agua + reflejo de cristal
+    if (!reduce && matchMedia('(hover:hover)').matches) {
+      const ring = document.getElementById('ring');
+      let rx = 0, ry = 0, tx = 0, ty = 0, raf = 0;
+      this._onMove = e => {
+        tx = e.clientX; ty = e.clientY;
+        if (ring) ring.style.opacity = '1';
+        const over = e.target.closest && e.target.closest('a,button');
+        if (ring) {
+          const s = over ? 44 : 26;
+          ring.style.width = s + 'px'; ring.style.height = s + 'px';
+          ring.style.margin = (-s / 2) + 'px 0 0 ' + (-s / 2) + 'px';
+        }
+        const w = e.target.closest && e.target.closest('[data-water]');
+        this._waters.forEach(z => {
+          if (!w || !w.contains(z)) { z.style.filter = ''; return; }
+          const r = w.getBoundingClientRect();
+          const px = ((e.clientX - r.left) / r.width - .5) * 6;
+          const py = ((e.clientY - r.top) / r.height - .5) * 6;
+          z.style.transform = 'scale(1.04) translate(' + px.toFixed(1) + 'px,' + py.toFixed(1) + 'px)';
+        });
+        this._glasses.forEach(g => {
+          const host = g.parentElement.parentElement;
+          const r = host.getBoundingClientRect();
+          const inside = e.clientX > r.left && e.clientX < r.right && e.clientY > r.top && e.clientY < r.bottom;
+          g.style.opacity = inside ? '1' : '0';
+          if (inside) {
+            const px = ((e.clientX - r.left) / r.width - .5) * 26;
+            const py = ((e.clientY - r.top) / r.height - .5) * 26;
+            g.style.transform = 'translate(' + px.toFixed(1) + 'px,' + py.toFixed(1) + 'px)';
+          }
+        });
+        if (!raf) raf = requestAnimationFrame(loop);
+      };
+      const loop = () => {
+        rx += (tx - rx) * 0.16; ry += (ty - ry) * 0.16;
+        if (ring) ring.style.transform = 'translate(' + rx.toFixed(1) + 'px,' + ry.toFixed(1) + 'px)';
+        raf = Math.abs(tx - rx) + Math.abs(ty - ry) > .4 ? requestAnimationFrame(loop) : 0;
+      };
+      addEventListener('mousemove', this._onMove, { passive: true });
+    }
+
+    const media = Array.from(document.querySelectorAll('[data-herovid],[data-heroslide]'));
+    if (media.length) {
+      let i = -1, stillT = 0;
+      const show = (n) => {
+        if (i === n) return;
+        i = n;
+        clearTimeout(stillT);
+        media.forEach((o, k) => {
+          o.style.opacity = k === n ? '1' : '0';
+          if (k !== n && o.tagName === 'VIDEO') o.pause();
+        });
+        const el = media[n];
+        if (el.tagName === 'VIDEO') {
+          if (el.currentTime > 0.05) { try { el.currentTime = 0; } catch (e) {} }
+          const p = el.play();
+          if (p && p.catch) p.catch(() => { advance(n); });
+        } else {
+          stillT = setTimeout(() => advance(n), 5200);
+        }
+      };
+      const advance = (n) => { if (i === n) show((n + 1) % media.length); };
+      media.forEach((el, n) => {
+        if (el.tagName !== 'VIDEO') return;
+        el.muted = true; el.defaultMuted = true; el.loop = false; el.playsInline = true;
+        el.addEventListener('ended', () => advance(n));
+      });
+      this._heroVis = () => {
+        const el = media[i];
+        if (!el) return;
+        if (document.hidden) {
+          clearTimeout(stillT);
+          if (el.tagName === 'VIDEO') el.pause();
+        } else if (el.tagName === 'VIDEO') {
+          const p = el.play(); if (p && p.catch) p.catch(() => {});
+        } else {
+          stillT = setTimeout(() => advance(i), 5200);
+        }
+      };
+      document.addEventListener('visibilitychange', this._heroVis);
+      show(0);
+    }
+    this.cubTimer();
+    this.initViews();
+    this._onKey = e => { if (e.key === 'Escape') { if (this.menuOpen) this.setMenu(false); this.closeLb(); } };
+    addEventListener('keydown', this._onKey);
+  }
+  componentWillUnmount() {
+    removeEventListener('scroll', this._onScrollRaf);
+    if (this._heroVis) document.removeEventListener('visibilitychange', this._heroVis);
+    removeEventListener('keydown', this._onKey);
+    if (this._onMove) removeEventListener('mousemove', this._onMove);
+    if (this._onNav) document.removeEventListener('click', this._onNav);
+    if (this._io) this._io.disconnect();
+    clearInterval(this._cubT);
+    clearInterval(this._heroTimer);
+
+  }
+  count(el, reduce) {
+    if (el.dataset.done) return;
+    el.dataset.done = '1';
+    const to = parseInt(el.dataset.count, 10), from = parseInt(el.dataset.from || '0', 10);
+    if (reduce) { el.textContent = to; return; }
+    const t0 = performance.now(), dur = 1400;
+    const step = t => {
+      const p = Math.min(1, (t - t0) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(from + (to - from) * e);
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  setMenu(open) {
+    this.menuOpen = open;
+    const m = document.getElementById('menu');
+    if (m) {
+      m.style.transform = open ? 'none' : 'translateY(-101%)';
+      m.style.visibility = open ? 'visible' : 'hidden';
+      m.style.pointerEvents = open ? 'auto' : 'none';
+      m.style.overflowY = open ? 'auto' : 'hidden';
+    }
+    document.body.style.overflow = open ? 'hidden' : '';
+    const b1 = document.getElementById('bar1'), b2 = document.getElementById('bar2');
+    if (b1 && b2) {
+      b1.style.transform = open ? 'translateY(3px) rotate(45deg)' : 'none';
+      b2.style.transform = open ? 'translateY(-3px) rotate(-45deg)' : 'none';
+      b2.style.width = open ? '26px' : '17px';
+      b2.style.left = open ? '9px' : '18px';
+    }
+    if (m) m.querySelectorAll('[data-mi]').forEach((el, i) => {
+      el.style.transition = 'opacity .5s ease ' + (open ? 220 + i * 60 : 0) + 'ms, transform .6s cubic-bezier(.22,.61,.36,1) ' + (open ? 220 + i * 60 : 0) + 'ms';
+      el.style.opacity = open ? '1' : '0';
+      el.style.transform = open ? 'none' : 'translateY(-12px)';
+    });
+  }
+  closeLb() {
+    const lb = document.getElementById('lb');
+    const img = document.getElementById('lbImg');
+    if (lb) { lb.style.opacity = '0'; lb.style.pointerEvents = 'none'; }
+    if (img) img.style.transform = 'scale(.94)';
+  }
+  // ---- reservas -------------------------------------------------------
+  resState() {
+    if (!this._res) {
+      const t = new Date(); t.setHours(0, 0, 0, 0);
+      this._res = { adults: 2, kids: 0, date: t, calMonth: new Date(t.getFullYear(), t.getMonth(), 1),
+        calOpen: false, shift: 'cena', time: '', f: {}, touched: false, done: false };
+    }
+    return this._res;
+  }
+  setRes(patch) { Object.assign(this.resState(), patch); this.forceUpdate(); }
+  setField(key, val) {
+    const s = this.resState();
+    s.f = Object.assign({}, s.f, { [key]: val });
+    s.touched = true;
+    this.forceUpdate();
+  }
+  fmtDate(d) {
+    const dows = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'];
+    const mons = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+    return dows[d.getDay()] + ' ' + d.getDate() + ' ' + mons[d.getMonth()];
+  }
+  sameDay(a, b) { return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate(); }
+  slotStyle(on, off) {
+    const base = 'min-height:44px;padding:11px 8px;font:600 14px Inter,sans-serif;letter-spacing:.04em;cursor:pointer;transition:background-color .25s ease,border-color .25s ease,color .25s ease;';
+    if (off) return base + 'background:transparent;border:1px solid rgba(18,57,92,.14);color:rgba(93,110,124,.5);cursor:not-allowed;text-decoration:line-through';
+    if (on) return base + 'background:#12395C;border:1px solid #12395C;color:#F5F1E8';
+    return base + 'background:transparent;border:1px solid rgba(176,141,87,.55);color:#12395C';
+  }
+  // ---- grupos ---------------------------------------------------------
+  gState() {
+    if (!this._g) this._g = { people: 10, room: 'Que nos aconsejen', menu: 'Aún no lo sé', shift: '', aperitivo: false, f: {}, touched: false, done: false, gal: -1 };
+    return this._g;
+  }
+  setG(patch) { Object.assign(this.gState(), patch); this.forceUpdate(); }
+  setGField(key, val) {
+    const s = this.gState();
+    s.f = Object.assign({}, s.f, { [key]: val });
+    s.touched = true;
+    this.forceUpdate();
+  }
+  jumpTo(id) {
+    if (this._viewMap && this._viewMap[id] && this._view !== this._viewMap[id]) this.setView(this._viewMap[id], null, false);
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 92, behavior: 'smooth' });
+  }
+  // ---- pestañas de la web ---------------------------------------------
+  initViews() {
+    const MAP = { restaurante:'inicio', top:'inicio', carta:'inicio', cocina:'inicio', galeria:'inicio',
+      lacarta:'carta', grupos:'grupos', salones:'grupos', menus:'grupos', presupuesto:'grupos',
+      reservas:'contacto', donde:'contacto', cubierta:'grupos',
+      bonos:'bonos', bonolist:'bonos' };
+    this._viewMap = MAP;
+    this.setView('inicio', null, false);
+    this._onNav = e => {
+      const a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const id = a.getAttribute('href').slice(1);
+      if (!id) return;
+      const view = MAP[id];
+      if (!view) return;
+      e.preventDefault();
+      if (this.menuOpen) this.setMenu(false);
+      this.setView(view, id, true);
+    };
+    document.addEventListener('click', this._onNav);
+  }
+  setView(view, anchorId, scroll) {
+    this._view = view;
+    this._applyView = () => {
+      document.querySelectorAll('[data-view]').forEach(el => {
+        el.style.display = el.dataset.view === this._view ? '' : 'none';
+      });
+      };
+    document.querySelectorAll('[data-view]').forEach(el => {
+      el.style.display = el.dataset.view === view ? '' : 'none';
+    });
+    this.forceUpdate();
+    const el = anchorId && document.getElementById(anchorId);
+    const isTop = !el || ['restaurante','lacarta','grupos','reservas','bonos'].indexOf(anchorId) >= 0;
+    if (!scroll) return;
+    requestAnimationFrame(() => {
+      if (isTop) window.scrollTo({ top: 0, behavior: 'smooth' });
+      else if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 92, behavior: 'smooth' });
+      document.querySelectorAll('[data-reveal]').forEach(r => {
+        if (getComputedStyle(r).opacity !== '1') { r.style.transition='none'; r.style.opacity='1'; r.style.transform='none'; }
+      });
+    });
+  }
+  componentDidUpdate() { if (this._applyView) this._applyView(); }
+  cubTimer() {
+    if (this._cubT || this._cubStopped || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    this._cubT = setInterval(() => {
+      if (this._cubStopped) return;
+      const s = this.gState();
+      if (!s.shot) s.shot = {};
+      s.shot['gr-cubierta'] = ((s.shot['gr-cubierta'] || 0) + 1) % 2;
+      this.forceUpdate();
+    }, 5000);
+  }
+  gVals() {
+    const s = this.gState();
+
+    const ROOMS = [
+      { name: 'Camarote', cap: 10, capTxt: 'Hasta 10 personas · desde 8', slot: 'gr-camarote',
+        photos: ['assets/sala-camarote-1.jpg', 'assets/sala-camarote-2.jpg'],
+        desc: 'Una pequeña sala semiprivada, con un gran ventanal, para grupos de 8 a 10 personas.' },
+      { name: 'Espigón', cap: 16, capTxt: 'Hasta 16 personas', slot: 'gr-espigon', photos: ['assets/sala-espigon-1.jpg'],
+        desc: 'Sala mediana con ojos de buey y detalles marineros que evocan el interior de un barco.' },
+      { name: 'Bitácora', cap: 24, capTxt: 'Hasta 24 comensales', slot: 'gr-bitacora', photos: ['assets/sala-bitacora-1.jpg', 'assets/sala-bitacora-2.jpg'],
+        desc: 'Ubicada al fondo y la más privada, con capacidad de hasta 24 comensales en mesa imperial.' },
+      { name: 'Fragata', cap: 34, capTxt: 'Hasta 34 personas', slot: 'gr-fragata', photos: ['assets/sala-sala-fragata-1.jpg', 'assets/sala-sala-fragata-2.jpg', 'assets/sala-sala-fragata-3.jpg'],
+        desc: 'Una gran sala semiprivada con dos espacios para ubicar varias mesas, hasta 34 personas.' },
+      { name: 'Cubierta', cap: 34, capTxt: 'Aperitivo de pie', slot: 'gr-cubierta', open: true,
+        photos: ['assets/sala-cubierta-1.jpg', 'assets/sala-cubierta-2.jpg'],
+        desc: 'Un espacio central abierto, ideal para hacer un aperitivo o una copa de cava si el evento lo requiere.' }
+    ];
+    if (!s.shot) s.shot = {};
+    const cur = slot => s.shot[slot] || 0;
+    const count = r => (r.photos ? r.photos.length : 3);
+    const pic = (r, i) => (r.photos && r.photos[i]) || '';
+    const has = (r, i) => !!(r.photos && r.photos[i]);
+    const layer = (r, i) => {
+      if (i >= count(r)) return 'display:none';
+      const on = cur(r.slot) === i;
+      return 'position:absolute;inset:0;transition:opacity .7s ease;opacity:' + (on ? '1' : '0') +
+        ';pointer-events:' + (on ? 'auto' : 'none');
+    };
+    const step = (slot, d, n) => {
+      this._cubStopped = true;
+      clearInterval(this._cubT);
+      s.shot[slot] = ((cur(slot) + d) + n) % n;
+      this.forceUpdate();
+    };
+    const fits = ROOMS.filter(r => !r.open && r.cap >= s.people);
+    const rooms = ROOMS.map(r => {
+      const ok = r.open || r.cap >= s.people;
+      return {
+        name: r.name, slotId: r.slot, ph: 'Foto de la sala ' + r.name, desc: r.desc,
+        l0: layer(r, 0), l1: layer(r, 1), l2: layer(r, 2),
+        h0: has(r, 0), h1: has(r, 1), h2: has(r, 2),
+        n0: !has(r, 0), n1: !has(r, 1), n2: !has(r, 2),
+        p0: pic(r, 0), p1: pic(r, 1), p2: pic(r, 2),
+        sl0: r.slot + '-1', sl1: r.slot + '-2', sl2: r.slot + '-3',
+        counter: (cur(r.slot) + 1) + ' / ' + count(r),
+        prev: () => step(r.slot, -1, count(r)),
+        next: () => step(r.slot, 1, count(r)),
+        cap: r.capTxt,
+        badge: r.open ? 'Aperitivo · copa de cava' : 'Sala privatizable',
+        badgeStyle: 'margin:0;font-size:11px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:' + (r.open ? '#12395C' : '#8A6A3C'),
+        cardStyle: 'background:#FFFDF8;border:1px solid ' + (ok ? 'rgba(176,141,87,.55)' : 'rgba(18,57,92,.12)') +
+          ';transition:opacity .3s ease,border-color .3s ease;opacity:' + (ok ? '1' : '.45'),
+        warnStyle: 'margin:8px 0 0;font-size:13px;letter-spacing:.14em;font-weight:600;text-transform:uppercase;color:#A24B37;display:' + (ok ? 'none' : 'block'),
+        openGallery: () => this.setG({ gal: ROOMS.indexOf(r) }),
+        request: () => { this.setG({ room: r.name, people: r.open ? s.people : Math.min(r.cap, Math.max(10, s.people)) }); setTimeout(() => this.jumpTo('presupuesto'), 30); }
+      };
+    });
+
+    const MENUS = [
+      { name: 'Menú 70', price: '70 € por persona',
+        entrantes: 'Jamón ibérico 100% bellota · Pan de coca con tomate · Carpaccio de salmón marinado con vinagreta de cítricos · Mejillones marinera · Mix de croquetas de marisco y de sepia · Montadito de steak tartar cortado a cuchillo',
+        principal: 'Paella de marisco · Morro de bacalao con garbanzos en sanfaina · Entrecot de ternera con patatas y pimientos de Padrón',
+        postre: 'Flan de vainilla con chantilly · Coulis de frutos rojos con helado de yogur' },
+      { name: 'Menú 80', price: '80 € por persona',
+        entrantes: 'Jamón ibérico 100% bellota · Pan de coca con tomate · Carpaccio de gamba roja de Palamós con pistachos · Rabas a la andaluza · Mejillones marinera · Pulpo a feira',
+        principal: 'Arroz caldoso de marisco · Suquet de rape gallego con cigala y mejillones · Suprema de merluza a la Ondarroa · Solomillo de vaca vieja gallega con parmentier y demi-glace',
+        postre: 'Tarta Sacher · Carpaccio de piña y mango con helado de maracuyá' },
+      { name: 'Menú 110', price: '110 € por persona',
+        entrantes: 'Aperitivo selección de marisco: ostra, percebes, camarones gallegos y cañaíllas · Carpaccio de gamba roja de Palamós con pistachos · Jamón ibérico 100% bellota · Pan de coca con tomate · Pulpo a feira',
+        principal: 'Rape a la plancha con verduritas · Arroz caldoso de bogavante nacional · Solomillo de vaca vieja gallega con parmentier y demi-glace · Espaldita de cordero al horno',
+        postre: 'Tarta Sacher · Milhojas de crema con vainilla y fresitas · Carpaccio de piña y mango con helado de maracuyá' }
+    ];
+    const menus = MENUS.map((m, i) => ({
+      name: m.name, kicker: 'Menú de grupo 0' + (i + 1), price: m.price,
+      courses: [
+        { label: 'Entrantes para compartir', text: m.entrantes },
+        { label: 'A elegir', text: m.principal },
+        { label: 'Postres a elegir', text: m.postre },
+        { label: 'Bodega · media botella por persona', text: 'Vino blanco La Poda (Albariño) D.O. Rías Baixas · Vino tinto Crianza D.O. Rioja · Aguas minerales y cafés' },
+        { label: 'Opciones', text: 'Aperitivo de bienvenida: ostra y copa de cava, 8 € · Fin de cena con queimada, 8 €' }
+      ],
+      note: 'IVA incluido. Mínimo 10 personas · depósito de 20 € por persona a descontar de la factura final.',
+      request: () => { this.setG({ menu: m.name }); setTimeout(() => this.jumpTo('presupuesto'), 30); }
+    }));
+
+    const f = s.f;
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email || '');
+    const phoneOk = (f.phone || '').replace(/\D/g, '').length >= 9;
+    const nameOk = (f.name || '').trim().length > 1;
+    const dateOk = !!f.date;
+    const peopleOk = s.people >= 10 && s.people <= 34;
+    const ready = nameOk && phoneOk && emailOk && dateOk && peopleOk && !!s.shift && !!f.privacy;
+    const err = (bad, msg) => (s.touched && bad ? msg : '');
+    const shiftStyle = on => 'flex:1;min-height:46px;padding:12px;font:600 12px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-width:1px;border-style:solid;transition:background-color .25s ease,border-color .25s ease,color .25s ease;' +
+      (on ? 'background:#12395C;border-color:#12395C;color:#F5F1E8' : 'background:transparent;border-color:rgba(176,141,87,.55);color:#12395C');
+
+    const gal = s.gal >= 0 ? ROOMS[s.gal] : null;
+    return {
+      gPeople: s.people, gRoom: s.room, gMenu: s.menu, rooms, menus,
+
+      gInc: () => this.setG({ people: Math.min(34, s.people + 1) }),
+      gDec: () => this.setG({ people: Math.max(10, s.people - 1) }),
+      gFinderNote: fits.length
+        ? fits.length + (fits.length === 1 ? ' sala privatizable encaja' : ' salas privatizables encajan') + ' con ' + s.people + ' personas.'
+        : 'Para más de 34 personas, consúltenos: podemos combinar salas.',
+      galOpen: !!gal, galName: gal ? gal.name : '',
+      galShots: [],
+      closeGal: () => this.setG({ gal: -1 }),
+      gSetName: e => this.setGField('name', e.target.value),
+      gSetCompany: e => this.setGField('company', e.target.value),
+      gSetPhone: e => this.setGField('phone', e.target.value),
+      gSetEmail: e => this.setGField('email', e.target.value),
+      gSetDate: e => this.setGField('date', e.target.value),
+      gSetNote: e => this.setGField('note', e.target.value),
+      gSetPeople: e => this.setG({ people: Math.max(10, Math.min(34, parseInt(e.target.value, 10) || 10)) }),
+      gSetRoom: e => this.setG({ room: e.target.value }),
+      gSetMenu: e => this.setG({ menu: e.target.value }),
+      gSetAperitivo: e => this.setG({ aperitivo: e.target.checked }),
+      gSetPrivacy: e => this.setGField('privacy', e.target.checked),
+      gPickLunch: () => this.setG({ shift: 'Comida' }),
+      gPickDinner: () => this.setG({ shift: 'Cena' }),
+      gLunchStyle: shiftStyle(s.shift === 'Comida'), gDinnerStyle: shiftStyle(s.shift === 'Cena'),
+      gErrName: err(!nameOk, 'Indíquenos a nombre de quién.'),
+      gErrPhone: err(!phoneOk, 'Un teléfono de contacto válido, por favor.'),
+      gErrEmail: err(!emailOk, 'Revise el email: falta el formato nombre@dominio.'),
+      gErrDate: err(!dateOk, 'Necesitamos la fecha del evento.'),
+      gErrPeople: err(!peopleOk, 'Grupos de 10 a 34 personas.'),
+      gErrShift: err(!s.shift, 'Elija comida o cena.'),
+      gErrPrivacy: err(!f.privacy, 'Debe aceptar la política de privacidad.'),
+      gErrNone: '',
+      gNotReady: !ready,
+      gConfirmStyle: 'min-height:48px;padding:15px 30px;font:600 13px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;border-width:1px;border-style:solid;cursor:pointer;transition:background-color .25s ease,border-color .25s ease;' +
+        (ready ? 'background:#12395C;border-color:#12395C;color:#F5F1E8' : 'background:transparent;border-color:rgba(18,57,92,.25);color:rgba(18,57,92,.45)'),
+      gConfirm: () => { if (ready) this.setG({ done: true }); else this.setG({ touched: true }); },
+      gReset: () => { this._g = null; this.forceUpdate(); },
+      gDone: s.done, gEditing: !s.done,
+      gSummary: s.people + ' personas · ' + (s.shift || 'turno por definir') + ' · ' + s.room,
+      gSummary2: 'A nombre de ' + ((f.name || '').trim() || '[nombre]') + (f.company ? ' · ' + f.company : '') +
+        ' · ' + (f.date || '[fecha]') + ' · Menú: ' + s.menu + (s.aperitivo ? ' · con aperitivo en Cubierta' : '')
+    };
+  }
+  resVals() {
+    const s = this.resState();
+    const FULL = { comida: ['14:00', '14:30'], cena: [] };
+    const HIDE = ['21:00', '21:30'];
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const dows = ['DOM', 'LUN', 'MAR', 'MIÉ', 'JUE', 'VIE', 'SÁB'];
+    const mons = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'];
+
+    const dates = [];
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(today); d.setDate(today.getDate() + i);
+      const on = this.sameDay(d, s.date);
+      dates.push({
+        dow: i === 0 ? 'HOY' : dows[d.getDay()], day: String(d.getDate()), mon: mons[d.getMonth()],
+        style: 'flex:0 0 auto;min-width:78px;padding:12px 8px;text-align:center;cursor:pointer;font-family:Inter,sans-serif;transition:background-color .25s ease,border-color .25s ease,color .25s ease;' +
+          (on ? 'background:#12395C;border:1px solid #12395C;color:#F5F1E8' : 'background:transparent;border:1px solid rgba(176,141,87,.55);color:#12395C'),
+        pick: () => this.setRes({ date: d, time: '', calOpen: false })
+      });
+    }
+
+    const start = s.shift === 'comida' ? 13 * 60 : 18 * 60;
+    const end = s.shift === 'comida' ? 17 * 60 + 30 : 22 * 60 + 15;
+    const hours = [];
+    for (let m = start; m <= end; m += 15) {
+      const label = String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
+      if (HIDE.indexOf(label) >= 0) continue;
+      const off = FULL[s.shift].indexOf(label) >= 0;
+      hours.push({ label, disabled: off, style: this.slotStyle(s.time === label, off), pick: off ? () => {} : () => this.setRes({ time: label }) });
+    }
+
+    const first = new Date(s.calMonth.getFullYear(), s.calMonth.getMonth(), 1);
+    const lead = (first.getDay() + 6) % 7;
+    const days = new Date(s.calMonth.getFullYear(), s.calMonth.getMonth() + 1, 0).getDate();
+    const calCells = [];
+    for (let i = 0; i < lead; i++) calCells.push({ label: '', disabled: true, style: 'min-height:40px;border:0;background:transparent', pick: () => {} });
+    for (let n = 1; n <= days; n++) {
+      const d = new Date(s.calMonth.getFullYear(), s.calMonth.getMonth(), n);
+      const past = d < today;
+      const on = this.sameDay(d, s.date);
+      calCells.push({
+        label: String(n), disabled: past,
+        style: 'min-height:40px;font:600 14px Inter,sans-serif;cursor:' + (past ? 'not-allowed' : 'pointer') + ';transition:background-color .25s ease,color .25s ease;border:1px solid ' +
+          (on ? '#12395C' : 'transparent') + ';background:' + (on ? '#12395C' : 'transparent') + ';color:' + (on ? '#F5F1E8' : past ? 'rgba(93,110,124,.4)' : '#12395C'),
+        pick: past ? () => {} : () => this.setRes({ date: d, time: '', calOpen: false })
+      });
+    }
+
+    const shiftStyle = on => 'min-height:44px;padding:12px 20px;font:600 13px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background-color .25s ease,border-color .25s ease,color .25s ease;' +
+      (on ? 'background:#12395C;border:1px solid #12395C;color:#F5F1E8' : 'background:transparent;border:1px solid rgba(176,141,87,.55);color:#12395C');
+
+    const f = s.f;
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email || '');
+    const phoneOk = (f.phone || '').replace(/\D/g, '').length >= 9;
+    const ready = !!s.time && (f.name || '').trim().length > 1 && phoneOk && emailOk && !!f.privacy;
+    const err = (bad, msg) => (s.touched && bad ? msg : '');
+    const hourErr = s.touched && !s.time ? 'Elija una hora del turno.' : '';
+
+    const people = s.adults + ' ' + (s.adults === 1 ? 'adulto' : 'adultos') + (s.kids ? ' · ' + s.kids + (s.kids === 1 ? ' niño' : ' niños') : '');
+    const summary = people + ' · ' + this.fmtDate(s.date) + (s.time ? ' · ' + s.time : ' · elija hora');
+
+    return {
+      done: s.done, editing: !s.done,
+      adults: s.adults, kids: s.kids, summary, resName: (f.name || '').trim() || 'su nombre',
+      incA: () => this.setRes({ adults: Math.min(10, s.adults + 1) }),
+      decA: () => this.setRes({ adults: Math.max(1, s.adults - 1) }),
+      incK: () => this.setRes({ kids: Math.min(8, s.kids + 1) }),
+      decK: () => this.setRes({ kids: Math.max(0, s.kids - 1) }),
+      dates, hours, calCells, calOpen: s.calOpen,
+      calLabel: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'][s.calMonth.getMonth()] + ' ' + s.calMonth.getFullYear(),
+      toggleCal: () => this.setRes({ calOpen: !s.calOpen }),
+      prevMonth: () => this.setRes({ calMonth: new Date(s.calMonth.getFullYear(), s.calMonth.getMonth() - 1, 1) }),
+      nextMonth: () => this.setRes({ calMonth: new Date(s.calMonth.getFullYear(), s.calMonth.getMonth() + 1, 1) }),
+      lunchStyle: shiftStyle(s.shift === 'comida'), dinnerStyle: shiftStyle(s.shift === 'cena'),
+      pickLunch: () => this.setRes({ shift: 'comida', time: '' }),
+      pickDinner: () => this.setRes({ shift: 'cena', time: '' }),
+      hourNote: hourErr || (s.time ? 'Mesa para ' + people.toLowerCase() + ' a las ' + s.time + '. Se guarda 15 minutos.' : 'Las horas tachadas están completas. Consúltenos por teléfono si no encuentra hueco.'),
+      hourNoteStyle: 'margin:12px 0 0;font-size:14px;color:' + (hourErr ? '#A24B37' : '#8A6A3C'),
+      setName: e => this.setField('name', e.target.value),
+      setPhone: e => this.setField('phone', e.target.value),
+      setEmail: e => this.setField('email', e.target.value),
+      setNote: e => this.setField('note', e.target.value),
+      setPrivacy: e => this.setField('privacy', e.target.checked),
+      errName: err((f.name || '').trim().length < 2, 'Indíquenos a nombre de quién.'),
+      errPhone: err(!phoneOk, 'Un teléfono de contacto válido, por favor.'),
+      errEmail: err(!emailOk, 'Revise el email: falta el formato nombre@dominio.'),
+      errPrivacy: err(!f.privacy, 'Debe aceptar la política de privacidad.'),
+      notReady: !ready,
+      confirmStyle: 'min-height:48px;padding:15px 30px;font:600 13px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;border-width:1px;border-style:solid;transition:background-color .25s ease,border-color .25s ease;cursor:pointer;' +
+        (ready ? 'background:#12395C;border-color:#12395C;color:#F5F1E8' : 'background:transparent;border-color:rgba(18,57,92,.25);color:rgba(18,57,92,.45)'),
+      confirm: () => { if (ready) this.setRes({ done: true }); else this.setRes({ touched: true }); },
+      reset: () => { this._res = null; this.forceUpdate(); },
+      addCal: () => {
+        const d = s.date, [hh, mm] = (s.time || '21:00').split(':');
+        const p = n => String(n).padStart(2, '0');
+        const st = d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()) + 'T' + hh + mm + '00';
+        const en = d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()) + 'T' + p((+hh + 2) % 24) + mm + '00';
+        const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'BEGIN:VEVENT', 'SUMMARY:Reserva en Carballeira',
+          'LOCATION:C/ Reina Cristina 3, 08003 Barcelona', 'DTSTART:' + st, 'DTEND:' + en, 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+        const a = document.createElement('a');
+        a.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+        a.download = 'reserva-carballeira.ics';
+        a.click();
+      }
+    };
+  }
+  renderVals() {
+    const view = this._view || 'inicio';
+    const nav = v => 'text-shadow:0 1px 10px rgba(11,32,52,.55);transition:color .35s ease;color:' + (v === view ? '#D8B87F' : '#F5F1E8');
+    const miS = v => "font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.02em;font-size:clamp(34px,9vw,54px);padding:9px 0;color:" + (v === view ? '#D8B87F' : '#F5F1E8');
+    return Object.assign(this.resVals(), this.gVals(), {
+      navInicio: nav('inicio'), navCarta: nav('carta'), navGrupos: nav('grupos'), navBonos: nav('bonos'), navContacto: nav('contacto'), navPie: nav('__pie'),
+      miInicio: miS('inicio'), miCarta: miS('carta'), miGrupos: miS('grupos'), miBonos: miS('bonos'), miContacto: miS('contacto'), miPie: miS('__pie'),
+      toggleMenu: () => {
+        const open = !this.menuOpen;
+        if (open) this.setMenu(true);
+        else setTimeout(() => this.setMenu(false), 60);
+      },
+      closeZoom: () => this.closeLb(),
+      tab: e => {
+        const id = e.currentTarget.dataset.tab;
+        document.querySelectorAll('[data-tabs] button').forEach(b => {
+          const on = b.dataset.tab === id;
+          b.style.background = on ? '#12395C' : 'transparent';
+          b.style.color = on ? '#F5F1E8' : '#12395C';
+          b.style.borderColor = on ? '#12395C' : 'rgba(18,57,92,.25)';
+        });
+        document.querySelectorAll('[data-panel]').forEach(p => {
+          const on = p.dataset.panel === id;
+          p.style.display = on ? 'block' : 'none';
+          if (on) p.querySelectorAll('img[data-lazy-src]').forEach(im => {
+            im.setAttribute('src', im.dataset.lazySrc);
+            delete im.dataset.lazySrc;
+          });
+          if (on && !this.reduce) {
+            p.style.opacity = '0';
+            p.style.transform = 'translateY(12px)';
+            p.style.transition = 'opacity .5s ease, transform .6s cubic-bezier(.22,.61,.36,1)';
+            requestAnimationFrame(() => { p.style.opacity = '1'; p.style.transform = 'none'; });
+          }
+        });
+      },
+      zoom: e => {
+        e.preventDefault();
+        e.stopPropagation();
+        const host = e.currentTarget.parentElement;
+        let src = '';
+        const direct = host && host.querySelector('img');
+        if (direct && direct.currentSrc) src = direct.currentSrc;
+        else if (direct && direct.src) src = direct.src;
+        if (!src) {
+          const slot = document.getElementById(e.currentTarget.dataset.slot);
+          try { src = slot && slot.shadowRoot ? (slot.shadowRoot.querySelector('.frame img') || {}).src || '' : ''; } catch (_) {}
+        }
+        const lb = document.getElementById('lb');
+        const img = document.getElementById('lbImg');
+        const msg = document.getElementById('lbMsg');
+        if (src) {
+          img.src = src; img.style.display = 'block';
+          msg.textContent = 'Pulsa para cerrar';
+        } else {
+          img.removeAttribute('src'); img.style.display = 'none';
+          msg.textContent = 'Arrastra una fotografía sobre el marco para verla aquí';
+        }
+        lb.style.opacity = '1';
+        lb.style.pointerEvents = 'auto';
+        requestAnimationFrame(() => { img.style.transform = 'scale(1)'; });
+      }
+    });
+  }
+}
+</script>
+</body>
+</html>
