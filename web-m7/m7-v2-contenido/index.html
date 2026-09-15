@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M7 Lounge — Shisha &amp; Cócteles en Salou y Tarragona</title>
+<meta name="description" content="M7 Lounge, shisha y coctelería en Salou y Tarragona. Más de 50 sabores, cócteles de autor y el rincón que no quieres dejar.">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="M7 Lounge — Shisha &amp; Cócteles">
+<meta property="og:description" content="Shisha y coctelería en Salou y Tarragona.">
+<meta property="og:image" content="m7-assets/hero-poster.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b0b0c'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-family='sans-serif' font-size='30' letter-spacing='4' fill='%23f4d689'%3EM7%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Jost:wght@300;400;500&family=Cormorant+Garamond:wght@300;400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<style>
+:root{--gold:#e8b84b;--gold-2:#f4d689;--ink:#f2ede4;--bg:#0b0b0c;--scrim:0.62}
+html{scroll-behavior:smooth;overflow-x:clip;scroll-padding-top:96px}
+body{overflow-x:clip}
+body{margin:0;background:#0b0b0c;color:#f2ede4;font-family:'Poppins',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-2)}
+::selection{background:rgba(232,184,75,.3)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.m7-quad{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:900px){.m7-quad{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.m7-gal>div{min-width:0}
+@media(max-width:760px){.m7-gal{grid-template-columns:1fr !important;height:auto !important}.m7-gal>div:first-child{max-height:72vh;margin:0 auto}.m7-gal>div:last-child{grid-template-rows:auto auto !important}.m7-gal>div:last-child>div{aspect-ratio:1/1}}
+@media(min-width:761px){.m7-gal>div:last-child>div{aspect-ratio:1/1}}
+.m7-nav{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px}
+@media(max-width:1080px){.m7-bar{padding:12px 12px 12px 20px !important}.m7-nav{gap:8px 14px}.m7-nav>a{font-size:12.5px !important;letter-spacing:1.6px !important}}
+@media(max-width:860px){.m7-bar{border-radius:20px !important;flex-direction:column;align-items:stretch !important;gap:10px !important;padding:14px 16px !important}.m7-nav{justify-content:center;order:2}.m7-brand{text-align:center}.m7-cta{order:3;text-align:center}}
+@media(max-width:640px){.m7-nav>a{font-size:12px !important;letter-spacing:1.2px !important}}
+@media(max-width:860px){
+ .m7-hero-t{font-size:clamp(42px,13vw,72px) !important}
+ .m7-quad{grid-template-columns:1fr !important}
+}
+@media(max-width:640px){
+ .m7-cols{grid-template-columns:1fr !important;gap:26px !important}
+}
+.m7-rail{scrollbar-width:none;scroll-behavior:auto !important}
+.m7-rail::-webkit-scrollbar{display:none}
+@keyframes m7fade{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.m7-dot{height:10px;padding:0;border:0;border-radius:999px;cursor:pointer;width:10px;background:rgba(242,237,228,.45);transition:width .3s ease,background .3s ease}
+.m7-dot[data-active="1"]{width:26px;background:var(--gold)}
+.m7-pausebtn{display:flex;align-items:center;gap:10px;cursor:pointer;font-family:'Manrope',sans-serif;font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;padding:14px 22px;border-radius:999px;border:1px solid rgba(211,165,91,.42);background:transparent;color:#d3a55b;transition:background .2s ease,color .2s ease}
+.m7-pausebtn[data-paused="1"]{background:#d3a55b;color:#14110d}
+.m7-tab{font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;padding:15px 26px;border-radius:2px;border:1px solid rgba(242,237,228,.16);background:transparent;color:#f2ede4;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.m7-tab[data-active="1"]{border-color:var(--gold);background:var(--gold);color:#0b0b0c}
+.m7-rail{scroll-snap-type:x proximity}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+.hv1:hover{text-shadow:0 0 5px #fff6e6,0 0 16px rgba(240,168,60,.95),0 0 38px rgba(232,140,32,.75),0 0 70px rgba(214,110,20,.5) !important}
+.hv2:hover{color:var(--gold) !important}
+.hv3:hover{color:var(--gold) !important}
+.hv4:hover{color:var(--gold) !important}
+.hv5:hover{color:var(--gold) !important}
+.hv6:hover{color:var(--gold) !important}
+.hv7:hover{color:var(--gold) !important}
+.hv8:hover{color:var(--gold) !important}
+.hv9:hover{background:#f4d689 !important}
+.hv10:hover{background:#f4d689 !important}
+.hv11:hover{border-color:var(--gold) !important;color:var(--gold) !important}
+.hv12:hover{background:var(--gold-2) !important}
+.hv13:hover{border-color:var(--gold) !important;color:var(--gold) !important}
+.hv14:hover{border-color:var(--gold) !important;color:var(--gold) !important}
+.hv15:hover{background:var(--gold-2) !important}
+.hv16:hover{border-color:var(--gold) !important;color:var(--gold) !important}
+.hv17:hover{border-color:var(--gold) !important;color:var(--gold) !important}
+.hv18:hover{background:#f4d689 !important}
+</style>
+</head>
+<body>
+<div style="--gold:#e8b84b;--gold-2:#f4d689;background:#0b0b0c;min-height:100vh">
+
+  
+
+  <header style="position:sticky;top:0;z-index:60;padding:14px 16px 0;display:flex;justify-content:center;pointer-events:none">
+    <div style="pointer-events:auto;width:100%;max-width:1160px;background:#0e0e0f;border:1px solid rgba(242,237,228,.08);border-radius:999px;padding:12px 16px 12px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 22px;box-shadow:0 18px 50px rgba(0,0,0,.55)" class="m7-bar">
+      <a href="#top" class="hv1 m7-brand" style="font-family:'Jost',sans-serif;font-weight:300;font-size:34px;line-height:1;letter-spacing:5px;color:#fff3dd;text-shadow:0 0 4px rgba(255,226,178,.95),0 0 12px rgba(232,150,50,.85),0 0 28px rgba(226,132,30,.6),0 0 52px rgba(214,110,20,.35)">M7</a>
+      <nav class="m7-nav">
+        <a class="hv2" href="#experiencia" style="font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;letter-spacing:2.2px;text-transform:uppercase;color:#f2ede4;white-space:nowrap">Experiencia</a>
+        <a class="hv3" href="#nosotros" style="font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;letter-spacing:2.2px;text-transform:uppercase;color:#f2ede4;white-space:nowrap">Nosotros</a>
+        <a class="hv4" href="#cocteles" style="font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;letter-spacing:2.2px;text-transform:uppercase;color:#f2ede4;white-space:nowrap">Cócteles</a>
+        <a class="hv5" href="#locales" style="font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;letter-spacing:2.2px;text-transform:uppercase;color:#f2ede4;white-space:nowrap">Dónde estamos</a>
+        <a class="hv6" href="#carta" style="font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;letter-spacing:2.2px;text-transform:uppercase;color:#f2ede4;white-space:nowrap">Carta</a>
+        <a class="hv7" href="#galeria" style="font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;letter-spacing:2.2px;text-transform:uppercase;color:#f2ede4;white-space:nowrap">Galería</a>
+        <a class="hv8" href="#contacto" style="font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;letter-spacing:2.2px;text-transform:uppercase;color:#f2ede4;white-space:nowrap">Contacto</a>
+      </nav>
+      <div class="m7-cta" style="display:flex;align-items:center;justify-content:center;gap:10px">
+        <a class="hv9" href="https://wa.me/34682078809" target="_blank" rel="noopener" style="font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#0b0b0c;background:linear-gradient(180deg,#f4d689,#e0a92f);border-radius:999px;padding:14px 24px;white-space:nowrap">Reservar</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="top" style="position:relative;margin-top:-92px;min-height:min(96vh,900px);display:grid;place-items:center;overflow:hidden">
+    <div style="position:absolute;inset:0">
+      <video src="m7-uploads/hero.mp4" autoplay muted loop playsinline preload="auto" poster="m7-assets/hero-poster.jpg" style="width:100%;height:100%;object-fit:cover;display:block"></video>
+    </div>
+    <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(11,11,12,.86) 0%,rgba(11,11,12,.52) 34%,rgba(11,11,12,.72) 78%,#0b0b0c 100%)"></div>
+    <div style="position:relative;padding:170px 24px 120px;text-align:center;max-width:1100px;animation:m7fade .8s ease both">
+      <h1 style="margin:0;font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(52px,10.5vw,148px);line-height:.94;letter-spacing:-1px;color:#f2ede4;text-transform:uppercase">M7 Lounge</h1>
+      <h2 style="margin:18px 0 0;font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(28px,6vw,86px);line-height:1;letter-spacing:1px;color:var(--gold);text-transform:uppercase">Salou &amp; Tarragona</h2>
+      <p style="margin:34px auto 0;font-size:clamp(16px,2.2vw,24px);font-weight:300;color:rgba(242,237,228,.72);max-width:620px">El rincón que no quieres dejar</p>
+      <div style="margin-top:46px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+        <a class="hv10" href="https://wa.me/34682078809" target="_blank" rel="noopener" style="font-family:'Poppins',sans-serif;font-weight:600;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:#0b0b0c;background:linear-gradient(180deg,#f4d689,#e0a92f);padding:22px 46px;border:1px solid rgba(0,0,0,.2)">Reservar mesa</a>
+        <a class="hv11" href="#carta" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:#f2ede4;padding:22px 40px;border:1px solid rgba(242,237,228,.28)">Ver carta</a>
+      </div>
+    </div>
+  </section>
+
+  <div style="border-top:1px solid rgba(242,237,228,.08);border-bottom:1px solid rgba(242,237,228,.08);background:#0e0e0f">
+    <div style="max-width:1160px;margin:0 auto;padding:22px 24px;display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:center;align-items:center;font-family:'Oswald',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:14px;color:rgba(242,237,228,.62)">
+      <span style="color:var(--gold)">+50 sabores de shisha</span>
+      <span>Cocktails &amp; Shishas</span>
+      <span>Terraza</span>
+      <span>Fútbol en directo</span>
+      <span>Todos los días · desde las 17:00</span>
+    </div>
+  </div>
+
+  <section id="experiencia" style="max-width:1160px;margin:0 auto;padding:64px 24px 0">
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px" class="m7-quad">
+      <div style="background:#0b0b0c;padding:38px 30px;border:1px solid rgba(242,237,228,.08)">
+        <i class="ph ph-fire" style="font-size:30px;color:var(--gold)"></i>
+        <h5 style="margin:18px 0 0;font-family:'Oswald',sans-serif;font-weight:500;font-size:20px;letter-spacing:1.5px;text-transform:uppercase">Shishas premium</h5>
+        <p style="margin:10px 0 0;font-size:14px;line-height:1.7;color:rgba(242,237,228,.6)">Carta amplia de sabores, del más suave a las mezclas más intensas.</p>
+      </div>
+      <div style="background:#0b0b0c;padding:38px 30px;border:1px solid rgba(242,237,228,.08)">
+        <i class="ph ph-martini" style="font-size:30px;color:var(--gold)"></i>
+        <h5 style="margin:18px 0 0;font-family:'Oswald',sans-serif;font-weight:500;font-size:20px;letter-spacing:1.5px;text-transform:uppercase">Cócteles de autor</h5>
+        <p style="margin:10px 0 0;font-size:14px;line-height:1.7;color:rgba(242,237,228,.6)">Clásicos bien hechos y creaciones de la casa, preparados en barra.</p>
+      </div>
+      <div style="background:#0b0b0c;padding:38px 30px;border:1px solid rgba(242,237,228,.08)">
+        <i class="ph ph-umbrella" style="font-size:30px;color:var(--gold)"></i>
+        <h5 style="margin:18px 0 0;font-family:'Oswald',sans-serif;font-weight:500;font-size:20px;letter-spacing:1.5px;text-transform:uppercase">Terraza climatizada</h5>
+        <p style="margin:10px 0 0;font-size:14px;line-height:1.7;color:rgba(242,237,228,.6)">Semicerrada y con estufas: cómoda también las noches frescas.</p>
+      </div>
+      <div style="background:#0b0b0c;padding:38px 30px;border:1px solid rgba(242,237,228,.08)">
+        <i class="ph ph-television-simple" style="font-size:30px;color:var(--gold)"></i>
+        <h5 style="margin:18px 0 0;font-family:'Oswald',sans-serif;font-weight:500;font-size:20px;letter-spacing:1.5px;text-transform:uppercase">Fútbol en directo</h5>
+        <p style="margin:10px 0 0;font-size:14px;line-height:1.7;color:rgba(242,237,228,.6)">Los grandes partidos en pantalla, con ambiente y buena música.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros" style="max-width:1160px;margin:0 auto;padding:44px 24px 20px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:48px;align-items:center">
+      <div>
+        <p style="margin:0;font-family:'Oswald',sans-serif;letter-spacing:4px;text-transform:uppercase;font-size:13px;color:var(--gold)">Sobre nosotros</p>
+        <h3 style="margin:12px 0 0;font-family:'Oswald',sans-serif;font-weight:600;font-size:clamp(34px,5.5vw,64px);line-height:1.02;text-transform:uppercase;color:#f2ede4">M7 Lounge</h3>
+        <p style="margin:26px 0 0;font-size:16px;line-height:1.85;color:rgba(242,237,228,.72);max-width:60ch">Nacimos en Salou con una idea simple: un sitio donde sentarse sin prisa, con una shisha bien preparada y un cóctel hecho como toca. Luz baja, buena música y un equipo que te trata como en casa.</p>
+        <p style="margin:16px 0 0;font-size:16px;line-height:1.85;color:rgba(242,237,228,.72);max-width:60ch">Hoy somos dos locales — Salou y Tarragona — con la misma barra, la misma carta de sabores y la misma terraza para quedarse hasta el cierre.</p>
+        <div style="margin-top:34px;display:flex;flex-wrap:wrap;gap:34px">
+          <div><span style="display:block;font-family:'Oswald',sans-serif;font-size:38px;color:var(--gold);line-height:1">2</span><span style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,228,.5)">Locales</span></div>
+          <div><span style="display:block;font-family:'Oswald',sans-serif;font-size:38px;color:var(--gold);line-height:1">+50</span><span style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,228,.5)">Sabores</span></div>
+          <div><span style="display:flex;align-items:center;gap:7px;font-family:'Oswald',sans-serif;font-size:38px;color:var(--gold);line-height:1">5,0<i class="ph ph-star" style="font-size:24px"></i></span><span style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,228,.5)">Google</span></div>
+        </div>
+      </div>
+      <div style="position:relative;min-height:460px;overflow:hidden;background:#101011">
+        <div id="m7-track" style="display:flex;width:100%;height:100%;position:absolute;inset:0;transform:translateX(0%);transition:transform 1s cubic-bezier(.65,.05,.36,1)">
+          <img src="m7-assets/hero-poster.jpg" alt="M7 Lounge Salou" style="width:100%;height:100%;flex:0 0 100%;object-fit:cover;display:block">
+          <img src="m7-assets/gal-0.jpg" alt="M7 Lounge Tarragona" style="width:100%;height:100%;flex:0 0 100%;object-fit:cover;display:block">
+        </div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:120px;pointer-events:none;background:linear-gradient(180deg,rgba(11,11,12,0),rgba(11,11,12,.75))"></div>
+        <div style="position:absolute;bottom:18px;left:20px;display:flex;gap:8px">
+          <button type="button" aria-label="Foto 1" data-slide="0" class="m7-dot"></button>
+          <button type="button" aria-label="Foto 2" data-slide="1" class="m7-dot"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cocteles" style="padding:80px 0 96px;background:#14110d">
+    <div style="max-width:1160px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between">
+      <div>
+        <p style="margin:0;font-family:'Manrope',sans-serif;letter-spacing:4px;text-transform:uppercase;font-size:13px;color:#d3a55b">De la barra</p>
+        <h3 style="margin:10px 0 0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(38px,6vw,72px);line-height:1;color:#f4ecdd">Cócteles</h3>
+      </div>
+      <button type="button" id="m7-pause" class="m7-pausebtn"><i class="ph ph-pause"></i><span>Pausar</span></button>
+    </div>
+    <div class="m7-rail" id="m7-rail" style="margin-top:40px;display:flex;gap:18px;overflow-x:auto;padding:6px max(24px,calc((100% - 1160px) / 2 + 24px)) 10px">
+        <div style="position:relative;flex:0 0 auto;width:clamp(240px,68vw,320px);aspect-ratio:3/4.2;scroll-snap-align:center;border:1px solid rgba(211,165,91,.22);overflow:hidden;background:radial-gradient(120% 70% at 50% -10%,rgba(211,165,91,.20) 0%,rgba(60,44,24,.20) 38%,rgba(14,12,10,.7) 78%,#0d0c0a 100%)">
+          <img src="m7-uploads/magnific_photorealistic-edit-of-im_jUNpyF5LD0.jpg" alt="Cóctel M7" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%;filter:saturate(1.05) contrast(1.06) brightness(1.16)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 40% at 50% -6%,rgba(255,214,150,.20) 0%,rgba(0,0,0,0) 62%),radial-gradient(120% 85% at 50% 55%,rgba(10,9,7,0) 52%,rgba(10,9,7,.34) 84%,rgba(8,7,6,.58) 100%)"></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;width:clamp(240px,68vw,320px);aspect-ratio:3/4.2;scroll-snap-align:center;border:1px solid rgba(211,165,91,.22);overflow:hidden;background:radial-gradient(120% 70% at 50% -10%,rgba(211,165,91,.20) 0%,rgba(60,44,24,.20) 38%,rgba(14,12,10,.7) 78%,#0d0c0a 100%)">
+          <img src="m7-uploads/magnific_img2-cambia-a-la-bebida-d_hu1N9pKvqL.jpg" alt="Cóctel M7" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%;filter:saturate(1.05) contrast(1.06) brightness(1.16)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 40% at 50% -6%,rgba(255,214,150,.20) 0%,rgba(0,0,0,0) 62%),radial-gradient(120% 85% at 50% 55%,rgba(10,9,7,0) 52%,rgba(10,9,7,.34) 84%,rgba(8,7,6,.58) 100%)"></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;width:clamp(240px,68vw,320px);aspect-ratio:3/4.2;scroll-snap-align:center;border:1px solid rgba(211,165,91,.22);overflow:hidden;background:radial-gradient(120% 70% at 50% -10%,rgba(211,165,91,.20) 0%,rgba(60,44,24,.20) 38%,rgba(14,12,10,.7) 78%,#0d0c0a 100%)">
+          <img src="m7-uploads/magnific_hotorealistic-edit-of-img_hu1NpqKvqL.jpg" alt="Cóctel M7" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%;filter:saturate(1.05) contrast(1.06) brightness(1.16)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 40% at 50% -6%,rgba(255,214,150,.20) 0%,rgba(0,0,0,0) 62%),radial-gradient(120% 85% at 50% 55%,rgba(10,9,7,0) 52%,rgba(10,9,7,.34) 84%,rgba(8,7,6,.58) 100%)"></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;width:clamp(240px,68vw,320px);aspect-ratio:3/4.2;scroll-snap-align:center;border:1px solid rgba(211,165,91,.22);overflow:hidden;background:radial-gradient(120% 70% at 50% -10%,rgba(211,165,91,.20) 0%,rgba(60,44,24,.20) 38%,rgba(14,12,10,.7) 78%,#0d0c0a 100%)">
+          <img src="m7-uploads/magnific_photorealistic-edit-of-im_SyZoyFpUb8.jpg" alt="Cóctel M7" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%;filter:saturate(1.05) contrast(1.06) brightness(1.16)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 40% at 50% -6%,rgba(255,214,150,.20) 0%,rgba(0,0,0,0) 62%),radial-gradient(120% 85% at 50% 55%,rgba(10,9,7,0) 52%,rgba(10,9,7,.34) 84%,rgba(8,7,6,.58) 100%)"></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;width:clamp(240px,68vw,320px);aspect-ratio:3/4.2;scroll-snap-align:center;border:1px solid rgba(211,165,91,.22);overflow:hidden;background:radial-gradient(120% 70% at 50% -10%,rgba(211,165,91,.20) 0%,rgba(60,44,24,.20) 38%,rgba(14,12,10,.7) 78%,#0d0c0a 100%)">
+          <img src="m7-uploads/magnific_photorealistic-edit-of-im_4RcaScS9Aa.jpg" alt="Cóctel M7" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%;filter:saturate(1.05) contrast(1.06) brightness(1.16)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 40% at 50% -6%,rgba(255,214,150,.20) 0%,rgba(0,0,0,0) 62%),radial-gradient(120% 85% at 50% 55%,rgba(10,9,7,0) 52%,rgba(10,9,7,.34) 84%,rgba(8,7,6,.58) 100%)"></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;width:clamp(240px,68vw,320px);aspect-ratio:3/4.2;scroll-snap-align:center;border:1px solid rgba(211,165,91,.22);overflow:hidden;background:radial-gradient(120% 70% at 50% -10%,rgba(211,165,91,.20) 0%,rgba(60,44,24,.20) 38%,rgba(14,12,10,.7) 78%,#0d0c0a 100%)">
+          <img src="m7-uploads/magnific_photorealistic-edit-of-im_TdvsoiRVNR.jpg" alt="Cóctel M7" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%;filter:saturate(1.05) contrast(1.06) brightness(1.16)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 40% at 50% -6%,rgba(255,214,150,.20) 0%,rgba(0,0,0,0) 62%),radial-gradient(120% 85% at 50% 55%,rgba(10,9,7,0) 52%,rgba(10,9,7,.34) 84%,rgba(8,7,6,.58) 100%)"></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;width:clamp(240px,68vw,320px);aspect-ratio:3/4.2;scroll-snap-align:center;border:1px solid rgba(211,165,91,.22);overflow:hidden;background:radial-gradient(120% 70% at 50% -10%,rgba(211,165,91,.20) 0%,rgba(60,44,24,.20) 38%,rgba(14,12,10,.7) 78%,#0d0c0a 100%)">
+          <img src="m7-uploads/magnific_photorealistic-edit-of-im_fHj3eqECDY.jpg" alt="Cóctel M7" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%;filter:saturate(1.05) contrast(1.06) brightness(1.16)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 40% at 50% -6%,rgba(255,214,150,.20) 0%,rgba(0,0,0,0) 62%),radial-gradient(120% 85% at 50% 55%,rgba(10,9,7,0) 52%,rgba(10,9,7,.34) 84%,rgba(8,7,6,.58) 100%)"></div>
+        </div>
+            <div style="position:relative;flex:0 0 auto;width:clamp(240px,68vw,320px);aspect-ratio:3/4.2;scroll-snap-align:center;border:1px solid rgba(211,165,91,.22);overflow:hidden;background:radial-gradient(120% 70% at 50% -10%,rgba(211,165,91,.20) 0%,rgba(60,44,24,.20) 38%,rgba(14,12,10,.7) 78%,#0d0c0a 100%)">
+          <img src="m7-uploads/magnific_photorealistic-edit-of-im_jUNpyF5LD0.jpg" alt="" aria-hidden="true" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%;filter:saturate(1.05) contrast(1.06) brightness(1.16)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 40% at 50% -6%,rgba(255,214,150,.20) 0%,rgba(0,0,0,0) 62%),radial-gradient(120% 85% at 50% 55%,rgba(10,9,7,0) 52%,rgba(10,9,7,.34) 84%,rgba(8,7,6,.58) 100%)"></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;width:clamp(240px,68vw,320px);aspect-ratio:3/4.2;scroll-snap-align:center;border:1px solid rgba(211,165,91,.22);overflow:hidden;background:radial-gradient(120% 70% at 50% -10%,rgba(211,165,91,.20) 0%,rgba(60,44,24,.20) 38%,rgba(14,12,10,.7) 78%,#0d0c0a 100%)">
+          <img src="m7-uploads/magnific_img2-cambia-a-la-bebida-d_hu1N9pKvqL.jpg" alt="" aria-hidden="true" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%;filter:saturate(1.05) contrast(1.06) brightness(1.16)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 40% at 50% -6%,rgba(255,214,150,.20) 0%,rgba(0,0,0,0) 62%),radial-gradient(120% 85% at 50% 55%,rgba(10,9,7,0) 52%,rgba(10,9,7,.34) 84%,rgba(8,7,6,.58) 100%)"></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;width:clamp(240px,68vw,320px);aspect-ratio:3/4.2;scroll-snap-align:center;border:1px solid rgba(211,165,91,.22);overflow:hidden;background:radial-gradient(120% 70% at 50% -10%,rgba(211,165,91,.20) 0%,rgba(60,44,24,.20) 38%,rgba(14,12,10,.7) 78%,#0d0c0a 100%)">
+          <img src="m7-uploads/magnific_hotorealistic-edit-of-img_hu1NpqKvqL.jpg" alt="" aria-hidden="true" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%;filter:saturate(1.05) contrast(1.06) brightness(1.16)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 40% at 50% -6%,rgba(255,214,150,.20) 0%,rgba(0,0,0,0) 62%),radial-gradient(120% 85% at 50% 55%,rgba(10,9,7,0) 52%,rgba(10,9,7,.34) 84%,rgba(8,7,6,.58) 100%)"></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;width:clamp(240px,68vw,320px);aspect-ratio:3/4.2;scroll-snap-align:center;border:1px solid rgba(211,165,91,.22);overflow:hidden;background:radial-gradient(120% 70% at 50% -10%,rgba(211,165,91,.20) 0%,rgba(60,44,24,.20) 38%,rgba(14,12,10,.7) 78%,#0d0c0a 100%)">
+          <img src="m7-uploads/magnific_photorealistic-edit-of-im_SyZoyFpUb8.jpg" alt="" aria-hidden="true" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%;filter:saturate(1.05) contrast(1.06) brightness(1.16)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 40% at 50% -6%,rgba(255,214,150,.20) 0%,rgba(0,0,0,0) 62%),radial-gradient(120% 85% at 50% 55%,rgba(10,9,7,0) 52%,rgba(10,9,7,.34) 84%,rgba(8,7,6,.58) 100%)"></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;width:clamp(240px,68vw,320px);aspect-ratio:3/4.2;scroll-snap-align:center;border:1px solid rgba(211,165,91,.22);overflow:hidden;background:radial-gradient(120% 70% at 50% -10%,rgba(211,165,91,.20) 0%,rgba(60,44,24,.20) 38%,rgba(14,12,10,.7) 78%,#0d0c0a 100%)">
+          <img src="m7-uploads/magnific_photorealistic-edit-of-im_4RcaScS9Aa.jpg" alt="" aria-hidden="true" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%;filter:saturate(1.05) contrast(1.06) brightness(1.16)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 40% at 50% -6%,rgba(255,214,150,.20) 0%,rgba(0,0,0,0) 62%),radial-gradient(120% 85% at 50% 55%,rgba(10,9,7,0) 52%,rgba(10,9,7,.34) 84%,rgba(8,7,6,.58) 100%)"></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;width:clamp(240px,68vw,320px);aspect-ratio:3/4.2;scroll-snap-align:center;border:1px solid rgba(211,165,91,.22);overflow:hidden;background:radial-gradient(120% 70% at 50% -10%,rgba(211,165,91,.20) 0%,rgba(60,44,24,.20) 38%,rgba(14,12,10,.7) 78%,#0d0c0a 100%)">
+          <img src="m7-uploads/magnific_photorealistic-edit-of-im_TdvsoiRVNR.jpg" alt="" aria-hidden="true" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%;filter:saturate(1.05) contrast(1.06) brightness(1.16)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 40% at 50% -6%,rgba(255,214,150,.20) 0%,rgba(0,0,0,0) 62%),radial-gradient(120% 85% at 50% 55%,rgba(10,9,7,0) 52%,rgba(10,9,7,.34) 84%,rgba(8,7,6,.58) 100%)"></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;width:clamp(240px,68vw,320px);aspect-ratio:3/4.2;scroll-snap-align:center;border:1px solid rgba(211,165,91,.22);overflow:hidden;background:radial-gradient(120% 70% at 50% -10%,rgba(211,165,91,.20) 0%,rgba(60,44,24,.20) 38%,rgba(14,12,10,.7) 78%,#0d0c0a 100%)">
+          <img src="m7-uploads/magnific_photorealistic-edit-of-im_fHj3eqECDY.jpg" alt="" aria-hidden="true" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%;filter:saturate(1.05) contrast(1.06) brightness(1.16)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 40% at 50% -6%,rgba(255,214,150,.20) 0%,rgba(0,0,0,0) 62%),radial-gradient(120% 85% at 50% 55%,rgba(10,9,7,0) 52%,rgba(10,9,7,.34) 84%,rgba(8,7,6,.58) 100%)"></div>
+        </div>
+    </div>
+    <p style="max-width:1160px;margin:26px auto 0;padding:0 24px;font-family:'Manrope',sans-serif;font-size:14px;letter-spacing:.5px;color:rgba(244,236,221,.5)">Todos preparados en barra</p>
+  </section>
+
+  <section id="locales" style="max-width:1160px;margin:0 auto;padding:76px 24px 30px">
+    <p style="margin:0;font-family:'Oswald',sans-serif;letter-spacing:4px;text-transform:uppercase;font-size:13px;color:var(--gold)">Dos locales</p>
+    <h3 style="margin:12px 0 0;font-family:'Oswald',sans-serif;font-weight:600;font-size:clamp(34px,5.5vw,64px);line-height:1.02;text-transform:uppercase;color:#f2ede4">Donde estamos</h3>
+    <div style="margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:26px">
+      <article style="background:#101011;border:1px solid rgba(242,237,228,.08);overflow:hidden">
+        <div style="position:relative;height:300px;background:#0b0b0c"><iframe title="Mapa M7 Salou" src="https://www.google.com/maps?q=Carrer%20Major%207%2C%2043840%20Salou%2C%20Tarragona&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width:100%;height:100%;border:0;display:block;filter:saturate(.85) brightness(.92)"></iframe></div>
+        <div style="padding:30px 30px 34px">
+          <h4 style="margin:0;font-family:'Oswald',sans-serif;font-weight:600;font-size:30px;letter-spacing:1px;text-transform:uppercase;color:#f2ede4">M7 Salou</h4>
+          <p style="margin:16px 0 0;font-size:15px;line-height:1.7;color:rgba(242,237,228,.66)">Carrer Major, 7<br>43840 Salou, Tarragona</p>
+          <p style="margin:14px 0 0;font-size:15px;line-height:1.7;color:rgba(242,237,228,.66)">Dom a jue · 17:00 — 02:30<br>Vie, sáb y festivos · 17:00 — 03:00</p>
+          <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px">
+            <a class="hv12" href="https://wa.me/34682078809" target="_blank" rel="noopener" style="font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#0b0b0c;background:var(--gold);padding:14px 22px">Reservar</a>
+            <a class="hv13" href="https://www.google.com/maps/dir/?api=1&destination=Carrer%20Major%207%2C%2043840%20Salou" target="_blank" rel="noopener" style="font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#f2ede4;padding:14px 22px;border:1px solid rgba(242,237,228,.2)">Cómo llegar</a>
+            <a class="hv14" href="https://www.instagram.com/m7_lounge/" target="_blank" rel="noopener" style="font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#f2ede4;padding:14px 22px;border:1px solid rgba(242,237,228,.2)">@m7_lounge</a>
+          </div>
+        </div>
+      </article>
+      <article style="background:#101011;border:1px solid rgba(242,237,228,.08);overflow:hidden">
+        <div style="position:relative;height:300px;background:#0b0b0c"><iframe title="Mapa M7 Tarragona" src="https://www.google.com/maps?q=Carrer%20de%20la%20Nau%2012%2C%2043003%20Tarragona&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width:100%;height:100%;border:0;display:block;filter:saturate(.85) brightness(.92)"></iframe></div>
+        <div style="padding:30px 30px 34px">
+          <h4 style="margin:0;font-family:'Oswald',sans-serif;font-weight:600;font-size:30px;letter-spacing:1px;text-transform:uppercase;color:#f2ede4">M7 Tarragona</h4>
+          <p style="margin:16px 0 0;font-size:15px;line-height:1.7;color:rgba(242,237,228,.66)">Carrer de la Nau, 12<br>43003 Tarragona</p>
+          <p style="margin:14px 0 0;font-size:15px;line-height:1.7;color:rgba(242,237,228,.66)">Dom a jue · 17:00 — 02:30<br>Vie, sáb y festivos · 17:00 — 03:00</p>
+          <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px">
+            <a class="hv15" href="https://wa.me/34682078809" target="_blank" rel="noopener" style="font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#0b0b0c;background:var(--gold);padding:14px 22px">Reservar</a>
+            <a class="hv16" href="https://www.google.com/maps/dir/?api=1&destination=Carrer%20de%20la%20Nau%2012%2C%2043003%20Tarragona" target="_blank" rel="noopener" style="font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#f2ede4;padding:14px 22px;border:1px solid rgba(242,237,228,.2)">Cómo llegar</a>
+            <a class="hv17" href="https://www.instagram.com/m7_tarragona/" target="_blank" rel="noopener" style="font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#f2ede4;padding:14px 22px;border:1px solid rgba(242,237,228,.2)">@m7_tarragona</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="carta" style="max-width:1160px;margin:0 auto;padding:40px 24px 96px">
+    <p style="margin:0;font-family:'Oswald',sans-serif;letter-spacing:4px;text-transform:uppercase;font-size:13px;color:var(--gold)">La carta</p>
+    <h3 style="margin:12px 0 0;font-family:'Oswald',sans-serif;font-weight:600;font-size:clamp(34px,5.5vw,64px);line-height:1.02;text-transform:uppercase;color:#f2ede4">Carta M7</h3>
+    <div id="m7-tabs" style="margin-top:34px;display:flex;flex-wrap:wrap;gap:10px"></div>
+    <div id="m7-groups" style="margin-top:34px;border-top:1px solid rgba(242,237,228,.1);padding-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:44px 56px;align-items:start">
+      
+    </div>
+  </section>
+
+  <section id="galeria" style="max-width:1160px;margin:0 auto;padding:0 24px 96px">
+    <p style="margin:0;font-family:'Oswald',sans-serif;letter-spacing:4px;text-transform:uppercase;font-size:13px;color:var(--gold)">Ambiente</p>
+    <h3 style="margin:12px 0 34px;font-family:'Oswald',sans-serif;font-weight:600;font-size:clamp(34px,5.5vw,64px);line-height:1.02;text-transform:uppercase;color:#f2ede4">Galería</h3>
+    <div class="m7-gal" style="--gw:min(calc(100vw - 48px),1112px);--galh:min(760px,calc((var(--gw) - 14px) / 1.5625));--vid:calc(var(--galh) * 9 / 16);height:var(--galh);display:grid;grid-template-columns:var(--vid) minmax(0,var(--galh));grid-template-rows:100%;gap:14px;align-items:stretch;justify-content:start;overflow:hidden">
+      <div style="position:relative;overflow:hidden;background:#0b0b0c;height:100%;min-height:0;aspect-ratio:9/16">
+        <video src="m7-uploads/reel.mp4" autoplay muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:contain;display:block"></video>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:14px;height:100%;min-height:0">
+        <div style="position:relative;overflow:hidden;background:#0b0b0c;min-height:0;min-width:0">
+          <img src="m7-assets/gal-0.jpg" alt="Shishas M7 bajo la luna" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div style="position:relative;overflow:hidden;background:#0b0b0c;min-height:0;min-width:0">
+          <img src="m7-assets/gal-1.jpg" alt="Cócteles en mesa M7" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div style="position:relative;overflow:hidden;background:#0b0b0c;min-height:0;min-width:0">
+          <img src="m7-assets/gal-2.jpg" alt="Ambiente con neón M7" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div style="position:relative;overflow:hidden;background:#0b0b0c;min-height:0;min-width:0">
+          <img src="m7-assets/gal-3.jpg" alt="Ambiente M7" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" style="position:relative;border-top:1px solid rgba(242,237,228,.08);background:#0e0e0f">
+    <div style="max-width:1160px;margin:0 auto;padding:88px 24px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:40px">
+      <div>
+        <h3 style="margin:0;font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(32px,5vw,58px);line-height:1;text-transform:uppercase;color:#f2ede4">Reserva tu<br><span style="color:var(--gold)">mesa</span></h3>
+        <a class="hv18" href="https://wa.me/34682078809" target="_blank" rel="noopener" style="display:inline-block;margin-top:30px;font-weight:600;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:#0b0b0c;background:linear-gradient(180deg,#f4d689,#e0a92f);padding:20px 40px">WhatsApp</a>
+      </div>
+      <div>
+        <p style="margin:0;font-family:'Oswald',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:13px;color:rgba(242,237,228,.5)">Contacto</p>
+        <p style="margin:14px 0 0;font-size:15px;line-height:1.9;color:rgba(242,237,228,.72)"><a href="tel:+34682078809">+34 682 078 809</a><br>Carrer Major, 7 · 43840 Salou<br>Carrer de la Nau, 12 · 43003 Tarragona</p>
+      </div>
+      <div>
+        <p style="margin:0;font-family:'Oswald',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:13px;color:rgba(242,237,228,.5)">Horario</p>
+        <p style="margin:14px 0 0;font-size:15px;line-height:1.9;color:rgba(242,237,228,.72)">Domingo a jueves · 17:00 — 02:30<br>Viernes y sábado · 17:00 — 03:00<br>Festivos · 17:00 — 03:00</p>
+      </div>
+      <div>
+        <p style="margin:0;font-family:'Oswald',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:13px;color:rgba(242,237,228,.5)">Síguenos</p>
+        <p style="margin:14px 0 0;font-size:15px;line-height:1.9"><a href="https://www.instagram.com/m7_lounge/" target="_blank" rel="noopener">@m7_lounge</a><br><a href="https://www.instagram.com/m7_tarragona/" target="_blank" rel="noopener">@m7_tarragona</a></p>
+      </div>
+    </div>
+    <div style="max-width:1160px;margin:0 auto;padding:26px 24px 44px;border-top:1px solid rgba(242,237,228,.07);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center">
+      <span style="font-family:'Jost',sans-serif;font-weight:300;font-size:30px;letter-spacing:5px;color:#fff3dd;text-shadow:0 0 4px rgba(255,226,178,.9),0 0 12px rgba(232,150,50,.8),0 0 26px rgba(226,132,30,.55)">M7</span>
+      <span style="font-size:13px;color:rgba(242,237,228,.4)">© 2026 M7 Lounge · Salou &amp; Tarragona</span>
+    </div>
+  </section>
+</div>
+<script>
+const MENU = {
+  'Cócteles': [
+    { title: 'Mojitos', items: [
+      { n: 'Mojito Clásico', d: 'Lima, menta, azúcar moreno y ron', p: '7,00€' },
+      { n: 'Mojito Fresa', p: '8,00€' }, { n: 'Mojito Mango', p: '8,00€' },
+      { n: 'Mojito Maracuyá', p: '8,00€' }, { n: 'Mojito Lichy', p: '8,00€' },
+      { n: 'Mojito Coco', p: '8,00€' }, { n: 'Mojito Piña', p: '8,00€' } ] },
+    { title: 'Daiquiris', items: [
+      { n: 'Daiquiri Clásico', d: 'Jugo de limón, licor de naranja, ron y almíbar', p: '7,50€' },
+      { n: 'Daiquiri Fresa', p: '10,00€' }, { n: 'Daiquiri Mango', p: '10,00€' },
+      { n: 'Daiquiri Maracuyá', p: '10,00€' }, { n: 'Daiquiri Piña', p: '10,00€' } ] },
+    { title: 'Mules', items: [
+      { n: 'Moscu Mule', d: 'Vodka, jugo de lima, ginger beer y rodaja de lima', p: '10,00€' },
+      { n: 'London Mule', d: 'Ginebra', p: '10,00€' },
+      { n: 'Mexican Mule', d: 'Tequila', p: '10,00€' },
+      { n: 'Caracas Mule', d: 'Ron', p: '10,00€' } ] },
+    { title: 'Caipirinhas', items: [
+      { n: 'Caipirinha', d: 'Lima, azúcar moreno y cachaza', p: '8,50€' },
+      { n: 'Caipirinha de Maracuyá', d: 'Lima, sirope de maracuyá, azúcar moreno y cachaza', p: '10,00€' },
+      { n: 'Caipiroska', d: 'Vodka, trozo de lima y azúcar moreno', p: '8,50€' } ] },
+    { title: 'De la casa', items: [
+      { n: 'Michelada', d: 'Jugo de lima, cerveza Coronita, salsa picante, sal, tajín y salsa inglesa', p: '8,00€' },
+      { n: 'Expresso Martini', d: 'Café, almíbar, vodka y licor de café', p: '8,50€' },
+      { n: 'Southside', d: 'Ginebra, jugo de limón y menta', p: '8,00€' },
+      { n: 'Tom Collins', d: 'Jugo de limón, ginebra y licor de naranja', p: '8,00€' },
+      { n: 'Bloody Mary', d: 'Zumo de tomate, vodka, jugo de lima, salsa Tabasco, sal y pimienta', p: '12,00€' },
+      { n: 'Baby 43', d: 'Licor 43, licor café, Baileys y leche', p: '8,00€' },
+      { n: 'Bahama', d: 'Ron de coco, ron oscuro y blanco, jugo de piña, jugo de naranja y granadina', p: '10,00€' } ] },
+    { title: 'Clásicos', note: 'El Cosmopolitan puede pedirse sin alcohol. Consúltanos por opciones sin alcohol en otras bebidas.', items: [
+      { n: 'Tequila Sunrise', d: 'Jugo de naranja, jugo de melocotón, vodka y licor de melocotón', p: '10,00€' },
+      { n: 'Amaretto Sour', d: 'Amaretto, jugo de limón y almíbar', p: '8,00€' },
+      { n: 'Aperol Spritz', d: 'Aperol, cava y soda', p: '8,00€' },
+      { n: 'Apple Spritz', p: '8,00€' },
+      { n: 'Blue Lagoon', d: 'Jugo de piña, ron malibú, vodka, sirope de coco, leche condensada y blue curaçao', p: '10,00€' },
+      { n: 'Margarita', d: 'Jugo de limón, almíbar, tequila y licor de naranja', p: '8,50€' },
+      { n: 'Manhattan', d: 'Whisky, vermut rojo y angostura', p: '10,00€' },
+      { n: 'Long Island', d: 'Ron, vodka, tequila, ginebra, jugo de limón, licor de naranja y cola', p: '10,00€' },
+      { n: 'Sex on the Beach', d: 'Jugo de naranja, jugo de melocotón, vodka y licor de melocotón', p: '10,00€' },
+      { n: 'Mai Thai', d: 'Ron añejo, ron blanco, triple seco, jugo de lima, amaretto y almíbar', p: '10,00€' },
+      { n: 'Sidecar', d: 'Brandy, licor de naranja y jugo de limón', p: '8,00€' },
+      { n: 'Negroni', d: 'Vermut rojo, campari y ginebra', p: '9,00€' },
+      { n: 'Porn Star Martini', d: 'Jugo de lima, vodka, Passoã, sirope de vainilla y de maracuyá', p: '12,00€' },
+      { n: 'Dry Martini', d: 'Ginebra y vermut italiano', p: '8,00€' },
+      { n: 'Piña Colada', d: 'Piña, leche condensada, ron blanco, licor malibú y sirope de coco', p: '9,00€' },
+      { n: 'Cosmopolitan', d: 'Jugo de lima, licor de mora, licor de frambuesa, sirope de fresa, vodka y licor de naranja', p: '10,00€' } ] }
+  ],
+  'Shishas': [
+    { title: 'Afrutado', price: '15€', items: [
+      { n: 'Love', d: 'Maracuyá, melón, menta y sandía' }, { n: 'Lady Killer', d: 'Mango, melocotón, menta y hielo' },
+      { n: 'Carnival', d: 'Fruta exótica' }, { n: 'Uff', d: 'Sandía fresca' }, { n: 'Euphoria', d: 'Melón dulce' },
+      { n: 'Miss Jossy', d: 'Fresa y frambuesa' }, { n: 'Clipporizz', d: 'Fresa, arándanos, frambuesa y cereza' },
+      { n: 'Ice Kaktuz', d: 'Frescor al tuno' }, { n: 'Africa Queen', d: '16 frutas' },
+      { n: 'Winter is Coming', d: 'Fruta del dragón / pitahaya' }, { n: 'Blue Iss', d: 'Arándano y hielo' },
+      { n: 'Huracán', d: 'Frutos silvestres' }, { n: 'Big Boy', d: 'Sandía y hielo' }, { n: 'Purplee', d: 'Fresa y frambuesa' } ] },
+    { title: 'Cítrico', price: '18€', items: [
+      { n: 'Pomaye', d: 'Pomelo y maracuyá' }, { n: '4B Limón', d: 'Limón dulce' },
+      { n: 'Kaktuz Limón', d: 'Frescor con limón' }, { n: 'Bloody Punch', d: 'Pomelo y naranja' },
+      { n: 'Rimshot', d: 'Mandarina' }, { n: 'Pablo', d: 'Lima y arándano seco' } ] },
+    { title: 'Dulces', price: '18€', items: [
+      { n: 'White Cake', d: 'Tarta de queso' }, { n: 'Winter Edition', d: 'Galleta de mantequilla' },
+      { n: 'Kaffayayo', d: 'Coco' }, { n: 'White Cake Limón', d: 'Tarta de queso con limón' },
+      { n: 'White Cake Coco', d: 'Tarta de queso de coco' }, { n: 'Bono', d: 'Frapuccino' } ] },
+    { title: 'Mentoladas', price: '15€', items: [
+      { n: 'Old School', d: 'Uva y menta' }, { n: 'Rasberry Mint', d: 'Frambuesa y menta' },
+      { n: 'Sexy Green', d: 'Menta dulce' }, { n: 'Limón Mint', d: 'Limón y menta dulce' },
+      { n: 'Doble Apple Mint', d: 'Doble manzana, anís y menta' } ] },
+    { title: 'Tabaco Negro', price: '20€', note: 'Más de 20 sabores — pregunta al camarero.', items: [
+      { n: 'Pikman', d: 'Fresa y frambuesa' }, { n: 'Kyoto', d: 'Melocotón y lima' },
+      { n: 'Zucca', d: 'Coca cola' }, { n: 'Darknana', d: 'Fresa y frambuesa' },
+      { n: 'Huracán', d: 'Frutos silvestres' }, { n: 'R-Gams', d: 'Lima y limón' } ] }
+  ],
+  'Combinados': [
+    { title: 'Ginebra', items: [
+      { n: 'Larios', p: '7,50€' }, { n: 'Puerto de India', p: '7,50€' }, { n: 'Bombay', p: '8,00€' },
+      { n: 'Bombay Saphire', p: '8,00€' }, { n: 'Tanqueray', p: '8,00€' }, { n: 'Beefeater', p: '8,00€' },
+      { n: 'Larios XII', p: '8,00€' }, { n: 'Puerto de India Sabor', d: 'Fresa, mango, melón o mora', p: '8,00€' },
+      { n: 'Bulldog', p: '10,00€' }, { n: 'Nordés', p: '12,00€' }, { n: "Hendrick's", p: '15,00€' },
+      { n: "Martin Miller's", p: '15,00€' } ] },
+    { title: 'Ron', items: [
+      { n: 'Negrita', p: '7,50€' }, { n: 'Flor de Caña «V»', p: '8,00€' }, { n: 'Arehucas', p: '8,00€' },
+      { n: 'Cacique', p: '8,00€' }, { n: 'Bacardi', p: '8,00€' }, { n: 'Brugal', p: '8,00€' },
+      { n: 'Barceló', p: '8,00€' }, { n: 'Legendario', p: '9,00€' }, { n: 'Flor de Caña «VII»', p: '10,00€' },
+      { n: 'Havana «7»', p: '10,00€' }, { n: 'Brugal Doble Reserva', p: '10,00€' },
+      { n: 'Brugal Extraviejo', p: '10,00€' }, { n: 'Barceló Imperial', p: '15,00€' }, { n: 'Diplomático', p: '15,00€' } ] },
+    { title: 'Vodka', items: [
+      { n: 'Eristof', p: '7,50€' }, { n: 'Smirnoff', p: '8,00€' }, { n: 'Absolut', p: '8,00€' },
+      { n: 'Cîroc', p: '12,00€' }, { n: 'Cîroc Sabor', d: 'Melocotón, piña, mango, coco o manzana', p: '13,00€' },
+      { n: 'Belvedere', p: '15,00€' }, { n: 'Grey Goose', p: 'Por botella' } ] },
+    { title: 'Whisky', items: [
+      { n: 'J&B', p: '7,50€' }, { n: 'Cutty Sark', p: '7,50€' }, { n: 'White Label', p: '7,50€' },
+      { n: 'DYC «8»', p: '8,00€' }, { n: 'Red Label', p: '8,00€' }, { n: "Ballantine's", p: '8,00€' },
+      { n: 'Black Label', p: '10,00€' }, { n: "Jack Daniel's", p: '10,00€' },
+      { n: "Jack Daniel's Manzana / Honey", p: '10,00€' }, { n: 'Chivas «12»', p: '13,00€' },
+      { n: 'Cardhu «12»', p: '13,00€' }, { n: 'Macallan «12»', p: '15,00€' }, { n: 'Chivas «18»', p: '15,00€' } ] },
+    { title: 'Licores', note: 'Suplementos: Red Bull +1€ · Zumo de naranja +2€ · Granadina +1€', items: [
+      { n: 'Ron Malibú', p: '8,00€' }, { n: 'Jägermeister', p: '8,00€' }, { n: 'Amaretto', p: '8,00€' },
+      { n: 'Disaronno', p: '8,00€' }, { n: 'Licor 43', p: '8,00€' } ] }
+  ],
+  'Cervezas y vinos': [
+    { title: 'Cerveza', items: [
+      { n: 'Estrella Damm', p: '3,00€' }, { n: 'Heineken', p: '3,00€' }, { n: 'Turia', p: '3,00€' },
+      { n: 'IPA', p: '3,00€' }, { n: 'Bohemia', p: '3,00€' }, { n: 'Voll-Damm', p: '3,00€' },
+      { n: 'Alhambra', p: '3,00€' }, { n: 'Coronita', p: '3,50€' }, { n: 'Jarra', p: '4,00€' },
+      { n: 'Damm Damm + bravas', d: 'Hasta las 23:00', p: '5,50€' } ] },
+    { title: 'Vino y derivados', price: 'copas', items: [
+      { n: 'Vino Tinto', p: '3,50€' }, { n: 'Vino Blanco', p: '3,50€' }, { n: 'Vino Rosado', p: '3,50€' },
+      { n: 'Tinto de Verano', p: '3,90€' }, { n: 'Copa de Cava', p: '3,50€' }, { n: 'Sidra', p: '4,95€' },
+      { n: 'Sangría de Vino', p: '5,95€' }, { n: 'Sangría de Cava', p: '5,95€' }, { n: 'Calimocho', p: '7,00€' } ] },
+    { title: 'Por botella', items: [
+      { n: 'Vino Tinto', p: '14,00€' }, { n: 'Vino Blanco', p: '14,00€' },
+      { n: 'Vino Rosado', p: '15,00€' }, { n: 'Cava', p: '18,00€' } ] }
+  ],
+  'Refrescos y café': [
+    { title: 'Refrescos', items: [
+      { n: 'Agua', p: '3,00€' }, { n: 'Agua con gas', p: '3,20€' }, { n: 'Coca-Cola / Zero', p: '3,50€' },
+      { n: 'Nestea / Maracuyá', p: '3,50€' }, { n: 'Sprite', p: '3,50€' }, { n: 'Fanta Limón', p: '3,50€' },
+      { n: 'Fanta Naranja', p: '3,50€' }, { n: 'Lipton', p: '3,50€' }, { n: 'Red Bull', p: '3,50€' },
+      { n: 'Monster 0,5 cl', p: '3,95€' } ] },
+    { title: 'Café', price: 'hasta 22:00', items: [
+      { n: 'Café Solo', p: '2,50€' }, { n: 'Cortado', p: '3,00€' }, { n: 'Café con Leche', p: '3,50€' },
+      { n: 'Bombón', p: '3,50€' }, { n: 'Carajillo', p: '3,95€' }, { n: 'Trifásico', p: '3,95€' } ] },
+    { title: 'Batidos', price: 'hasta 22:00', items: [
+      { n: 'Oreo', p: '8,00€' }, { n: 'Kinder Bueno', p: '8,00€' }, { n: 'KitKat', p: '8,00€' }, { n: 'Lotus', p: '8,00€' } ] },
+    { title: 'Infusiones', items: [
+      { n: 'Manzanilla', p: '3,50€' }, { n: 'Menta Poleo', p: '3,50€' }, { n: 'Frutos Rojos', p: '3,50€' },
+      { n: 'Té Verde', p: '3,50€' }, { n: 'Té Negro', p: '3,50€' }, { n: 'Cúrcuma', p: '3,50€' },
+      { n: 'Té de la Casa', d: 'Menta, té verde, azúcar y miel', p: '4,95€' } ] }
+  ]
+};
+
+// ---------- carta ----------
+var tabsEl = document.getElementById('m7-tabs');
+var groupsEl = document.getElementById('m7-groups');
+var activeTab = Object.keys(MENU)[0];
+
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+function renderGroups(){
+  groupsEl.innerHTML = MENU[activeTab].map(function(g){
+    var items = (g.items || []).map(function(it){
+      var price = it.p || g.price || '';
+      return '<div>'
+        + '<div style="display:flex;align-items:baseline;gap:10px">'
+        +   '<span style="font-size:16px;color:#efe9de">' + esc(it.n) + '</span>'
+        +   '<span style="flex:1;height:1px;border-bottom:1px dotted rgba(242,237,228,.22)"></span>'
+        +   (price ? '<span style="font-size:15px;color:var(--gold);white-space:nowrap">' + esc(price) + '</span>' : '')
+        + '</div>'
+        + (it.d ? '<p style="margin:6px 0 0;font-size:13.5px;line-height:1.6;color:rgba(242,237,228,.5)">' + esc(it.d) + '</p>' : '')
+        + '</div>';
+    }).join('');
+    return '<div>'
+      + '<div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid rgba(242,237,228,.14);padding-bottom:14px">'
+      +   '<h4 style="margin:0;font-family:\'Oswald\',sans-serif;font-weight:500;font-size:26px;letter-spacing:1px;color:#f7f2e8">' + esc(g.title) + '</h4>'
+      +   (g.price ? '<span style="font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold)">' + esc(g.price) + '</span>' : '')
+      + '</div>'
+      + '<div style="display:flex;flex-direction:column;gap:18px;padding-top:20px">' + items + '</div>'
+      + (g.note ? '<p style="margin:20px 0 0;padding-left:14px;border-left:2px solid var(--gold);font-size:13.5px;font-style:italic;line-height:1.6;color:rgba(242,237,228,.55)">' + esc(g.note) + '</p>' : '')
+      + '</div>';
+  }).join('');
+}
+
+Object.keys(MENU).forEach(function(k){
+  var b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'm7-tab';
+  b.textContent = k;
+  b.setAttribute('data-active', k === activeTab ? '1' : '0');
+  b.addEventListener('click', function(){
+    activeTab = k;
+    Array.prototype.forEach.call(tabsEl.children, function(c){
+      c.setAttribute('data-active', c.textContent === k ? '1' : '0');
+    });
+    renderGroups();
+  });
+  tabsEl.appendChild(b);
+});
+renderGroups();
+
+// ---------- carrusel nosotros ----------
+(function(){
+  var track = document.getElementById('m7-track');
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.m7-dot'));
+  if (!track || !dots.length) return;
+  var slide = 0, timer = null;
+  function paint(){
+    track.style.transform = 'translateX(' + (-slide * 100) + '%)';
+    dots.forEach(function(d, i){ d.setAttribute('data-active', i === slide ? '1' : '0'); });
+  }
+  function start(){ timer = setInterval(function(){ slide = (slide + 1) % 2; paint(); }, 4500); }
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){
+      slide = parseInt(d.getAttribute('data-slide'), 10);
+      paint();
+      clearInterval(timer); start();
+    });
+  });
+  paint(); start();
+})();
+
+// ---------- rail de cocteles ----------
+(function(){
+  var rail = document.getElementById('m7-rail');
+  var btn = document.getElementById('m7-pause');
+  if (!rail || !btn) return;
+  var paused = false;
+  // duplicar tarjetas para bucle infinito
+  var originals = Array.prototype.slice.call(rail.children);
+  originals.forEach(function(n){ rail.appendChild(n.cloneNode(true)); });
+  var last = 0, acc = 0;
+  function step(ts){
+    requestAnimationFrame(step);
+    var dt = last ? Math.min(ts - last, 50) : 16;
+    last = ts;
+    if (paused) return;
+    var half = rail.scrollWidth / 2;
+    if (half > 0 && rail.scrollLeft >= half) rail.scrollLeft = rail.scrollLeft - half;
+    acc += dt * 0.045;
+    var px = Math.floor(acc);
+    if (px >= 1) { rail.scrollLeft = rail.scrollLeft + px; acc -= px; }
+  }
+  requestAnimationFrame(step);
+  btn.addEventListener('click', function(){
+    paused = !paused;
+    btn.setAttribute('data-paused', paused ? '1' : '0');
+    btn.querySelector('i').className = paused ? 'ph ph-play' : 'ph ph-pause';
+    btn.querySelector('span').textContent = paused ? 'Reanudar' : 'Pausar';
+  });
+  rail.addEventListener('pointerenter', function(){ paused = true; });
+  rail.addEventListener('pointerleave', function(){ if (btn.getAttribute('data-paused') !== '1') paused = false; });
+})();
+
+// ---------- videos: forzar autoplay ----------
+Array.prototype.forEach.call(document.querySelectorAll('video'), function(v){
+  v.muted = true; v.loop = true;
+  var p = v.play(); if (p && p.catch) p.catch(function(){});
+});
+</script>
+</body>
+</html>
